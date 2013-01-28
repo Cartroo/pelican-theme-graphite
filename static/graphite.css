@@ -44,7 +44,7 @@ nav ul {
 
 nav li {
   display: inline;
-  margin: 0;
+  margin: 0 1em;
   padding: 1em 0.5em;
   padding: 0.5em;
   border: 1px solid #555555;
@@ -153,8 +153,11 @@ div.section h3 {
 div.section div.section-foot {
   margin: 1em 0 0;
   padding: 1em 1em 0;
-  font-size: 80%;
   border-top: 1px solid #333333;
+}
+
+.small {
+  font-size: 80%;
 }
 
 div.section p {

@@ -8,7 +8,9 @@
     {% include 'twitter.html' %}
 
     {{ article.content }}
-    {% include 'article_infos.html' %}
+    <div class="section-foot small">
+        {% include 'article_infos.html' %}
+    </div>
 </div>
 
 {% if DISQUS_SITENAME %}
