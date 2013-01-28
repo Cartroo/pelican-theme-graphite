@@ -5,7 +5,7 @@
     {% for article in articles_page.object_list %}        
 
         {# First item #}
-        {% if loop.index <= NUM_FULL_ARTICLES and not articles_page.has_previous() %}
+        {% if NUM_FULL_ARTICLES <= 0 or (loop.index <= NUM_FULL_ARTICLES and not articles_page.has_previous()) %}
             <div class="section">
                 <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1> 
                 {{ article.content }}
@@ -31,11 +31,6 @@
     {% endfor %}
     {% if articles_page.has_previous() %}{% include 'pagination.html' %}{% endif %}
 {% else %}
-<section id="content" class="body">    
-<h2>Pages</h2>
-    {% for page in PAGES %}
-        <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-    {% endfor %}
-</section>
+<h2>No Posts</h2>
 {% endif %}
 {% endblock content %}
