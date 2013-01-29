@@ -6,9 +6,10 @@
 :Copyright: This stylesheet has been placed in the public domain.
 
 Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
+This is identical to the graphite.css except the background colours are green.
 */
 body {
-  background-color: #333333;
+  background-color: #223322;
   font-family: sans-serif;
   padding: 0;
   margin: 0;
@@ -40,7 +41,7 @@ nav li {
   margin: 0 1em;
   padding: 1em 0.5em;
   padding: 0.5em;
-  border: 1px solid #555555;
+  border: 1px solid #445544;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em; }
@@ -49,13 +50,13 @@ nav a {
   display: inline-block; }
 
 nav li.active {
-  background-color: #555555; }
+  background-color: #445544; }
 
 body > h1, h1.title {
   text-align: center;
   font-size: 240%;
   font-weight: bold;
-  color: #cccccc;
+  color: #dddddd;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   margin: 1em 2em 0;
   padding: 0; }
@@ -67,10 +68,10 @@ body > h1, h1.title {
   font-weight: normal;
   font-variant: small-caps;
   text-shadow: 0 1px 1px black;
-  color: #bbbbbb; }
+  color: #cccccc; }
 
 div.related {
-  background-color: #555555;
+  background-color: #445544;
   margin: 0;
   padding: 0.2em;
   clear: both; }
@@ -95,7 +96,7 @@ div.related a {
   color: #eeeeee; }
 
 div.section {
-  background-color: #444444;
+  background-color: #334433;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -108,15 +109,15 @@ div.document > div.section {
 div.section h1 {
   text-align: left;
   font-size: 180%;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #223322;
   padding: 0.2em;
   margin: 0; }
 
 div.section h2 {
   text-align: left;
   font-size: 140%;
-  border-top: 1px solid #333333;
-  border-bottom: 1px solid #333333;
+  border-top: 1px solid #223322;
+  border-bottom: 1px solid #223322;
   padding: 0.2em;
   margin: 0; }
 
@@ -130,7 +131,7 @@ div.section h3 {
 div.section div.section-foot {
   margin: 1em 0 0;
   padding: 1em 1em 0;
-  border-top: 1px solid #333333; }
+  border-top: 1px solid #223322; }
 
 .small {
   font-size: 80%; }
@@ -140,13 +141,13 @@ div.section p {
   padding: 0.5em 0.5em 0; }
 
 tt {
-  color: #cccccc;
+  color: #dddddd;
   font-family: monospace; }
 
 div.section blockquote {
   margin: 1em 2em 0.5em;
   padding: 0.5em;
-  background-color: #555555;
+  background-color: #445544;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em; }
@@ -154,9 +155,9 @@ div.section blockquote {
 div.section pre {
   margin: 1em 2em 0.5em;
   padding: 0.5em;
-  background-color: #555555;
-  border: 1px solid #333333;
-  color: #cccccc;
+  background-color: #445544;
+  border: 1px solid #223322;
+  color: #dddddd;
   white-space: pre-wrap;
   text-shadow: none; }
 
@@ -185,12 +186,12 @@ div.section li {
 
 div.section ul > li:before {
   content: "\2023 \2002";
-  color: #cccccc; }
+  color: #dddddd; }
 
 div.section ol > li:before {
   content: counter(li) ". \2000";
   counter-increment: li;
-  color: #cccccc; }
+  color: #dddddd; }
 
 div.section li p {
   margin: 0;
@@ -201,7 +202,7 @@ div.section dl {
   padding: 0; }
 
 div.section dt {
-  background-color: #555555;
+  background-color: #445544;
   margin: 0.2em 0;
   padding: 0.2em 0.5em;
   font-weight: bold; }
@@ -215,25 +216,25 @@ div.section div.right, div.section div.left {
   padding: 0; }
 
 a {
-  color: #bbbbbb;
+  color: #cccccc;
   text-decoration: none; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: #eeeeee; }
 
 body > h1 a, h1.title a {
-  color: #cccccc; }
+  color: #dddddd; }
 
 a:hover {
-  text-shadow: 0 0 8px #cccccc; }
+  text-shadow: 0 0 8px #dddddd; }
 
 a.headerlink {
   text-shadow: none;
   visibility: hidden; }
 
 a.headerlink:hover {
-  color: #cccccc;
-  text-shadow: 0 0 8px #cccccc; }
+  color: #dddddd;
+  text-shadow: 0 0 8px #dddddd; }
 
 h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink,
 h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink,
@@ -254,7 +255,7 @@ div.left {
 div.documentwrapper {
   float: left;
   width: 100%;
-  background-color: #333333; }
+  background-color: #223322; }
 
 div.bodywrapper {
   margin: 0 0 0 220px; }
