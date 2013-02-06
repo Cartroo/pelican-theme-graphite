@@ -26,7 +26,8 @@
     <div class="document">
         <header id="banner" class="body">
             <h1 class="title"><a href="{{ SITEURL }}/">
-              {{ SITENAME }}{% if SITESUBTITLE %} <div class="byline">{{ SITESUBTITLE }}</div>{% endif %}
+              {{ HEADING_PREFIX }} {{ SITENAME }}
+              {% if SITESUBTITLE %} <div class="byline">{{ SITESUBTITLE }}</div>{% endif %}
             </a></h1>
             <nav><ul>
             {% for cat, null in categories %}
@@ -88,7 +89,7 @@
         </ul>         
     </div>
     <div class="footer">
-        &copy; Copyright 2012, Andy Pearce.
+        {% if COPYRIGHT %}{{ COPYRIGHT }}{% endif %}
         Created using <a href="http://getpelican.com/">Pelican</a>,
         using the <a href="https://github.com/Cartroo/pelican-theme-graphite">Graphite</a> theme.
     </div>

@@ -1,32 +1,7 @@
-/*
-:Author: Andy Pearce
-:Contact: andy@andy-pearce.com
-:Copyright: This stylesheet has been placed in the public domain.
-
-Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
-*/
-
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-@import url(html4css1.css);
 @import url(pygments.css);
-
-// Default grey scheme
-$doc-bg: #333333;
-$section-bg: #444444;
-$menu-bg: #555555;
-$link-fg: #bbbbbb;
-$highlight-fg: #cccccc;
-$body-fg: #eeeeee;
-
-// Swap for these values for dark green scheme
-// $doc-bg: #223322;
-// $section-bg: #334433;
-// $menu-bg: #445544;
-// $link-fg: #cccccc;
-// $highlight-fg: #dddddd;
-// $body-fg: #eeeeee;
 
 body {
   background-color: $doc-bg;
@@ -394,5 +369,37 @@ table.codehilitetable pre {
 div.codehilite {
   margin: 0;
   padding: 0;
+}
+
+hr {
+  width: 80%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid $menu-bg;
+}
+
+div.section hr {
+  width: 100%;
+  border-top: 1px solid $doc-bg;
+}
+
+div.footnote {
+  font-size: 80%;
+}
+
+div.footnote > ol {
+  counter-reset: li;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: -1.8em;
+}
+
+div.footnote > ol > li {
+  margin: 0 3.6em;
+}
+
+div.footnote p {
+  display: inline;
 }
 
