@@ -1,4 +1,3 @@
-@import url(html4css1.css);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -310,3 +309,29 @@ table.codehilitetable pre {
 div.codehilite {
   margin: 0;
   padding: 0; }
+
+hr {
+  width: 80%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid #555555; }
+
+div.section hr {
+  width: 100%;
+  border-top: 1px solid #333333; }
+
+div.footnote {
+  font-size: 80%; }
+
+div.footnote > ol {
+  counter-reset: li;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: -1.8em; }
+
+div.footnote > ol > li {
+  margin: 0 3.6em; }
+
+div.footnote p {
+  display: inline; }

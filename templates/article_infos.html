@@ -1,9 +1,8 @@
-    Posted on
     <abbr class="published" title="{{ article.date.isoformat() }}">
         {{ article.locale_date }}
     </abbr>
   {% if article.author %}
         by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
   {% endif %}
-    In <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}
+    in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>. {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">get the pdf</a>{% endif %}
     {% include 'taglist.html' %}

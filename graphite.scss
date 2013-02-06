@@ -1,0 +1,17 @@
+/*
+:Author: Andy Pearce
+:Contact: andy@andy-pearce.com
+:Copyright: This stylesheet has been placed in the public domain.
+
+Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
+*/
+
+$doc-bg: #333333;
+$section-bg: #444444;
+$menu-bg: #555555;
+$link-fg: #bbbbbb;
+$highlight-fg: #cccccc;
+$body-fg: #eeeeee;
+
+@import "base";
+
