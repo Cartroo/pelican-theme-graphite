@@ -4,6 +4,12 @@
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/graphite.css" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/jquery-inline-footnotes-min.js"></script>
+    <script>
+        $( function() { $("[rel=footnote]").inlineFootnote(); } );     
+    </script>
+
     {% if FEED_ALL_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
     {% endif %}
