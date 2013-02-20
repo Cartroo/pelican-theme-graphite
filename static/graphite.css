@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Mono|Gentium+Book+Basic:400,400italic,700,700italic);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -7,17 +8,22 @@
 Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
 */
 body {
+  font-family: "Gentium Book Basic", sans-serif;
   background-color: #333333;
-  font-family: sans-serif;
   padding: 0;
   margin: 0;
   color: #eeeeee;
-  text-shadow: 0 1px 1px black; }
+  text-shadow: 0 1px 1px black;
+  line-height: 2.8ex; }
 
 /* HTML5 tags */
 header, section, footer,
 aside, nav, article, figure {
   display: block; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 3ex; }
 
 header {
   margin: 0;
@@ -51,15 +57,16 @@ nav li.active {
   background-color: #555555; }
 
 body > h1, h1.title {
+  font-family: "Gentium Book Basic", sans-serif;
   text-align: center;
   font-size: 240%;
-  font-weight: bold;
   color: #cccccc;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   margin: 1em 2em 0;
   padding: 0; }
 
 .byline {
+  font-family: "Gentium Book Basic", sans-serif;
   margin: 0;
   padding: 0;
   font-size: 40%;
@@ -105,15 +112,16 @@ div.document > div.section {
   margin: 2em 2em; }
 
 div.section h1 {
+  font-family: "Gentium Book Basic", sans-serif;
   text-align: left;
-  font-size: 180%;
+  font-size: 200%;
   border-bottom: 1px solid #333333;
   padding: 0.2em;
   margin: 0; }
 
 div.section h2 {
   text-align: left;
-  font-size: 140%;
+  font-size: 160%;
   border-top: 1px solid #333333;
   border-bottom: 1px solid #333333;
   padding: 0.2em;
@@ -121,7 +129,7 @@ div.section h2 {
 
 div.section h3 {
   text-align: left;
-  font-size: 120%;
+  font-size: 140%;
   border: 0;
   padding: 0.2em;
   margin: 0; }
@@ -135,12 +143,13 @@ div.section div.section-foot {
   font-size: 80%; }
 
 div.section p {
-  margin: 0 0.5em;
+  margin: 0.5em;
   padding: 0.5em 0.5em 0; }
 
-tt {
+tt, code {
+  font-family: "PT Mono", monospace;
   color: #cccccc;
-  font-family: monospace; }
+  font-size: 90%; }
 
 div.section blockquote {
   margin: 1em 2em 0.5em;
@@ -149,6 +158,11 @@ div.section blockquote {
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em; }
+
+pre {
+  font-family: "PT Mono", monospace;
+  white-space: pre;
+  font-size: 90%; }
 
 div.section pre {
   margin: 1em 2em 0.5em;
@@ -217,8 +231,19 @@ a {
   color: #bbbbbb;
   text-decoration: none; }
 
+div.section a {
+  color: #bbbbbb;
+  text-decoration: underline; }
+
+div.section h1 a, div.section h2 a, div.section h3 a, div.section h4 a,
+div.section h5 a, div.section h6 a {
+  text-decoration: none; }
+
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   color: #eeeeee; }
+
+div.section a.footnote-ref {
+  text-decoration: none; }
 
 body > h1 a, h1.title a {
   color: #cccccc; }
@@ -227,6 +252,7 @@ a:hover {
   text-shadow: 0 0 8px #cccccc; }
 
 a.headerlink {
+  color: #bbbbbb;
   text-shadow: none;
   visibility: hidden; }
 
@@ -275,11 +301,15 @@ table.indextable td {
   padding: 0.2em 2em 0.2em 0.5em; }
 
 em {
-  font-weight: bold;
+  font-weight: normal;
   font-style: italic; }
 
 em.property {
   margin: 0 0.25em; }
+
+strong {
+  font-weight: bold;
+  font-style: normal; }
 
 big {
   font-size: 120%;
@@ -302,9 +332,11 @@ table.codehilitetable div.linenodiv {
   padding: 0; }
 
 table.codehilitetable pre {
+  font-family: "PT Mono", monospace;
   margin: 0;
   padding: 0.5em;
-  white-space: pre; }
+  white-space: pre;
+  font-size: 90%; }
 
 div.codehilite {
   margin: 0;
@@ -321,7 +353,8 @@ div.section hr {
   border-top: 1px solid #333333; }
 
 div.footnote {
-  font-size: 80%; }
+  font-size: 80%;
+  line-height: 2.4ex; }
 
 div.footnote > ol {
   counter-reset: li;
@@ -331,7 +364,26 @@ div.footnote > ol {
   text-indent: -1.8em; }
 
 div.footnote > ol > li {
-  margin: 0 3.6em; }
+  margin: 1em 3.6em; }
 
 div.footnote p {
   display: inline; }
+
+#footnote_box {
+  background-color: #555555;
+  border: 1px solid #333333;
+  padding: 0 1em;
+  margin: 1em;
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); }
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative; }
+
+sub {
+  bottom: 1ex; }
+
+sup {
+  top: -0.8ex; }
