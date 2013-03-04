@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|Handlee|Gentium+Book+Basic:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono|Handlee|Lora:400,400italic,700,700italic);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -9,7 +9,7 @@ Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
 This is the "poker" variant, with shades of dark green instead of grey.
 */
 body {
-  font-family: "Gentium Book Basic", sans-serif;
+  font-family: "Lora", serif;
   background-color: #223322;
   padding: 0;
   margin: 0;
@@ -58,7 +58,7 @@ nav li.active {
   background-color: #445544; }
 
 body > h1, h1.title {
-  font-family: "Handlee", sans-serif;
+  font-family: "Handlee", serif;
   text-align: center;
   font-size: 240%;
   color: #dddddd;
@@ -67,7 +67,7 @@ body > h1, h1.title {
   padding: 0; }
 
 .byline {
-  font-family: "Gentium Book Basic", sans-serif;
+  font-family: "Lora", serif;
   margin: 0;
   padding: 0;
   font-size: 40%;
@@ -113,7 +113,7 @@ div.document > div.section {
   margin: 2em 2em; }
 
 div.section h1 {
-  font-family: "Handlee", sans-serif;
+  font-family: "Handlee", serif;
   text-align: left;
   font-size: 200%;
   border-bottom: 1px solid #223322;

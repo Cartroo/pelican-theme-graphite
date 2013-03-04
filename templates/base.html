@@ -3,6 +3,9 @@
 <head>
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <meta charset="utf-8" />
+    {% if META_DESCRIPTION %}<meta name="description" content="{{ META_DESCRIPTION }}" /> {% endif %}
+    {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
+    {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" /> {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/graphite.css" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="{{ SITEURL }}/theme/jquery-inline-footnotes-min.js"></script>
