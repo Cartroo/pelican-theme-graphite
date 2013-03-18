@@ -21,7 +21,7 @@
                            title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a></h1>
                 </h1>
                 <p>{{ article.summary }}</p>
-                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a></p>
+                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read post...</a></p>
                 <div class="section-foot small">
                   {% include 'article_infos.html' %}
                   {% include 'comments.html' %}
@@ -29,7 +29,9 @@
             </div>
         {% endif %}
     {% endfor %}
-    {% if articles_page.has_previous() %}{% include 'pagination.html' %}{% endif %}
+    {% if articles_page.has_previous() or articles_page.has_next() %}
+        {% include 'pagination.html' %}
+    {% endif %}
 {% else %}
 <h2>No Posts</h2>
 {% endif %}
