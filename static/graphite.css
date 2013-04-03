@@ -352,6 +352,11 @@ div.section hr {
   width: 100%;
   border-top: 1px solid #333333; }
 
+div.section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 div.footnote {
   font-size: 80%;
   line-height: 2.4ex; }
