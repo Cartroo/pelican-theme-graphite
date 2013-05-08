@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|Lora:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono|Gentium+Book+Basic|Noticia+Text:400,700,400italic,700italic);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -8,7 +8,7 @@
 Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
 */
 body {
-  font-family: "Lora", serif;
+  font-family: "Noticia Text", serif;
   background-color: #333333;
   padding: 0;
   margin: 0;
@@ -60,13 +60,14 @@ body > h1, h1.title {
   font-family: "Gentium Book Basic", serif;
   text-align: center;
   font-size: 240%;
+  font-weight: normal;
   color: #cccccc;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   margin: 1em 2em 0;
   padding: 0; }
 
 .byline {
-  font-family: "Lora", serif;
+  font-family: "Noticia Text", serif;
   margin: 0;
   padding: 0;
   font-size: 40%;
@@ -115,6 +116,7 @@ div.section h1 {
   font-family: "Gentium Book Basic", serif;
   text-align: left;
   font-size: 200%;
+  font-weight: normal;
   border-bottom: 1px solid #333333;
   padding: 0.2em;
   margin: 0; }
@@ -309,7 +311,8 @@ em.property {
 
 strong {
   font-weight: bold;
-  font-style: normal; }
+  font-style: normal;
+  color: #cccccc; }
 
 big {
   font-size: 120%;
