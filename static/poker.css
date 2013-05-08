@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|Handlee|Lora:400,400italic,700,700italic);
+@import url(http://fonts.googleapis.com/css?family=PT+Mono|Handlee|Noticia+Text:400,700,400italic,700italic);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -9,7 +9,7 @@ Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
 This is the "poker" variant, with shades of dark green instead of grey.
 */
 body {
-  font-family: "Lora", serif;
+  font-family: "Noticia Text", serif;
   background-color: #223322;
   padding: 0;
   margin: 0;
@@ -61,13 +61,14 @@ body > h1, h1.title {
   font-family: "Handlee", serif;
   text-align: center;
   font-size: 240%;
+  font-weight: normal;
   color: #dddddd;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   margin: 1em 2em 0;
   padding: 0; }
 
 .byline {
-  font-family: "Lora", serif;
+  font-family: "Noticia Text", serif;
   margin: 0;
   padding: 0;
   font-size: 40%;
@@ -116,6 +117,7 @@ div.section h1 {
   font-family: "Handlee", serif;
   text-align: left;
   font-size: 200%;
+  font-weight: normal;
   border-bottom: 1px solid #223322;
   padding: 0.2em;
   margin: 0; }
@@ -310,7 +312,8 @@ em.property {
 
 strong {
   font-weight: bold;
-  font-style: normal; }
+  font-style: normal;
+  color: #dddddd; }
 
 big {
   font-size: 120%;
