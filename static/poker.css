@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|Handlee|Noticia+Text:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Lekton400,700,400italic|Handlee|Noticia+Text:400,700,400italic,700italic);
 @import url(pygments.css);
 /*
 :Author: Andy Pearce
@@ -150,7 +150,7 @@ div.section p {
   padding: 0.5em 0.5em 0; }
 
 tt, code {
-  font-family: "PT Mono", monospace;
+  font-family: "Lekton", monospace;
   color: #cccccc;
   font-size: 90%; }
 
@@ -163,7 +163,7 @@ div.section blockquote {
   -webkit-border-radius: 0.5em; }
 
 pre {
-  font-family: "PT Mono", monospace;
+  font-family: "Lekton", monospace;
   white-space: pre;
   font-size: 90%; }
 
@@ -336,7 +336,7 @@ table.codehilitetable div.linenodiv {
   padding: 0; }
 
 table.codehilitetable pre {
-  font-family: "PT Mono", monospace;
+  font-family: "Lekton", monospace;
   margin: 0;
   padding: 0.5em;
   white-space: pre;
