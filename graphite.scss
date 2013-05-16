@@ -8,10 +8,10 @@ Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
 
 $body-font: 'Noticia Text';
 $heading-font: 'Gentium Book Basic';
-$monospace-font: 'PT Mono';
+$monospace-font: 'Lekton';
 $backup-font: serif;
 
-@import url(http://fonts.googleapis.com/css?family=PT+Mono|Gentium+Book+Basic|Noticia+Text:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Lekton:400,700,400italic|Gentium+Book+Basic|Noticia+Text:400,700,400italic,700italic);
 
 @import "base";
 
