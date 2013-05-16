@@ -10,6 +10,7 @@ $menu-bg: #555555 !default;
 $link-fg: #bbbbbb !default;
 $highlight-fg: #cccccc !default;
 $body-fg: #eeeeee !default;
+$body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
@@ -395,7 +396,7 @@ em.property {
 strong {
   font-weight: bold;
   font-style: normal;
-  color: $highlight-fg;
+  color: $body-em;
 }
 
 big {

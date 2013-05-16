@@ -62,7 +62,7 @@ body > h1, h1.title {
   text-align: center;
   font-size: 240%;
   font-weight: normal;
-  color: #dddddd;
+  color: #cccccc;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
   margin: 1em 2em 0;
   padding: 0; }
@@ -151,7 +151,7 @@ div.section p {
 
 tt, code {
   font-family: "PT Mono", monospace;
-  color: #dddddd;
+  color: #cccccc;
   font-size: 90%; }
 
 div.section blockquote {
@@ -172,7 +172,7 @@ div.section pre {
   padding: 0.5em;
   background-color: #445544;
   border: 1px solid #223322;
-  color: #dddddd;
+  color: #cccccc;
   white-space: pre-wrap;
   text-shadow: none; }
 
@@ -201,12 +201,12 @@ div.section li {
 
 div.section ul > li:before {
   content: "\2023 \2002";
-  color: #dddddd; }
+  color: #cccccc; }
 
 div.section ol > li:before {
   content: counter(li) ". \2000";
   counter-increment: li;
-  color: #dddddd; }
+  color: #cccccc; }
 
 div.section li p {
   margin: 0;
@@ -249,10 +249,10 @@ div.section a.footnote-ref {
   text-decoration: none; }
 
 body > h1 a, h1.title a {
-  color: #dddddd; }
+  color: #cccccc; }
 
 a:hover {
-  text-shadow: 0 0 8px #dddddd; }
+  text-shadow: 0 0 8px #cccccc; }
 
 a.headerlink {
   color: #bbccbb;
@@ -260,8 +260,8 @@ a.headerlink {
   visibility: hidden; }
 
 a.headerlink:hover {
-  color: #dddddd;
-  text-shadow: 0 0 8px #dddddd; }
+  color: #cccccc;
+  text-shadow: 0 0 8px #cccccc; }
 
 h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink,
 h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink,
@@ -313,7 +313,7 @@ em.property {
 strong {
   font-weight: bold;
   font-style: normal;
-  color: #dddddd; }
+  color: white; }
 
 big {
   font-size: 120%;
