@@ -197,7 +197,6 @@ div.section p {
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
   color: $highlight-fg;
-  font-size: 90%;
 }
 
 div.section blockquote {
@@ -212,7 +211,6 @@ div.section blockquote {
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   white-space: pre;
-  font-size: 90%;
 }
 
 div.section pre {
@@ -407,7 +405,6 @@ big {
 .viewcode-link {
   margin: 0 0.5em;
   font-variant: small-caps;
-  font-size: 90%;
   vertical-align: text-top;
 }
 
@@ -428,7 +425,6 @@ table.codehilitetable pre {
   margin: 0;
   padding: 0.5em; 
   white-space: pre;
-  font-size: 90%;
 }
 
 div.codehilite {
