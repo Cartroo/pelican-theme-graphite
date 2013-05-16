@@ -151,8 +151,7 @@ div.section p {
 
 tt, code {
   font-family: "Lekton", monospace;
-  color: #cccccc;
-  font-size: 90%; }
+  color: #cccccc; }
 
 div.section blockquote {
   margin: 1em 2em 0.5em;
@@ -164,8 +163,7 @@ div.section blockquote {
 
 pre {
   font-family: "Lekton", monospace;
-  white-space: pre;
-  font-size: 90%; }
+  white-space: pre; }
 
 div.section pre {
   margin: 1em 2em 0.5em;
@@ -322,7 +320,6 @@ big {
 .viewcode-link {
   margin: 0 0.5em;
   font-variant: small-caps;
-  font-size: 90%;
   vertical-align: text-top; }
 
 table.codehilitetable {
@@ -339,8 +336,7 @@ table.codehilitetable pre {
   font-family: "Lekton", monospace;
   margin: 0;
   padding: 0.5em;
-  white-space: pre;
-  font-size: 90%; }
+  white-space: pre; }
 
 div.codehilite {
   margin: 0;
