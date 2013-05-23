@@ -117,7 +117,7 @@
           {% for page in PAGES %}
             <li class="right"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
           {% endfor %}
-            <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">Blog</a> {{ self.breadcrumbs() }}</li>
+            <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {{ self.breadcrumbs() }}</li>
         </ul>         
     </div>
     <div class="footer">
