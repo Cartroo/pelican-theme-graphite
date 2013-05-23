@@ -6,18 +6,36 @@
     {% if META_DESCRIPTION %}<meta name="description" content="{{ META_DESCRIPTION }}" /> {% endif %}
     {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
     {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" /> {% endif %}
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/poker.css" type="text/css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="{{ SITEURL }}/theme/jquery-inline-footnotes-min.js"></script>
     <script>
         $( function() { $("[rel=footnote]").inlineFootnote(); } );     
     </script>
 
+    {% if FEED_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: All Posts" />
+    {% endif %}
     {% if FEED_ALL_ATOM %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />
     {% endif %}
     {% if FEED_ALL_RSS %}
-    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: All Posts" />
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: {{ category }} Posts" />
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category %}
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: {{ category }} Posts" />
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: Posts Tagged {{ tag }}" />
+    {% endif %}
+    {% if TAG_FEED_RSS and tag %}
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
     {% endif %}
 </head>
 
@@ -25,11 +43,11 @@
 {% include 'github.html' %}
     <div class="related">
         <ul>
-            <li class="right" style="margin-right: 1em"><a href="/blog">Blog</a></li>
+            <li class="right" style="margin-right: 0.5em"><a href="/blog">Blog</a></li>
           {% for title, link in MENUITEMS %}
             <li class="right"><a href="{{ link }}">{{ title }}</a> |</li>
           {% endfor %}
-            <li><a href="http://www.andy-pearce.com/">andy-pearce.com</a></li>
+          <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {% block breadcrumbs %}{% endblock %}</li>
         </ul>         
     </div>
     <div class="document">
@@ -53,10 +71,15 @@
             {% if SOCIAL %}
               <h3>Me</h3>
               <ul>
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate">Atom feed</a></li>
-                {% if FEED_ALL_RSS %}
-                  <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                {% if TAG_FEED_ATOM and tag %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
+                {% elif CATEGORY_FEED_ATOM and category %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
+                {% elif FEED_ALL_ATOM %}
+                  <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
                 {% endif %}
+                <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
                 {% for name, link in SOCIAL %}
                   <li><a href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
@@ -87,14 +110,14 @@
     <div class="clearer"></div>
     <div class="related">
         <ul>
-            <li class="right" style="margin-right: 1em"><a href="/blog">Blog</a></li>
+            <li class="right" style="margin-right: 0.5em"><a href="/blog">Blog</a></li>
           {% for title, link in MENUITEMS %}
             <li class="right"><a href="{{ link }}">{{ title }}</a> |</li>
           {% endfor %}
           {% for page in PAGES %}
             <li class="right"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
           {% endfor %}
-            <li><a href="http://www.andy-pearce.com/">andy-pearce.com</a></li>
+            <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">Blog</a> {{ self.breadcrumbs() }}</li>
         </ul>         
     </div>
     <div class="footer">

@@ -1,2 +1,4 @@
 {% extends "index.html" %}
-{% block title %}{{ SITENAME }} - {{ tag }}{% endblock %}
+{% block title %}{{ SITENAME }}: Posts tagged {{ tag }}{% endblock %}
+{% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/{{ output_file }}">{{ tag }}</a>{% endblock %}
+

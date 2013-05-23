@@ -1,2 +1,3 @@
 {% extends "index.html" %}
-{% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
+{% block title %}{{ SITENAME }}: Posts by {{ author }}{% endblock %}
+{% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/{{ output_file }}">{{ author }}</a>{% endblock %}

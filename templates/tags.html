@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/{{ output_file }}">Tag Cloud</a>{% endblock %}
+{% block content %}
+<div class="section">
+<h1>Tag Cloud</h1>
+<ul class="tagcloud">
+  {% for tag in tag_cloud %}
+    <li class="tag-{{ tag.1 }}"><a href="{{ SITEURL }}/tag/{{ tag.0 }}.html">{{ tag.0 }}</a></li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock %}
