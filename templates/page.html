@@ -1,12 +1,30 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }}{% endblock %}
-{% block content %}        
-<section id="content" class="body">    
-    <h1 class="entry-title">{{ page.title }}</h1>
+{% block breadcrumbs %}
+  {% if page.category %}
+    &#x00bb; <a href="{{ SITEURL }}/{{ page.category.url }}">{{ page.category }}</a>
+  {% endif %}
+  &#x00bb; <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% endblock %}
+{% import "twitter.html" as twitter with context %}
+{% block content %}
+<div class="section">
+    <h1 class="entry-title">
+      {{ twitter.tweetbutton(article.url) }}
+      <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"
+         title="Permalink to {{ page.title|striptags }}">
+         {{ HEADING_PREFIX }} {{ page.title}}
+      </a>
+    </h1>
     {% import 'translations.html' as translations with context %}
     {{ translations.translations_for(page) }}
-    {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
-    the pdf</a>{% endif %}
+    {% if PDF_PROCESSOR %}
+      <dl>
+        <dt>Other Formats</dt>
+        <dd><a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">PDF</a>
+      </dl>
+    {% endif %}
     {{ page.content }}
-</section>
+    {% include 'page_footer.html' %}
+</div>
 {% endblock %}
+

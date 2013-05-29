@@ -1,13 +1,71 @@
 {% extends "base.html" %}
-{% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/{{ output_file }}">Archives</a>{% endblock %}
+{% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/archives.html">Archives</a>{% endblock %}
 {% block content %}
 <div class="section">
 <h1>Archives</h1>
+
+{% if YEAR_ARCHIVE_SAVE_AS %}
+  {% set year_archive_strftime = YEAR_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set year_archive_strftime = None %}
+{% endif %}
+{% if MONTH_ARCHIVE_SAVE_AS %}
+  {% set month_archive_strftime = MONTH_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set month_archive_strftime = None %}
+{% endif %}
+
+{% macro yearlink(article) %}
+   {% if year_archive_strftime is none %}
+     {{ article.date|strftime("%Y") }}
+   {% else %}
+     <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">{{ article.date|strftime("%Y") }}</a>
+   {% endif %}
+{% endmacro %}
+
+{% macro articlelink(article, year_start) %}
+  {% if month_archive_strftime is none %}
+    {% if not year_start %}<br />{% endif %}
+    <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d") }})</span>
+  {% endif %}
+{% endmacro %}
+
+{% macro monthlink(last_date, year_start, posts) %}
+  {% if month_archive_strftime is not none %}
+    {% if not year_start %}<br />{% endif %}
+    <a href="{{ SITEURL }}/{{ last_date|strftime(month_archive_strftime) }}">{{ last_date|strftime("%b") }}</a>&nbsp;<span class="small">({{ posts }} posts)</span>
+  {% endif %}
+{% endmacro %}
+
 <dl>
+{% set last_date, posts, year_start = None, 0, True %}
 {% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    {% if last_date is none %}
+      <dt>{{ yearlink(article) }}</dt>
+      <dd>
+        {{ articlelink(article, True) }}
+    {% elif last_date.year != article.date.year %}
+        {{ monthlink(last_date, year_start, posts) }}
+      </dd>
+      <dt>{{ yearlink(article) }}</dt>
+      <dd>
+        {{ articlelink(article, True) }}
+      {% set posts, year_start = 0, True %}
+    {% else %}
+      {% if last_date.month != article.date.month %}
+        {{ monthlink(last_date, year_start, posts) }}
+        {% set posts, year_start = 0, False %}
+      {% endif %}
+      {{ articlelink(article, False) }}
+    {% endif %}
+    {% set last_date = article.date %}
+    {% set posts = posts + 1 %}
+    {% if loop.revindex == 1 %}
+      {{ monthlink(last_date, year_start, posts) }}
+    {% endif %}
 {% endfor %}
+  </dd>
 </dl>
 </div>
 {% endblock %}
+

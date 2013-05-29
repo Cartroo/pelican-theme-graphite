@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
+{% import "twitter.html" as twitter with context %}
 {% block content %}        
 {% if articles %}
     {% for article in articles_page.object_list %}        
@@ -7,12 +8,16 @@
         {# First item #}
         {% if NUM_FULL_ARTICLES <= 0 or (loop.index <= NUM_FULL_ARTICLES and not articles_page.has_previous()) %}
             <div class="section">
-                <h1><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.summary|escape }}">{{ HEADING_PREFIX }} {{ article.title }}</a></h1>
-                {{ article.content }}
-                <div class="section-foot small">
-                    {% include 'article_infos.html' %}
-                    {% include 'comments.html' %}
-                </div>
+              <h1>
+                {{ twitter.tweetbutton(article.url) }}
+                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmerk"
+                        title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a>
+              </h1>
+              {{ article.content }}
+              <div class="section-foot small">
+                  {% include 'article_infos.html' %}
+                  {% include 'comments.html' %}
+              </div>
             </div>
         {% else %} 
             <div class="section">

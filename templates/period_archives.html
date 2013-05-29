@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% set archive_year, archive_month = None, None %}
+{% if dates[0].date.year == dates[-1].date.year %}
+  {% set archive_year = dates[0].date|strftime("%Y") %}
+  {% if dates[0].date.month == dates[-1].date.month %}
+    {% set archive_month = dates[0].date|strftime("%b") %}
+  {% endif %}
+{% endif %}
+
+{% if YEAR_ARCHIVE_SAVE_AS %}
+  {% set year_archive_strftime = YEAR_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set year_archive_strftime = None %}
+{% endif %}
+{% if MONTH_ARCHIVE_SAVE_AS %}
+  {% set month_archive_strftime = MONTH_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set month_archive_strftime = None %}
+{% endif %}
+
+{% block breadcrumbs %}
+  &#x00bb; <a href="{{ SITEURL }}/archives.html">Archives</a>
+  {% if archive_year is not none %}
+    {% if year_archive_strftime is none %}
+      &#x00bb; {{ archive_year }}
+    {% else %}
+      &#x00bb; <a href="{{ SITEURL }}/{{ dates[0].date|strftime(year_archive_strftime) }}">{{ archive_year }}</a>
+    {% endif %}
+    {% if archive_month is not none %}
+      {% if month_archive_strftime is none %}
+        &#x00bb; {{ archive_month }}
+      {% else %}
+        &#x00bb; <a href="{{ SITEURL }}/{{ dates[0].date|strftime(month_archive_strftime) }}">{{ archive_month }}</a>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="section">
+<h1>Archives</h1>
+{% set last_date = None %}
+<dl>
+{% for article in dates %}
+    {% if last_date is none %}
+      <dt>{{ article.date|strftime("%b %Y") }}</dt>
+      <dd>
+        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
+    {% elif last_date != (article.date.year, article.date.month) %}
+      </dd>
+      <dt>{{ article.date|strftime("%b %Y") }}</dt>
+      <dd>
+        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
+    {% else %}
+      <br /><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
+    {% endif %}
+    {% set last_date = (article.date.year, article.date.month) %}
+{% endfor %}
+{% if last_date is not none %}
+      </dd>
+{% endif %}
+</dl>
+</div>
+{% endblock %}
+
