@@ -3,4 +3,3 @@
     <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.last %}.{% else %},{% endif %}
   {% endfor %}
 {% endif %}
-{% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">PDF version</a>.{% endif %}

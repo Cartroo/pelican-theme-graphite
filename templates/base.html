@@ -7,11 +7,6 @@
     {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
     {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" /> {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script src="{{ SITEURL }}/theme/jquery-inline-footnotes-min.js"></script>
-    <script>
-        $( function() { $("[rel=footnote]").inlineFootnote(); } );     
-    </script>
 
     {% if FEED_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />
@@ -56,11 +51,13 @@
               {{ HEADING_PREFIX }} {{ SITENAME }}
               {% if SITESUBTITLE %} <div class="byline">{{ SITESUBTITLE }}</div>{% endif %}
             </a></h1>
-            <nav><ul>
-            {% for cat, null in categories %}
-                <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-            {% endfor %}
-            </ul></nav>
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              <nav><ul>
+              {% for cat, null in categories %}
+                  <li {% if cat == category %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% endfor %}
+              </ul></nav>
+            {% endif %}
         </header><!-- /#banner -->
         <div class="documentwrapper"><div class="bodywrapper"><div class="body">
             {% block content %}
@@ -68,38 +65,39 @@
         </div></div></div>
         <div class="sphinxsidebar">
           <div class="sphinxsidebarwrapper">
+            <h3>Blog</h3>
+              <ul>
+              <li><a href="{{ SITEURL }}/">Recent Posts</a></li>
+              <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+              <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
+              {% if TAG_FEED_ATOM and tag %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
+              {% elif CATEGORY_FEED_ATOM and category %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
+              {% elif FEED_ALL_ATOM %}
+                  <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
+              {% endif %}
+            </ul>
+            {% if PAGES and DISPLAY_PAGES_ON_MENU %}
+              <h3>Other Pages</h3>
+              <ul>
+                {% for page in PAGES %}
+                  <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
             {% if SOCIAL %}
               <h3>Me</h3>
               <ul>
-                {% if TAG_FEED_ATOM and tag %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
-                {% elif CATEGORY_FEED_ATOM and category %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
-                {% elif FEED_ALL_ATOM %}
-                  <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
-                {% endif %}
-                <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-                <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
                 {% for name, link in SOCIAL %}
                   <li><a href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
               </ul>
             {% endif %}
-            {% if LINKS or PAGES %}
-              <h3>My Stuff</h3>
+            {% if LINKS %}
+              <h3>Links</h3>
               <ul>
-                {% for page in PAGES %}
-                  <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-                {% endfor %}
                 {% for name, link in LINKS %}
-                  <li><a href="{{ link }}">{{ name }}</a></li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-            {% if SITELINKS %}
-              <h3>Other Stuff</h3>
-              <ul>
-                {% for name, link in SITELINKS %}
                   <li><a href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
               </ul>
@@ -114,9 +112,6 @@
           {% for title, link in MENUITEMS %}
             <li class="right"><a href="{{ link }}">{{ title }}</a> |</li>
           {% endfor %}
-          {% for page in PAGES %}
-            <li class="right"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
-          {% endfor %}
             <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {{ self.breadcrumbs() }}</li>
         </ul>         
     </div>
@@ -125,6 +120,13 @@
         Created using <a href="http://getpelican.com/">Pelican</a>,
         using the <a href="https://github.com/Cartroo/pelican-theme-graphite">Graphite</a> theme.
     </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/jquery-inline-footnotes-min.js"></script>
+    <script>
+        $( function() { $("[rel=footnote]").inlineFootnote(); } );     
+    </script>
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 {% include 'analytics.html' %}
 {% include 'piwik.html' %}
