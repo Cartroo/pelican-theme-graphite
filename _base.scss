@@ -100,7 +100,7 @@ body > h1, h1.title {
 .byline {
   @include font-family-list($body-font, $backup-font);
   margin: 0;
-  padding: 0;
+  padding: 1ex 0 0;
   line-height: 1ex;
   font-size: 40%;
   font-weight: normal;
