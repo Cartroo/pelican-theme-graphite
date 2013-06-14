@@ -43,23 +43,14 @@
 {% set last_date = None %}
 <dl>
 {% for article in dates %}
-    {% if last_date is none %}
+    {% if last_date != (article.date.year, article.date.month) %}
       <dt>{{ article.date|strftime("%b %Y") }}</dt>
-      <dd>
-        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
-    {% elif last_date != (article.date.year, article.date.month) %}
-      </dd>
-      <dt>{{ article.date|strftime("%b %Y") }}</dt>
-      <dd>
-        <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
-    {% else %}
-      <br /><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
     {% endif %}
+    <dd>
+      <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
+    </dd>
     {% set last_date = (article.date.year, article.date.month) %}
 {% endfor %}
-{% if last_date is not none %}
-      </dd>
-{% endif %}
 </dl>
 </div>
 {% endblock %}

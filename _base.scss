@@ -278,14 +278,14 @@ div.section dl {
 
 div.section dt {
   background-color: $menu-bg;
-  margin: 0.2em 0;
+  margin: 1em 0 0;
   padding: 0.2em 0.5em;
   font-weight: bold;
 }
 
 div.section dd {
-  margin: 0.2em 0;
-  padding: 0.2em 2em;
+  margin: 0 2em 0.2em;
+  padding: 0;
 }
 
 div.section div.right, div.section div.left {
@@ -475,6 +475,7 @@ div.section ul.tagcloud {
 
 div.section ul.tagcloud li {
   float: left;
+  padding: 2px;
 }
 
 div.section ul.tagcloud li:before {
@@ -489,16 +490,16 @@ div.section ul.tagcloud li.tag-5 {
   font-size: 80%;
 }
 div.section ul.tagcloud li.tag-4 {
-  font-size: 100%;
-}
-div.section ul.tagcloud li.tag-3 {
   font-size: 120%;
 }
+div.section ul.tagcloud li.tag-3 {
+  font-size: 170%;
+}
 div.section ul.tagcloud li.tag-2 {
-  font-size: 140%;
+  font-size: 230%;
 }
 div.section ul.tagcloud li.tag-1 {
-  font-size: 160%;
+  font-size: 300%;
 }
 
 div.footnote {
