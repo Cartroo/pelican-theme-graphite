@@ -1,7 +1,7 @@
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-@import url(pygments.css);
+@import "pygments";
 
 // Define default grey colour scheme, unless already defined.
 $doc-bg: #333333 !default;
