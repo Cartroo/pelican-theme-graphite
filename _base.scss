@@ -203,9 +203,12 @@ tt, code {
 }
 
 div.section blockquote {
+  font-style: italic;
+  font-size: 110%;
   margin: 1em 2em 0.5em;
-  padding: 0.5em;
+  padding: 0.1em 1em 0.5em;
   background-color: $menu-bg;
+  color: $link-fg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
