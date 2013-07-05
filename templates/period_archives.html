@@ -4,7 +4,7 @@
 {% if dates[0].date.year == dates[-1].date.year %}
   {% set archive_year = dates[0].date|strftime("%Y") %}
   {% if dates[0].date.month == dates[-1].date.month %}
-    {% set archive_month = dates[0].date|strftime("%b") %}
+    {% set archive_month = dates[0].date|strftime("%B") %}
   {% endif %}
 {% endif %}
 
@@ -37,14 +37,27 @@
   {% endif %}
 {% endblock %}
 
+{% macro monthlink(post_date) %}
+  {% if month_archive_strftime is not none %}
+    <a href="{{ SITEURL }}/{{ post_date|strftime(month_archive_strftime) }}">
+  {% endif %}
+  {{ post_date|strftime("%B %Y") }}
+  {% if month_archive_strftime is not none %} </a> {% endif %}
+{% endmacro %}
+
 {% block content %}
 <div class="section">
-<h1>Archives</h1>
+<h1>Archives
+  {% if archive_year is not none or archive_month is not none %}for{% endif %}
+  {% if archive_month is not none %} {{ archive_month }} {% endif %}
+  {% if archive_year is not none %} {{ archive_year }} {% endif %}
+</h1>
+
 {% set last_date = None %}
 <dl>
 {% for article in dates %}
     {% if last_date != (article.date.year, article.date.month) %}
-      <dt>{{ article.date|strftime("%b %Y") }}</dt>
+      <dt>{{ monthlink(article.date) }}</dt>
     {% endif %}
     <dd>
       <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
