@@ -16,55 +16,47 @@
 {% endif %}
 
 {% macro yearlink(article) %}
+   <dt>
    {% if year_archive_strftime is none %}
      {{ article.date|strftime("%Y") }}
    {% else %}
      <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">{{ article.date|strftime("%Y") }}</a>
    {% endif %}
+   </dt>
 {% endmacro %}
 
-{% macro articlelink(article, year_start) %}
+{% macro articlelink(article) %}
   {% if month_archive_strftime is none %}
-    {% if not year_start %}<br />{% endif %}
-    <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d") }})</span>
+    <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d") }})</span></dd>
   {% endif %}
 {% endmacro %}
 
-{% macro monthlink(last_date, year_start, posts) %}
+{% macro monthlink(last_date, posts) %}
   {% if month_archive_strftime is not none %}
-    {% if not year_start %}<br />{% endif %}
-    <a href="{{ SITEURL }}/{{ last_date|strftime(month_archive_strftime) }}">{{ last_date|strftime("%b") }}</a>&nbsp;<span class="small">({{ posts }} posts)</span>
+    <dd><a href="{{ SITEURL }}/{{ last_date|strftime(month_archive_strftime) }}">{{ last_date|strftime("%B") }}</a>&nbsp;<span class="small">({{ posts }} posts)</span></dd>
   {% endif %}
 {% endmacro %}
 
 <dl>
-{% set last_date, posts, year_start = None, 0, True %}
+{% set last_date, posts = None, 0 %}
 {% for article in dates %}
-    {% if last_date is none %}
-      <dt>{{ yearlink(article) }}</dt>
-      <dd>
-        {{ articlelink(article, True) }}
-    {% elif last_date.year != article.date.year %}
-        {{ monthlink(last_date, year_start, posts) }}
-      </dd>
-      <dt>{{ yearlink(article) }}</dt>
-      <dd>
-        {{ articlelink(article, True) }}
-      {% set posts, year_start = 0, True %}
-    {% else %}
-      {% if last_date.month != article.date.month %}
-        {{ monthlink(last_date, year_start, posts) }}
-        {% set posts, year_start = 0, False %}
-      {% endif %}
-      {{ articlelink(article, False) }}
+  {% if last_date is none or (last_date.year, last_date.month) != (article.date.year, article.date.month) %}
+    {% if posts > 0 %}
+      {{ monthlink(last_date, posts) }}
     {% endif %}
-    {% set last_date = article.date %}
-    {% set posts = posts + 1 %}
-    {% if loop.revindex == 1 %}
-      {{ monthlink(last_date, year_start, posts) }}
+    {% if last_date.year != article.date.year %}
+      {{ yearlink(article) }}
     {% endif %}
+    {% set posts = 0 %}
+  {% endif %}
+  {{ articlelink(article) }}
+
+  {% set last_date = article.date %}
+  {% set posts = posts + 1 %}
+  {% if loop.revindex == 1 %}
+    {{ monthlink(last_date, posts) }}
+  {% endif %}
 {% endfor %}
-  </dd>
 </dl>
 </div>
 {% endblock %}
