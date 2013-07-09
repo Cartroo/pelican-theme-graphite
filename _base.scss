@@ -155,6 +155,7 @@ div.document > div.section {
 
 div.section h1 {
   @include font-family-list($heading-font, $backup-font);
+  color: $link-fg;
   text-align: left;
   font-size: 200%;
   font-weight: normal;
@@ -164,21 +165,22 @@ div.section h1 {
   line-height: 110%;
 }
 
-div.section h2 {
+div.section h2, div.section h3 {
+  @include font-family-list($heading-font, $backup-font);
+  color: $link-fg;
   text-align: left;
+  font-weight: normal;
+  padding: 0.2em
+}
+
+div.section h2 {
   font-size: 160%;
-  border-top: 1px solid $doc-bg;
-  border-bottom: 1px solid $doc-bg;
-  padding: 0.2em;
-  margin: 0;
+  margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
-  text-align: left;
   font-size: 140%;
-  border: 0;
-  padding: 0.2em;
-  margin: 0;
+  margin: 1em 0.5em -0.2em;
 }
 
 div.section div.section-foot {
