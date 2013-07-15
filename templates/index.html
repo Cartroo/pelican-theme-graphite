@@ -13,6 +13,7 @@
                 <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmerk"
                         title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a>
               </h1>
+              <div class="article-summary">{{ article.summary }}</div>
               {{ article.content }}
               <div class="section-foot small">
                   {% include 'article_infos.html' %}
@@ -25,8 +26,8 @@
                   <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
                            title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a></h1>
                 </h1>
-                <p>{{ article.summary }}</p>
-                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">[ Read more ]</a></p>
+                <div class="article-summary">{{ article.summary }}</div>
+                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read post...</a></p>
                 <div class="section-foot small">
                   {% include 'article_infos.html' %}
                   {% include 'comments.html' %}
