@@ -17,7 +17,7 @@ $whitespace-bg: #222288;
 .codehilite .err { color: $error-fg; background-color: $error-bg; } /* Error */
 .codehilite .k { color: $keyword-fg; } /* Keyword */
 .codehilite .l { color: $constant-fg; } /* Literal */
-.codehilite .n { color: $nameuse-fg; } /* Name */
+.codehilite .n { color: $namedef-fg; } /* Name */
 .codehilite .o { color: $plain-fg; } /* Operator */
 .codehilite .p { color: $plain-fg; } /* Punctuation */
 .codehilite .cm { color: $comment-fg; } /* Comment.Multiline */
@@ -35,7 +35,7 @@ $whitespace-bg: #222288;
 .codehilite .ld { color: $constant-fg; } /* Literal.Date */
 .codehilite .m { color: $constant-fg; } /* Literal.Number */
 .codehilite .s { color: $string-fg; } /* Literal.String */
-.codehilite .na { color: $namedef-fg; } /* Name.Attribute */
+.codehilite .na { color: $nameuse-fg; } /* Name.Attribute */
 .codehilite .nb { color: $nameuse-fg; } /* Name.Builtin */
 .codehilite .nc { color: $namedef-fg; } /* Name.Class */
 .codehilite .no { color: $namedef-fg; } /* Name.Constant */
@@ -47,8 +47,8 @@ $whitespace-bg: #222288;
 .codehilite .nn { color: $nameuse-fg; } /* Name.Namespace */
 .codehilite .nx { color: $nameuse-fg; } /* Name.Other */
 .codehilite .py { color: $include-fg; } /* Name.Property */
-.codehilite .nt { color: $namedef-fg; } /* Name.Tag */
-.codehilite .nv { color: $nameuse-fg; } /* Name.Variable */
+.codehilite .nt { color: $nameuse-fg; } /* Name.Tag */
+.codehilite .nv { color: $namedef-fg; } /* Name.Variable */
 .codehilite .ow { color: $plain-fg; } /* Operator.Word */
 .codehilite .w { color: $whitespace-bg; } /* Text.Whitespace */
 .codehilite .mf { color: $constant-fg; } /* Literal.Number.Float */
