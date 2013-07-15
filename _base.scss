@@ -153,6 +153,13 @@ div.document > div.section {
   margin: 2em 2em;
 }
 
+div.section div.article-summary {
+  border-bottom: 1px solid $doc-bg;
+  font-size: 90%;
+  font-style: italic;
+  color: $link-fg;
+}
+
 div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   color: $link-fg;
@@ -254,7 +261,18 @@ div.section ol {
   padding-left: 2.6em;
   text-indent: -1.6em;
 }
-  
+
+div.section div.parts {
+  margin: 0;
+  padding: 0.1em;
+  background-color: $menu-bg;
+  border-bottom: 1px solid $doc-bg;
+  line-height: 1.2em;
+}
+
+div.section div.parts ol {
+  padding-left: 5em;
+}
 
 div.section li {
   margin: 0.1em 0.1em 0.1em 1em;
@@ -268,6 +286,16 @@ div.section ul > li:before {
 div.section ol > li:before {
   content: counter(li) ". \2000";
   counter-increment: li;
+  color: $highlight-fg;
+}
+
+div.section div.parts ul > li:before {
+  content: "\2610 \2002";
+  color: $highlight-fg;
+}
+
+div.section div.parts ul > li.active:before {
+  content: "\2611 \2002";
   color: $highlight-fg;
 }
 
