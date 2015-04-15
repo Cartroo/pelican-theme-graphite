@@ -1,5 +1,6 @@
-{% if article.tags %} Tags:
+{% if article.tags %}
+  tagged with
   {% for tag in article.tags %}
-    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.last %}.{% else %},{% endif %}
+  <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.revindex > 2 %},{% elif loop.revindex == 2 %} and{% endif %}
   {% endfor %}
 {% endif %}

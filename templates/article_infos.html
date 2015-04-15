@@ -4,6 +4,6 @@
   {% if article.author %}
         by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
   {% endif %}
-    in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>.
+    in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
     {% include 'taglist.html' %}
   {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">[PDF version]</a>{% endif %}

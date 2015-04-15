@@ -3,9 +3,29 @@
 <head>
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <meta charset="utf-8" />
-    {% if META_DESCRIPTION %}<meta name="description" content="{{ META_DESCRIPTION }}" /> {% endif %}
+    {% if article is defined and article.summary is defined %}
+      <meta name="description" content="{{ article.summary|striptags }}" />
+    {% elif META_DESCRIPTION %}
+      <meta name="description" content="{{ META_DESCRIPTION }}" />
+    {% endif %}
+    <meta name="generator" content="Pelican" />
     {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
     {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" /> {% endif %}
+    {% if article is defined %}
+      <meta property="og:title" content="{{ SITENAME }}: {{ article.title|striptags }}" />
+      <meta property="og:type" content="article" />
+      <meta property="article:published_time" content="{{ article.date.isoformat() }}" />
+      {% if article.category %}<meta property="article:section" content="{{ article.category }}" />{% endif %}
+      {% if article.tags %}{% for tag in article.tags %}
+        <meta property="article:tag" content="{{ tag }}" />
+      {% endfor %} {% endif %}
+      {% if META_AUTHOR_FACEBOOK %}<meta property="article:author" content="{{ META_AUTHOR_FACEBOOK }}" />{% endif %}
+    {% else %}
+      <meta property="og:title" content="{{ SITENAME }}" />
+      <meta property="og:type" content="website" />
+    {% endif %}
+    <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}" />
+    {% if SITEIMAGEURL %}<meta property="og:image" content="{{ SITEIMAGEURL }}" />{% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
 
     {% if FEED_ATOM %}
@@ -31,6 +51,16 @@
     {% endif %}
     {% if TAG_FEED_RSS and tag %}
     <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
+    {% endif %}
+    {% if 'mdx_math' in MD_EXTENSIONS %}
+      <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          config: ["MMLorHTML.js"],
+          jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+          extensions: ["MathMenu.js", "MathZoom.js"]
+        });
+      </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
     {% endif %}
 </head>
 

@@ -9,25 +9,30 @@
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
          title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title}}</a>
     </h1>
-    <div class="article-summary">{{ article.summary }}</div>
-    {% if article.metadata.parts_articles|length > 1 %}
+    {% if article.series %}
         <div class="parts">
-          <p><strong>Other posts in this series:</strong></p>
+          <p><strong>
+            This is part {{ article.series.index }} of the
+            &ldquo;{{ article.series.name }}&rdquo; series of posts:
+          </strong></p>
           <ul>
-          {% for part_article in article.metadata.parts_articles %}
-              {% if part_article == article %}
-                  <li class="active">
-                      {{ part_article.title }}
-                  </li>
-              {% else %}
-                  <li>
-                      <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
-                  </li>
-              {% endif %}
+          {% for part_article in article.series.all_previous %}
+            <li class="ticked">
+                <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+            </li>
+          {% endfor %}
+          <li class="ticked">
+            {{ article.title }}
+          </li>
+          {% for part_article in article.series.all_next %}
+            <li>
+              <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+            </li>
           {% endfor %}
           </ul>
         </div>
     {% endif %}
+    <div class="article-summary">{{ article.summary }}</div>
     {{ article.content }}
     <div class="section-foot small">
         {% include 'article_infos.html' %}
