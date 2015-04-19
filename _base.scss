@@ -1,12 +1,13 @@
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-@import "pygments";
 
 // Define default grey colour scheme, unless already defined.
 $doc-bg: #333333 !default;
 $section-bg: #444444 !default;
+$subsection-bg: #555555 !default;
 $menu-bg: #555555 !default;
+$menu-fg: #eeeeee !default;
 $link-fg: #bbbbbb !default;
 $highlight-fg: #cccccc !default;
 $body-fg: #eeeeee !default;
@@ -18,6 +19,9 @@ $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
 $backup-font: sans-serif !default;
 $backup-monospace-font: monospace !default;
+
+// Default to having text shadow
+$shadow: true !default;
 
 @mixin font-family-list($main, $backup) {
   @if $main == $backup {
@@ -34,7 +38,11 @@ body {
   padding: 0;
   margin: 0;
   color: $body-fg;
-  text-shadow: 0 1px 1px black;
+  @if $shadow {
+    text-shadow: 0 1px 1px black;
+  } @else {
+    text-shadow: none;
+  }
   line-height: 2.8ex;
 }
 
@@ -58,6 +66,7 @@ nav {
   margin: 2em 0 0;
   padding: 0;
   text-align: center;
+  color: $body-em;
 }
 
 nav ul {
@@ -72,7 +81,7 @@ nav li {
   margin: 0 1em;
   padding: 1em 0.5em;
   padding: 0.5em;
-  border: 1px solid $menu-bg;
+  border: 2px solid $section-bg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -80,10 +89,11 @@ nav li {
 
 nav a {
   display: inline-block;
+  color: $body-em;
 }
 
 nav li.active {
-  background-color: $menu-bg;
+  background-color: $section-bg;
 }
 
 body > h1, h1.title {
@@ -92,7 +102,7 @@ body > h1, h1.title {
   font-size: 240%;
   font-weight: normal;
   color: $highlight-fg;
-  text-shadow: 0 3px 6px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   margin: 1em 2em 1.5em;
   padding: 0;
 }
@@ -105,12 +115,17 @@ body > h1, h1.title {
   font-size: 40%;
   font-weight: normal;
   font-variant: small-caps;
-  text-shadow: 0 1px 1px black;
-  color: $link-fg;
+  @if $shadow {
+    text-shadow: 0 1px 1px black;
+  } @else {
+    text-shadow: none;
+  }
+  color: $highlight-fg;
 }
 
 div.related {
   background-color: $menu-bg;
+  color: $menu-fg;
   margin: 0;
   padding: 0.2em;
   clear: both;
@@ -137,7 +152,7 @@ div.related li.right {
 }
 
 div.related a {
-  color: $body-fg;
+  color: $menu-fg;
 }
 
 div.section {
@@ -157,12 +172,13 @@ div.section div.article-summary {
   border-bottom: 1px solid $doc-bg;
   font-size: 90%;
   font-style: italic;
+  line-height: 1.2em;
   color: $link-fg;
 }
 
 div.section h1 {
   @include font-family-list($heading-font, $backup-font);
-  color: $link-fg;
+  color: $highlight-fg;
   text-align: left;
   font-size: 200%;
   font-weight: normal;
@@ -174,7 +190,7 @@ div.section h1 {
 
 div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
-  color: $link-fg;
+  color: $highlight-fg;
   text-align: left;
   font-weight: normal;
   padding: 0.2em
@@ -208,7 +224,7 @@ div.section p {
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
-  color: $highlight-fg;
+  color: $link-fg;
 }
 
 div.section blockquote {
@@ -216,8 +232,8 @@ div.section blockquote {
   font-size: 110%;
   margin: 2.5em 3em 2em;
   padding: 0.1em 1em 0.5em;
-  background-color: $menu-bg;
-  color: $link-fg;
+  background-color: $subsection-bg;
+  color: $body-em;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -231,11 +247,13 @@ pre {
 div.section pre {
   margin: 1em 2em 0.5em;
   padding: 0.5em;
-  background-color: $menu-bg;
-  border: 1px solid $doc-bg;
-  color: $highlight-fg;
+  color: $body-em;
   white-space: pre-wrap;
   text-shadow: none;
+}
+
+div.sphinxsidebar, div.sphinxsidebar a {
+  color: $body-em;
 }
 
 div.section ul, div.sphinxsidebar ul {
@@ -265,7 +283,7 @@ div.section ol {
 div.section div.parts {
   margin: 0;
   padding: 0.1em;
-  background-color: $menu-bg;
+  color: $link-fg;
   border-bottom: 1px solid $doc-bg;
   line-height: 1.2em;
 }
@@ -280,23 +298,23 @@ div.section li {
 
 div.section ul > li:before {
   content: "\2023 \2002";
-  color: $highlight-fg;
+  color: $body-em;
 }
 
 div.section ol > li:before {
   content: counter(li) ". \2000";
   counter-increment: li;
-  color: $highlight-fg;
+  color: $body-em;
 }
 
 div.section div.parts ul > li:before {
   content: "\2610 \2002";
-  color: $highlight-fg;
+  color: $body-em;
 }
 
 div.section div.parts ul > li.ticked:before {
   content: "\2611 \2002";
-  color: $highlight-fg;
+  color: $body-em;
 }
 
 div.section li p {
@@ -310,15 +328,16 @@ div.section dl {
 }
 
 div.section dt {
-  background-color: $menu-bg;
+  background-color: $subsection-bg;
   margin: 1em 0 0;
   padding: 0.2em 0.5em;
   font-weight: bold;
+  color: $body-em;
 }
 
 div.section dd {
-  margin: 0 2em 0.2em;
-  padding: 0;
+  margin: 0;
+  padding: 0 2em 0.2em;
 }
 
 div.section div.right, div.section div.left {
@@ -336,8 +355,14 @@ div.section a {
   text-decoration: underline;
 }
 
-div.section h1 a, div.section h2 a, div.section h3 a, div.section h4 a,
+div.section h2 a, div.section h3 a, div.section h4 a,
 div.section h5 a, div.section h6 a {
+  color: $highlight-fg;
+  text-decoration: none;
+}
+
+div.section h1 a {
+  color: $highlight-fg;
   text-decoration: none;
 }
 
@@ -354,7 +379,7 @@ body > h1 a, h1.title a {
 }
 
 a:hover {
-  text-shadow: 0 0 8px $highlight-fg;
+  text-shadow: 0 0 8px $link-fg;
 }
 
 a.headerlink {
@@ -445,7 +470,7 @@ big {
 }
 
 table.codehilitetable {
-  margin: 1em 1.5em 0.5em;
+  margin: 1em 2em 0.5em;
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -453,13 +478,13 @@ table.codehilitetable {
 }
 
 table.codehilitetable td {
-  border: 1px solid $doc-bg;
   padding: 0;
 }
 
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
+  border-right: 1px solid $link-fg;
 }
 
 table.codehilitetable div.linenodiv pre {
@@ -484,7 +509,7 @@ hr {
   width: 80%;
   height: 0;
   border: 0;
-  border-top: 1px solid $menu-bg;
+  border-top: 1px solid $subsection-bg;
 }
 
 div.section hr {
@@ -557,7 +582,7 @@ div.footnote p {
 }
 
 #footnote_box {
-  background-color: $menu-bg;
+  background-color: $subsection-bg;
   border: 1px solid $doc-bg;
   padding: 0 1em;
   margin: 1em;

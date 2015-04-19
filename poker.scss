@@ -9,7 +9,9 @@ This is the "poker" variant, with shades of dark green instead of grey.
 
 $doc-bg: #223322;
 $section-bg: #334433;
+$subsection-bg: #445544;
 $menu-bg: #445544;
+$menu-fg: #eeeeee;
 $link-fg: #bbccbb;
 $highlight-fg: #cccccc;
 $body-fg: #eeeeee;
@@ -26,5 +28,6 @@ $backup-font: serif;
  */
 @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono|Handlee|Noticia+Text:400,700,400italic,700italic);
 
+@import "pygments-dark";
 @import "base";
 
