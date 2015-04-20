@@ -250,6 +250,7 @@ div.section pre {
   color: $body-em;
   white-space: pre-wrap;
   text-shadow: none;
+  border-left: 1px solid $link-fg;
 }
 
 div.sphinxsidebar, div.sphinxsidebar a {
@@ -484,6 +485,7 @@ table.codehilitetable td {
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
+  border-left: 1px solid $link-fg;
   border-right: 1px solid $link-fg;
 }
 

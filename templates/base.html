@@ -148,7 +148,14 @@
     <div class="footer">
         {% if COPYRIGHT %}{{ COPYRIGHT }}{% endif %}
         Created using <a href="http://getpelican.com/">Pelican</a>,
-        using the <a href="https://github.com/Cartroo/pelican-theme-graphite">Graphite</a> theme.
+        using the <a href="https://github.com/Cartroo/pelican-theme-graphite">Graphite</a>
+        {% if THEME_CSS == "solarized.css" %}
+          theme with the
+          <a href="http://ethanschoonover.com/solarized">Solarized palette</a>
+          by Ethan Schoonover.
+        {% else %}
+          theme.
+        {% endif %}
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
