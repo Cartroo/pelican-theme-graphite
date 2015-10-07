@@ -318,11 +318,19 @@ div.section ol > li:before {
 div.section div.parts ul > li:before {
   content: "\2610 \2002";
   color: $body-em;
+  float: left;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
 }
 
 div.section div.parts ul > li.ticked:before {
   content: "\2611 \2002";
   color: $body-em;
+  float: left;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
 }
 
 div.section li p {
