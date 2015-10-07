@@ -43,7 +43,7 @@ body {
   } @else {
     text-shadow: none;
   }
-  line-height: 2.8ex;
+  line-height: 1.5;
 }
 
 /* HTML5 tags */
@@ -54,7 +54,7 @@ aside, nav, article, figure {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
-  line-height: 3ex;
+  line-height: 2;
 }
 
 header {
@@ -110,8 +110,8 @@ body > h1, h1.title {
 .byline {
   @include font-family-list($body-font, $backup-font);
   margin: 0;
-  padding: 1ex 0 0;
-  line-height: 1ex;
+  padding: 0.5ex 0 0;
+  line-height: 1;
   font-size: 40%;
   font-weight: normal;
   font-variant: small-caps;
@@ -172,8 +172,15 @@ div.section div.article-summary {
   border-bottom: 1px solid $doc-bg;
   font-size: 90%;
   font-style: italic;
-  line-height: 1.2em;
+  line-height: 1.4;
   color: $link-fg;
+  margin: 0;
+  padding: 0.5em 1em 0.5em;
+}
+
+div.section div.article-summary p {
+  margin: 0;
+  padding: 0;
 }
 
 div.section h1 {
@@ -185,7 +192,7 @@ div.section h1 {
   border-bottom: 1px solid $doc-bg;
   padding: 0.2em;
   margin: 0;
-  line-height: 110%;
+  line-height: 1.1;
 }
 
 div.section h2, div.section h3 {
@@ -210,7 +217,7 @@ div.section div.section-foot {
   margin: 1em 0 -0.5em;
   padding: 0.5em 1em 0;
   border-top: 1px solid $doc-bg;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 .small {
@@ -286,7 +293,7 @@ div.section div.parts {
   padding: 0.1em;
   color: $link-fg;
   border-bottom: 1px solid $doc-bg;
-  line-height: 1.2em;
+  line-height: 1.2;
 }
 
 div.section div.parts ol {
@@ -485,8 +492,8 @@ table.codehilitetable td {
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  border-left: 1px solid $link-fg;
-  border-right: 1px solid $link-fg;
+  background-color: #eee8d5;
+  border: 1px solid $link-fg;
 }
 
 table.codehilitetable div.linenodiv pre {
@@ -499,12 +506,13 @@ table.codehilitetable pre {
   margin: 0;
   padding: 0.5em; 
   white-space: pre;
-  line-height: 110%;
+  line-height: 1.25;
 }
 
 div.codehilite {
   margin: 0;
   padding: 0;
+  line-height: 1.25;
 }
 
 hr {
@@ -564,7 +572,7 @@ div.section ul.tagcloud li.tag-1 {
 
 div.footnote {
   font-size: 80%;
-  line-height: 2.4ex;
+  line-height: 1.5;
 }
 
 div.footnote > ol {
