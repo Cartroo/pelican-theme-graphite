@@ -22,7 +22,7 @@
             </li>
           {% endfor %}
           <li class="ticked">
-            {{ article.title }}
+            <strong>{{ article.title }}</strong>
           </li>
           {% for part_article in article.series.all_next %}
             <li>
