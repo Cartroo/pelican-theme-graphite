@@ -102,7 +102,7 @@ body > h1, h1.title {
   font-size: 240%;
   font-weight: normal;
   color: $highlight-fg;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   margin: 1em 2em 1.5em;
   padding: 0;
 }
@@ -249,13 +249,17 @@ div.section blockquote {
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   white-space: pre;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 div.section pre {
   margin: 1em 2em 0.5em;
   padding: 0.5em;
   color: $body-em;
-  white-space: pre-wrap;
+  white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
 }
@@ -490,7 +494,9 @@ table.codehilitetable {
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
-  border: 0;
+  display: block;
+  overflow: auto;
+  max-width: 100%;
 }
 
 table.codehilitetable td {
@@ -500,8 +506,7 @@ table.codehilitetable td {
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  background-color: #eee8d5;
-  border: 1px solid $link-fg;
+  border-right: 1px solid $link-fg;
 }
 
 table.codehilitetable div.linenodiv pre {
@@ -521,6 +526,10 @@ div.codehilite {
   margin: 0;
   padding: 0;
   line-height: 1.25;
+}
+
+div.section>div.codehilite {
+  overflow: auto;
 }
 
 hr {
