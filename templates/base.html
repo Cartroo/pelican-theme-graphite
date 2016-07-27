@@ -3,7 +3,6 @@
 <head>
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0" />
     {% if article is defined and article.summary is defined %}
       <meta name="description" content="{{ article.summary|striptags }}" />
     {% elif META_DESCRIPTION %}
@@ -27,7 +26,13 @@
     {% endif %}
     <meta property="og:url" content="{{ SITEURL }}/{{ output_file }}" />
     {% if SITEIMAGEURL %}<meta property="og:image" content="{{ SITEIMAGEURL }}" />{% endif %}
+    {% if THEME_CSS_MOBILE and THEME_CSS %}
+    <meta name="viewport" content="initial-scale=1.0" />
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
+    {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
+    {% endif %}
 
     {% if FEED_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />
