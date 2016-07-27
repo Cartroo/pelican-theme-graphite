@@ -14,7 +14,7 @@ $body-fg: #eeeeee !default;
 $body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
-$body-font-size: 1.0em !default;
+$body-font-size: 1.0em;
 $heading-font: sans-serif !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
@@ -467,7 +467,7 @@ div.bodywrapper {
 }
 
 div.body {
-  padding: 0 1em;
+  padding: 0 0.5em;
 }
 
 div.sphinxsidebar {
