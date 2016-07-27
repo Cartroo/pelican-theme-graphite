@@ -269,6 +269,12 @@ div.section pre {
   border-left: 1px solid $link-fg;
 }
 
+div.sphinxsidebarsection {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
 div.sphinxsidebar, div.sphinxsidebar a {
   color: $body-em;
 }

@@ -14,7 +14,7 @@ $body-fg: #eeeeee !default;
 $body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
-$body-font-size: 1.0em;
+$body-font-size: 1.0em !default;
 $heading-font: sans-serif !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
@@ -105,7 +105,7 @@ body > h1, h1.title {
   font-weight: normal;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 0;
+  margin: 1em 0 0 0;
   padding: 0;
 }
 
@@ -267,6 +267,12 @@ div.section pre {
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
+}
+
+div.sphinxsidebarsection {
+  display: block;
+  padding: 0;
+  margin: 0;
 }
 
 div.sphinxsidebar, div.sphinxsidebar a {
