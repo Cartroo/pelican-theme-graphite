@@ -3,6 +3,7 @@
 <head>
     <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
     {% if article is defined and article.summary is defined %}
       <meta name="description" content="{{ article.summary|striptags }}" />
     {% elif META_DESCRIPTION %}
