@@ -271,9 +271,9 @@ div.section pre {
 }
 
 div.sphinxsidebarsection {
-  display: block;
+  display: inline-block;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1em 0;
 }
 
 div.sphinxsidebar, div.sphinxsidebar a {
@@ -310,9 +310,11 @@ div.sphinxsidebar p.topless {
 div.sphinxsidebar h3 {
   display: inline-block;
   font-weight: bold;
+  font-size: 80%;
+  width: 4em;
+  text-align: right;
   margin: 0;
   padding: 0;
-  padding-left: 1em;
   vertical-align: middle;
 }
 
