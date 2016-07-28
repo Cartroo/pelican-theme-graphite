@@ -445,13 +445,11 @@ div.left {
 }
 
 div.documentwrapper {
-  float: left;
-  width: 100%;
   background-color: $doc-bg;
 }
 
 div.bodywrapper {
-  margin: 0 0 0 220px;
+  margin: 0 0 0 10em;
 }
 
 div.body {
@@ -460,8 +458,7 @@ div.body {
 
 div.sphinxsidebar {
   float: left;
-  width: 220px;
-  margin-left: -100%;
+  width: 10em;
   padding: 10px;
 }
 

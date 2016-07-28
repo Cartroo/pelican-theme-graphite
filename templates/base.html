@@ -87,6 +87,57 @@
               {{ HEADING_PREFIX }} {{ SITENAME }}
               {% if SITESUBTITLE %} <div class="byline">{{ SITESUBTITLE }}</div>{% endif %}
             </a></h1>
+          <div class="sphinxsidebar">
+            <div class="sphinxsidebarwrapper">
+              <div class="sphinxsidebarsection">
+                <h3>Blog</h3>
+                  <ul>
+                  <li><a href="{{ SITEURL }}/">Recent Posts</a></li>
+                  <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+                  <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
+                  {% if TAG_FEED_ATOM and tag %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
+                  {% elif CATEGORY_FEED_ATOM and category %}
+                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
+                  {% elif FEED_ALL_ATOM %}
+                      <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+                {% if PAGES and DISPLAY_PAGES_ON_MENU %}
+              <div class="sphinxsidebarsection">
+                  <h3>Other Pages</h3>
+                  <ul>
+                    {% for page in PAGES %}
+                      <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                  </ul>
+              </div>
+                {% endif %}
+                {% if SOCIAL %}
+              <div class="sphinxsidebarsection">
+                  <h3>Me</h3>
+                  <ul>
+                    {% for name, link in SOCIAL %}
+                      <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                  </ul>
+              </div>
+                {% endif %}
+                {% if LINKS %}
+              <div class="sphinxsidebarsection">
+                  <h3>Links</h3>
+                  <ul>
+                    {% for name, link in LINKS %}
+                      <li><a href="{{ link }}">{{ name }}</a></li>
+                    {% endfor %}
+                  </ul>
+              </div>
+                {% endif %}
+            </div>
+          </div>
+        </header><!-- /#banner -->
+        <div class="documentwrapper"><div class="bodywrapper"><div class="body">
             {% if DISPLAY_CATEGORIES_ON_MENU %}
               <nav><ul>
               {% for cat, null in categories %}
@@ -94,57 +145,6 @@
               {% endfor %}
               </ul></nav>
             {% endif %}
-        </header><!-- /#banner -->
-        <div class="sphinxsidebar">
-          <div class="sphinxsidebarwrapper">
-            <div class="sphinxsidebarsection">
-              <h3>Blog</h3>
-                <ul>
-                <li><a href="{{ SITEURL }}/">Recent Posts</a></li>
-                <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-                <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
-                {% if TAG_FEED_ATOM and tag %}
-                  <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
-                {% elif CATEGORY_FEED_ATOM and category %}
-                  <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
-                {% elif FEED_ALL_ATOM %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
-                {% endif %}
-              </ul>
-            </div>
-              {% if PAGES and DISPLAY_PAGES_ON_MENU %}
-            <div class="sphinxsidebarsection">
-                <h3>Other Pages</h3>
-                <ul>
-                  {% for page in PAGES %}
-                    <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-                  {% endfor %}
-                </ul>
-            </div>
-              {% endif %}
-              {% if SOCIAL %}
-            <div class="sphinxsidebarsection">
-                <h3>Me</h3>
-                <ul>
-                  {% for name, link in SOCIAL %}
-                    <li><a href="{{ link }}">{{ name }}</a></li>
-                  {% endfor %}
-                </ul>
-            </div>
-              {% endif %}
-              {% if LINKS %}
-            <div class="sphinxsidebarsection">
-                <h3>Links</h3>
-                <ul>
-                  {% for name, link in LINKS %}
-                    <li><a href="{{ link }}">{{ name }}</a></li>
-                  {% endfor %}
-                </ul>
-            </div>
-              {% endif %}
-          </div>
-        </div>
-        <div class="documentwrapper"><div class="bodywrapper"><div class="body">
             {% block content %}
             {% endblock %}
         </div></div></div>
