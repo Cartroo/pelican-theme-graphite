@@ -33,6 +33,9 @@
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
+    {% if THEME_CSS_PRINT %}
+    <link rel="stylesheet" media="print" href="{{ SITEURL }}/theme/{{ THEME_CSS_PRINT }}" type="text/css" />
+    {% endif %}
 
     {% if FEED_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />

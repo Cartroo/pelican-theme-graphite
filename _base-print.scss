@@ -1,0 +1,481 @@
+// Note: I've just begun to use sass for the colours, I'm sure there's more
+//       refactoring that could happen when I get chance.
+
+$pre-fg-print: #888888 !default;
+// Define main fonts, these may well already be defined.
+$body-font: sans-serif !default;
+$heading-font: sans-serif !default;
+$monospace-font: monospace !default;
+// Define backups, these are unlikely to be defined but may be.
+$backup-font: sans-serif !default;
+$backup-monospace-font: monospace !default;
+
+
+@mixin font-family-list($main, $backup) {
+  @if $main == $backup {
+    font-family: $main;
+  } @else {
+    font-family: $main, $backup;
+  }
+}
+
+
+body {
+  @include font-family-list($body-font, $backup-font);
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+
+header, section, footer,
+aside, nav, article, figure {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: none;
+}
+
+body > h1, h1.title {
+  @include font-family-list($heading-font, $backup-font);
+  text-align: center;
+  font-size: 240%;
+  font-weight: normal;
+  margin: 1em 0 0 0;
+  padding: 0;
+}
+
+.byline {
+  @include font-family-list($body-font, $backup-font);
+  margin: 0;
+  padding: 0.5ex 0 0;
+  line-height: 1;
+  font-size: 40%;
+  font-weight: normal;
+  font-variant: small-caps;
+}
+
+div.related {
+  display: none
+}
+
+div.section {
+  margin: 2em 0;
+  padding: 0 0 1em;
+}
+
+div.document > div.section {
+  margin: 2em 2em;
+}
+
+div.section div.article-summary {
+  border-bottom: 1px solid black;
+  font-size: 90%;
+  font-style: italic;
+  margin: 0;
+  padding: 0.5em 1em 0.5em;
+  line-height: 1.4;
+}
+
+div.section div.article-summary p {
+  margin: 0;
+  padding: 0;
+}
+
+div.section h1 {
+  @include font-family-list($heading-font, $backup-font);
+  text-align: left;
+  font-size: 150%;
+  font-weight: normal;
+  border-bottom: 1px solid black;
+  padding: 0.2em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+div.section h2, div.section h3 {
+  @include font-family-list($heading-font, $backup-font);
+  text-align: left;
+  font-weight: normal;
+  padding: 0.2em
+}
+
+div.section h2 {
+  font-size: 140%;
+  margin: 1.5em 0.3em 0;
+}
+
+div.section h3 {
+  font-size: 120%;
+  margin: 1em 0.5em -0.2em;
+}
+
+div.section div.section-foot {
+  margin: 1em 0 -0.5em;
+  padding: 0.5em 1em 0;
+  border-top: 1px solid black;
+  line-height: 1.2;
+}
+
+.small {
+  font-size: 80%;
+}
+
+div.section p {
+  margin: 0.5em;
+  padding: 0.5em 0.5em 0;
+}
+
+tt, code {
+  @include font-family-list($monospace-font, $backup-monospace-font);
+  font-size: 90%; // Reduce monospace font size in inline text.
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  color: $pre-fg-print;
+}
+
+div.section blockquote {
+  font-style: italic;
+  font-size: 110%;
+  color: $pre-fg-print;
+  margin: 2.5em 3em 2em;
+  padding: 0.1em 1em 0.5em;
+  border: 0;
+}
+
+pre {
+  @include font-family-list($monospace-font, $backup-monospace-font);
+  white-space: pre;
+  font-size: 90%;
+}
+
+div.section pre {
+  margin: 1em 2em 0.5em;
+  padding: 0.5em;
+  color: $pre-fg-print;
+  white-space: pre;
+  text-shadow: none;
+  border-left: 1px solid $link-fg;
+  font-size: 90%;
+}
+
+div.section ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 2.2em;
+  text-indent: -1.2em;
+}
+
+div.section ol {
+  counter-reset: li;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 2.6em;
+  text-indent: -1.6em;
+}
+
+div.section div.parts {
+  margin: 0;
+  padding: 0.1em;
+  border-bottom: 1px solid black;
+  line-height: 1.2;
+}
+
+div.section div.parts ol {
+  display: none;
+}
+
+div.section div.parts ul {
+  display: none;
+}
+
+div.section li {
+  margin: 0.1em 0.1em 0.1em 1em;
+}
+
+div.section ul > li:before {
+  content: "\2023 \2002";
+}
+
+div.section ol > li:before {
+  content: counter(li) ". \2000";
+  counter-increment: li;
+}
+
+div.section div.parts ul > li:before {
+  content: "\2610 \2002";
+  float: left;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
+}
+
+div.section div.parts ul > li.ticked:before {
+  content: "\2611 \2002";
+  float: left;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
+}
+
+div.section li p {
+  margin: 0;
+  padding: 0;
+}
+
+div.section dl {
+  margin: 1em 2em 0.5em;
+  padding: 0;
+}
+
+div.section dt {
+  margin: 1em 0 0;
+  padding: 0.2em 0.5em;
+  font-weight: bold;
+}
+
+div.section dd {
+  margin: 0;
+  padding: 0 2em 0.2em;
+}
+
+div.section div.right, div.section div.left {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+div.section a {
+  text-decoration: none;
+}
+
+div.section h2 a, div.section h3 a, div.section h4 a,
+div.section h5 a, div.section h6 a {
+  text-decoration: none;
+}
+
+div.section h1 a {
+  text-decoration: none;
+}
+
+div.section a.footnote-ref {
+  text-decoration: none;
+}
+
+a.headerlink {
+  text-shadow: none;
+  visibility: hidden;
+}
+
+div.footer {
+  margin: 0.5em;
+  font-size: 80%;
+  text-align: right;
+}
+
+div.right {
+  float: right;
+}
+
+div.left {
+  float: left;
+}
+
+div.bodywrapper {
+  margin: 0;
+}
+
+div.body {
+  padding: 0 0.5em;
+}
+
+div.sphinxsidebar {
+  display: none;
+}
+
+table.indextable {
+  margin-bottom: 1em;
+}
+
+table.indextable td {
+  margin: 0;
+  padding: 0.2em 2em 0.2em 0.5em;
+}
+
+em {
+  font-weight: normal;
+  font-style: italic;
+}
+
+em.property {
+  margin: 0 0.25em;
+}
+
+strong {
+  font-weight: bold;
+  font-style: normal;
+}
+
+big {
+  font-size: 120%;
+  margin: 0 0.25em;
+}
+
+.viewcode-link {
+  margin: 0 0.5em;
+  font-variant: small-caps;
+  vertical-align: text-top;
+}
+
+table.codehilitetable {
+  margin: 1em 2em 0.5em;
+  padding: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  overflow: auto;
+  max-width: 100%;
+}
+
+table.codehilitetable td {
+  padding: 0;
+}
+
+table.codehilitetable div.linenodiv {
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid black;
+}
+
+table.codehilitetable pre {
+  @include font-family-list($monospace-font, $backup-monospace-font);
+  border: 0;
+  margin: 0;
+  padding: 0.5em; 
+  white-space: pre;
+  line-height: 1.25;
+}
+
+div.codehilite {
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+}
+
+div.section>div.codehilite {
+  overflow: auto;
+}
+
+hr {
+  width: 80%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid black;
+}
+
+div.section hr {
+  width: 100%;
+  border-top: 1px solid black;
+}
+
+div.section img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.section ul.tagcloud {
+  list-style: none;
+  text-indent: 0;
+  overflow: hidden;
+  padding: 1em;
+  margin: 1em 8%;
+}
+
+div.section ul.tagcloud li {
+  float: left;
+  padding: 2px;
+}
+
+div.section ul.tagcloud li:before {
+  content: none;
+}
+
+div.section ul.tagcloud li a {
+  text-decoration: none;
+}
+
+div.section ul.tagcloud li.tag-5 {
+  font-size: 80%;
+}
+div.section ul.tagcloud li.tag-4 {
+  font-size: 120%;
+}
+div.section ul.tagcloud li.tag-3 {
+  font-size: 170%;
+}
+div.section ul.tagcloud li.tag-2 {
+  font-size: 230%;
+}
+div.section ul.tagcloud li.tag-1 {
+  font-size: 300%;
+}
+
+div.footnote {
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+a.footnote-backref {
+  display: none;
+}
+
+p.paginator {
+  display: none;
+}
+
+div.footnote > ol {
+  counter-reset: li;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: -1.8em;
+}
+
+div.footnote > ol > li {
+  margin: 1em 3.6em;
+}
+
+div.footnote p {
+  display: inline;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+}
+
+sub {
+  bottom: 1ex;
+}
+
+sup {
+  top: -0.8ex;
+}
+
+div.comments {
+  display: none;
+}
