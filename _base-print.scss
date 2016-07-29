@@ -1,7 +1,7 @@
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-$pre-fg-print: #888888 !default;
+$pre-fg-print: #666666 !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
@@ -25,6 +25,7 @@ body {
   padding: 0;
   margin: 0;
   color: black;
+  font-size: 90%;
 }
 
 header, section, footer,
