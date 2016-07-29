@@ -537,7 +537,8 @@ table.codehilitetable {
   border-collapse: collapse;
   border-spacing: 0;
   display: block;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: visible;
   max-width: 100%;
 }
 
@@ -571,7 +572,8 @@ div.codehilite {
 }
 
 div.section>div.codehilite {
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
 hr {
