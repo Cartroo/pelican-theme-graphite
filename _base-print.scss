@@ -1,17 +1,7 @@
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-
-// Define default grey colour scheme, unless already defined.
-$doc-bg: #333333 !default;
-$section-bg: #444444 !default;
-$subsection-bg: #555555 !default;
-$menu-bg: #555555 !default;
-$menu-fg: #eeeeee !default;
-$link-fg: #bbbbbb !default;
-$highlight-fg: #cccccc !default;
-$body-fg: #eeeeee !default;
-$body-em: #ffffff !default;
+$pre-fg-print: #888888 !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
@@ -20,8 +10,6 @@ $monospace-font: monospace !default;
 $backup-font: sans-serif !default;
 $backup-monospace-font: monospace !default;
 
-// Default to having text shadow
-$shadow: true !default;
 
 @mixin font-family-list($main, $backup) {
   @if $main == $backup {
@@ -34,28 +22,18 @@ $shadow: true !default;
 
 body {
   @include font-family-list($body-font, $backup-font);
-  background-color: $doc-bg;
   padding: 0;
   margin: 0;
-  color: $body-fg;
-  @if $shadow {
-    text-shadow: 0 1px 1px black;
-  } @else {
-    text-shadow: none;
-  }
-  line-height: 1.5;
+  color: black;
 }
 
-/* HTML5 tags */
 header, section, footer,
 aside, nav, article, figure {
   display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0.2em 0.2em 0.2em;
   font-weight: bold;
-  line-height: 2;
 }
 
 header {
@@ -64,37 +42,7 @@ header {
 }
 
 nav {
-  margin: 1em 10em 0 0;
-  padding: 0;
-  text-align: center;
-  color: $body-em;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  text-indent: 0;
-}
-
-nav li {
-  display: inline;
-  margin: 0 1em;
-  padding: 1em 0.5em;
-  padding: 0.5em;
-  border: 2px solid $section-bg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-}
-
-nav a {
-  display: inline-block;
-  color: $body-em;
-}
-
-nav li.active {
-  background-color: $section-bg;
+  display: none;
 }
 
 body > h1, h1.title {
@@ -102,9 +50,7 @@ body > h1, h1.title {
   text-align: center;
   font-size: 240%;
   font-weight: normal;
-  color: $highlight-fg;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 0.5em 1em 1em;
+  margin: 1em 0 0 0;
   padding: 0;
 }
 
@@ -116,51 +62,13 @@ body > h1, h1.title {
   font-size: 40%;
   font-weight: normal;
   font-variant: small-caps;
-  @if $shadow {
-    text-shadow: 0 1px 1px black;
-  } @else {
-    text-shadow: none;
-  }
-  color: $highlight-fg;
 }
 
 div.related {
-  background-color: $menu-bg;
-  color: $menu-fg;
-  margin: 0;
-  padding: 0.2em;
-  clear: both;
-}
-
-div.related h3 {
-  display: none;
-}
-
-div.related ul {
-  display: inline;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-div.related li {
-  display: inline;
-}
-
-div.related li.right {
-  float: right;
-  margin-right: 0.25em;
-}
-
-div.related a {
-  color: $menu-fg;
+  display: none
 }
 
 div.section {
-  background-color: $section-bg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
   margin: 2em 0;
   padding: 0 0 1em;
 }
@@ -170,13 +78,12 @@ div.document > div.section {
 }
 
 div.section div.article-summary {
-  border-bottom: 1px solid $doc-bg;
+  border-bottom: 1px solid black;
   font-size: 90%;
   font-style: italic;
-  line-height: 1.4;
-  color: $link-fg;
   margin: 0;
   padding: 0.5em 1em 0.5em;
+  line-height: 1.4;
 }
 
 div.section div.article-summary p {
@@ -186,11 +93,10 @@ div.section div.article-summary p {
 
 div.section h1 {
   @include font-family-list($heading-font, $backup-font);
-  color: $highlight-fg;
   text-align: left;
-  font-size: 200%;
+  font-size: 150%;
   font-weight: normal;
-  border-bottom: 1px solid $doc-bg;
+  border-bottom: 1px solid black;
   padding: 0.2em;
   margin: 0;
   line-height: 1.1;
@@ -198,26 +104,25 @@ div.section h1 {
 
 div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
-  color: $highlight-fg;
   text-align: left;
   font-weight: normal;
   padding: 0.2em
 }
 
 div.section h2 {
-  font-size: 160%;
+  font-size: 140%;
   margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
-  font-size: 140%;
+  font-size: 120%;
   margin: 1em 0.5em -0.2em;
 }
 
 div.section div.section-foot {
   margin: 1em 0 -0.5em;
   padding: 0.5em 1em 0;
-  border-top: 1px solid $doc-bg;
+  border-top: 1px solid black;
   line-height: 1.2;
 }
 
@@ -235,65 +140,39 @@ tt, code {
   font-size: 90%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
-  color: $link-fg;
+  color: $pre-fg-print;
 }
 
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
+  color: $pre-fg-print;
   margin: 2.5em 3em 2em;
   padding: 0.1em 1em 0.5em;
-  background-color: $subsection-bg;
-  color: $body-em;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  border: 0;
 }
 
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   white-space: pre;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
   font-size: 90%;
 }
 
 div.section pre {
   margin: 1em 2em 0.5em;
   padding: 0.5em;
-  color: $body-em;
+  color: $pre-fg-print;
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
   font-size: 90%;
 }
 
-div.sphinxsidebarsection {
-  display: block;
-  padding: 0;
-  margin: 0;
-}
-
-div.sphinxsidebar, div.sphinxsidebar a {
-  color: $body-em;
-}
-
-div.section ul, div.sphinxsidebar ul {
+div.section ul {
   list-style: none;
-  margin: 0.2em 0;
+  margin-left: 0;
   padding-left: 2.2em;
   text-indent: -1.2em;
-}
-
-div.sphinxsidebar ul > li:before {
-  content: "\2022 \2002";
-}
-
-div.sphinxsidebar p.topless {
-  margin-left: 0;
-  padding-left: 1em;
 }
 
 div.section ol {
@@ -307,13 +186,12 @@ div.section ol {
 div.section div.parts {
   margin: 0;
   padding: 0.1em;
-  color: $link-fg;
-  border-bottom: 1px solid $doc-bg;
+  border-bottom: 1px solid black;
   line-height: 1.2;
 }
 
-div.section div.parts ol {
-  padding-left: 5em;
+div.tweetbutton {
+  display: none;
 }
 
 div.section li {
@@ -322,18 +200,15 @@ div.section li {
 
 div.section ul > li:before {
   content: "\2023 \2002";
-  color: $body-em;
 }
 
 div.section ol > li:before {
   content: counter(li) ". \2000";
   counter-increment: li;
-  color: $body-em;
 }
 
 div.section div.parts ul > li:before {
   content: "\2610 \2002";
-  color: $body-em;
   float: left;
   margin-right: 1em;
   min-width: 1em;
@@ -342,7 +217,6 @@ div.section div.parts ul > li:before {
 
 div.section div.parts ul > li.ticked:before {
   content: "\2611 \2002";
-  color: $body-em;
   float: left;
   margin-right: 1em;
   min-width: 1em;
@@ -360,11 +234,9 @@ div.section dl {
 }
 
 div.section dt {
-  background-color: $subsection-bg;
   margin: 1em 0 0;
   padding: 0.2em 0.5em;
   font-weight: bold;
-  color: $body-em;
 }
 
 div.section dd {
@@ -378,57 +250,30 @@ div.section div.right, div.section div.left {
 }
 
 a {
-  color: $link-fg;
   text-decoration: none;
+  color: black;
 }
 
 div.section a {
-  color: $link-fg;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 div.section h2 a, div.section h3 a, div.section h4 a,
 div.section h5 a, div.section h6 a {
-  color: $highlight-fg;
   text-decoration: none;
 }
 
 div.section h1 a {
-  color: $highlight-fg;
   text-decoration: none;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-  color: $body-fg;
 }
 
 div.section a.footnote-ref {
   text-decoration: none;
 }
 
-body > h1 a, h1.title a {
-  color: $highlight-fg;
-}
-
-a:hover {
-  text-shadow: 0 0 8px $link-fg;
-}
-
 a.headerlink {
-  color: $link-fg;
   text-shadow: none;
   visibility: hidden;
-}
-
-a.headerlink:hover {
-  color: $highlight-fg;
-  text-shadow: 0 0 8px $highlight-fg;
-}
-
-h1:hover > a.headerlink, h2:hover > a.headerlink, h3:hover > a.headerlink,
-h4:hover > a.headerlink, h5:hover > a.headerlink, h6:hover > a.headerlink,
-dt:hover > a.headerlink {
-  visibility: visible;
 }
 
 div.footer {
@@ -445,22 +290,16 @@ div.left {
   float: left;
 }
 
-div.documentwrapper {
-  background-color: $doc-bg;
-}
-
 div.bodywrapper {
-  margin: 0 0 0 10em;
+  margin: 0;
 }
 
 div.body {
-  padding: 0 1em;
+  padding: 0 0.5em;
 }
 
 div.sphinxsidebar {
-  float: left;
-  width: 10em;
-  padding: 10px;
+  display: none;
 }
 
 table.indextable {
@@ -484,7 +323,6 @@ em.property {
 strong {
   font-weight: bold;
   font-style: normal;
-  color: $body-em;
 }
 
 big {
@@ -504,8 +342,7 @@ table.codehilitetable {
   border-collapse: collapse;
   border-spacing: 0;
   display: block;
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow: visible;
   max-width: 100%;
 }
 
@@ -516,11 +353,7 @@ table.codehilitetable td {
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  border-right: 1px solid $link-fg;
-}
-
-table.codehilitetable div.linenodiv pre {
-  color: $link-fg;
+  border-right: 1px solid black;
 }
 
 table.codehilitetable pre {
@@ -539,20 +372,19 @@ div.codehilite {
 }
 
 div.section>div.codehilite {
-  overflow-x: auto;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 hr {
   width: 80%;
   height: 0;
   border: 0;
-  border-top: 1px solid $subsection-bg;
+  border-top: 1px solid black;
 }
 
 div.section hr {
   width: 100%;
-  border-top: 1px solid $doc-bg;
+  border-top: 1px solid black;
 }
 
 div.section img {
@@ -603,6 +435,14 @@ div.footnote {
   line-height: 1.5;
 }
 
+a.footnote-backref {
+  display: none;
+}
+
+p.paginator {
+  display: none;
+}
+
 div.footnote > ol {
   counter-reset: li;
   list-style: none;
@@ -619,16 +459,6 @@ div.footnote p {
   display: inline;
 }
 
-#footnote_box {
-  background-color: $subsection-bg;
-  border: 1px solid $doc-bg;
-  padding: 0 1em;
-  margin: 1em;
-  -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-}
-
 sup, sub {
   vertical-align: baseline;
   position: relative;
@@ -642,3 +472,6 @@ sup {
   top: -0.8ex;
 }
 
+div.comments {
+  display: none;
+}

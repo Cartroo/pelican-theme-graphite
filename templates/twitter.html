@@ -1,6 +1,6 @@
 {% macro tweetbutton(url) %}
 {% if TWITTER_USERNAME %}
-<div class="right">
+<div class="right tweetbutton">
   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="{{TWITTER_USERNAME}}" data-url="{{ SITEURL }}/{{ url|urlencode }}">&nbsp;</a>
 </div>
 {% endif %}
