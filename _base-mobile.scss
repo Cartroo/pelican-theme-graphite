@@ -14,7 +14,6 @@ $body-fg: #eeeeee !default;
 $body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
-$body-font-size: 1.0em !default;
 $heading-font: sans-serif !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
@@ -35,7 +34,6 @@ $shadow: true !default;
 
 body {
   @include font-family-list($body-font, $backup-font);
-  font-size: $body-font-size;
   background-color: $doc-bg;
   padding: 0;
   margin: 0;
@@ -45,7 +43,17 @@ body {
   } @else {
     text-shadow: none;
   }
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   line-height: 1.5;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    font-size: 0.9em;
+  }
 }
 
 /* HTML5 tags */
@@ -55,7 +63,7 @@ aside, nav, article, figure {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
+  font-weight: bold;
   line-height: 1.2;
 }
 
@@ -65,7 +73,7 @@ header {
 }
 
 nav {
-  margin: 2em 0 0;
+  margin: 1em 0 0;
   padding: 0;
   text-align: center;
   color: $body-em;
@@ -190,7 +198,7 @@ div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
-  font-size: 200%;
+  font-size: 150%;
   font-weight: normal;
   border-bottom: 1px solid $doc-bg;
   padding: 0.2em;
@@ -207,12 +215,12 @@ div.section h2, div.section h3 {
 }
 
 div.section h2 {
-  font-size: 160%;
+  font-size: 140%;
   margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
-  font-size: 140%;
+  font-size: 120%;
   margin: 1em 0.5em -0.2em;
 }
 
@@ -255,10 +263,7 @@ div.section blockquote {
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   white-space: pre;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  font-size: 90%;
 }
 
 div.section pre {
@@ -268,12 +273,13 @@ div.section pre {
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
+  font-size: 90%;
 }
 
 div.sphinxsidebarsection {
   display: inline-block;
   padding: 0;
-  margin: 0 0 1em 0;
+  margin: 1em 0 0 0;
 }
 
 div.sphinxsidebar, div.sphinxsidebar a {
@@ -310,8 +316,8 @@ div.sphinxsidebar p.topless {
 div.sphinxsidebar h3 {
   display: inline-block;
   font-weight: bold;
-  font-size: 80%;
-  width: 4em;
+  font-size: 1em;
+  width: 2.5em;
   text-align: right;
   margin: 0;
   padding: 0;
@@ -480,7 +486,14 @@ div.body {
 }
 
 div.sphinxsidebar {
-  padding: 1em 2em;
+  padding: 1em 0.5em;
+  font-size: 80%;
+}
+
+@media screen and (min-width: 450px) {
+  div.sphinxsidebar {
+    text-align: center;
+  }
 }
 
 table.indextable {

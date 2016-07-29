@@ -28,8 +28,8 @@
     {% if SITEIMAGEURL %}<meta property="og:image" content="{{ SITEIMAGEURL }}" />{% endif %}
     {% if THEME_CSS_MOBILE and THEME_CSS %}
     <meta name="viewport" content="initial-scale=1.0" />
-    <link rel="stylesheet" media="screen and (max-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (max-width: 750px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 750px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
@@ -76,7 +76,8 @@
         <ul>
             <li class="right" style="margin-right: 0.5em"><a href="/blog">Blog</a></li>
           {% for title, link in MENUITEMS %}
-            <li class="right"><a href="{{ link }}">{{ title }}</a> |</li>
+            <li class="right" {% if loop.last %}style="margin-left: 1em"{% endif %}>
+              <a href="{{ link }}">{{ title }}</a> |</li>
           {% endfor %}
           <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {% block breadcrumbs %}{% endblock %}</li>
         </ul>         
