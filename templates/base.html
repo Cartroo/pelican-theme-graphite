@@ -10,7 +10,7 @@
     {% endif %}
     <meta name="generator" content="Pelican" />
     {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
-    {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" /> {% endif %}
+    {% if META_AUTHOR %} <meta name="author" content="{{ META_AUTHOR }}" property="{{ META_AUTHOR }}" /> {% endif %}
     {% if FACEBOOK_APP_ID %}<meta property="fb:app_id" content="{{ FACEBOOK_APP_ID }}"/>{% endif %}
     {% if article is defined %}
       <meta property="og:title" content="{{ SITENAME }}: {{ article.title|striptags }}" />
