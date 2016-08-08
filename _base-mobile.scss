@@ -50,6 +50,8 @@ body {
   line-height: 1.5;
 }
 
+@import "jquery.markdownFootnotes";
+
 @media screen and (max-width: 450px) {
   body {
     font-size: 0.9em;
@@ -172,7 +174,7 @@ div.section {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
   margin: 2em 0;
-  padding: 0 0.5em 1em 0;
+  padding: 0 0 1em 0;
   max-width: 45em;
 }
 

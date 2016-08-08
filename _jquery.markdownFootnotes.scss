@@ -1,0 +1,42 @@
+$menu-bg: #555555 !default;
+$menu-fg: #eeeeee !default;
+$menu-dim-fg: #dddddd !default;
+
+.footnoteContent {
+	background: $menu-bg;
+        color: $menu-dim-fg;
+	display: none;
+	max-height: 100%;
+	-webkit-overflow-scrolling: touch;
+	padding: 0 2em 1em;
+	margin: 0;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: auto;
+}
+
+.footnoteContent p {
+        margin: 0;
+        padding: 0;
+}
+
+.footnoteContent a {
+	color: $menu-fg;
+        text-decoration: underline;
+}
+
+.footnoteContent a.closeFootnote {
+	text-align: right;
+	display: block;
+	font-size: 20px;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	color: $menu-fg;
+	text-decoration: none;
+	padding: 2px;
+}
