@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content_title %}{% endblock %}
 {% import "twitter.html" as twitter with context %}
-{% block content %}        
+{% block content %}
 {% if articles %}
-    {% for article in articles_page.object_list %}        
+    {% for article in articles_page.object_list %}
 
         {# First item #}
-        {% if NUM_FULL_ARTICLES <= 0 or (loop.index <= NUM_FULL_ARTICLES and not articles_page.has_previous()) %}
+        {% if not article_summary_only is defined %}
             <div class="section">
               <h1>
                 {{ twitter.tweetbutton(article.url) }}
@@ -35,7 +35,7 @@
                   {% include 'comments.html' %}
               </div>
             </div>
-        {% else %} 
+        {% else %}
             <div class="section">
                 <h1>
                   <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
@@ -56,7 +56,7 @@
                     </div>
                 {% endif %}
                 <div class="article-summary">{{ article.summary }}</div>
-                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read post...</a></p>
+                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read post &rarr;</a></p>
                 <div class="section-foot small">
                   {% include 'article_infos.html' %}
                   &ensp;|&ensp;

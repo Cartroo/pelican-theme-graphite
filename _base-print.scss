@@ -398,43 +398,6 @@ div.section img {
   margin-right: auto;
 }
 
-div.section ul.tagcloud {
-  list-style: none;
-  text-indent: 0;
-  overflow: hidden;
-  padding: 1em;
-  margin: 1em 8%;
-}
-
-div.section ul.tagcloud li {
-  float: left;
-  padding: 2px;
-}
-
-div.section ul.tagcloud li:before {
-  content: none;
-}
-
-div.section ul.tagcloud li a {
-  text-decoration: none;
-}
-
-div.section ul.tagcloud li.tag-5 {
-  font-size: 80%;
-}
-div.section ul.tagcloud li.tag-4 {
-  font-size: 120%;
-}
-div.section ul.tagcloud li.tag-3 {
-  font-size: 170%;
-}
-div.section ul.tagcloud li.tag-2 {
-  font-size: 230%;
-}
-div.section ul.tagcloud li.tag-1 {
-  font-size: 300%;
-}
-
 div.footnote {
   font-size: 80%;
   line-height: 1.5;
@@ -480,3 +443,6 @@ sup {
 div.comments {
   display: none;
 }
+
+@import "base-shared";
+
