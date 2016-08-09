@@ -25,6 +25,16 @@ $menu-dim-fg: #dddddd !default;
         padding: 0;
 }
 
+.footnoteContent em {
+        color: $menu-dim-fg;
+        font-style: italic;
+}
+
+.footnoteContent strong {
+	color: $menu-fg;
+        font-weight: bold;
+}
+
 .footnoteContent a {
 	color: $menu-fg;
         text-decoration: underline;
