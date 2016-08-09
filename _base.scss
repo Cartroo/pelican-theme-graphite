@@ -82,7 +82,7 @@ nav li {
   margin: 0 1em;
   padding: 1em 0.5em;
   padding: 0.5em;
-  border: 2px solid $section-bg;
+  background-color: $section-bg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -90,11 +90,15 @@ nav li {
 
 nav a {
   display: inline-block;
-  color: $body-em;
+  color: $highlight-fg;
 }
 
 nav li.active {
-  background-color: $section-bg;
+  background-color: $highlight-fg;
+}
+
+nav li.active a {
+  color: $section-bg;
 }
 
 body > h1, h1.title {
