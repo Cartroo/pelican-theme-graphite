@@ -246,13 +246,38 @@ tt, code {
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
-  margin: 2.5em 3em 2em;
+  margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
+  position: relative;
   background-color: $subsection-bg;
   color: $body-em;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+}
+
+div.section blockquote:before {
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-size: 400%;
+  position: absolute;
+  left: -5px;
+  top: 30px;
+  line-height: 0;
+  color: $section-bg;;
+}
+
+div.section blockquote:after {
+  display: block;
+  padding-left: 10px;
+  content: "\201D";
+  font-size: 400%;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  line-height: 0;
+  color: $section-bg;;
 }
 
 pre {
