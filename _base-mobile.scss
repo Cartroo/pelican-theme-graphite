@@ -50,12 +50,6 @@ body {
   line-height: 1.5;
 }
 
-@media screen and (max-width: 450px) {
-  body {
-    font-size: 0.9em;
-  }
-}
-
 /* HTML5 tags */
 header, section, footer,
 aside, nav, article, figure {
@@ -113,12 +107,23 @@ nav li.active a {
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   text-align: center;
-  font-size: 240%;
   font-weight: normal;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   margin: 1em 0 0 0;
   padding: 0;
+}
+
+@media screen and (min-width: 600px) {
+  body > h1, h1.title {
+    font-size: 240%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body > h1, h1.title {
+    font-size: 140%;
+  }
 }
 
 .byline {
@@ -203,12 +208,39 @@ div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
-  font-size: 150%;
   font-weight: normal;
   border-bottom: 1px solid $doc-bg;
   padding: 0.2em;
   margin: 0;
   line-height: 1.1;
+}
+
+@media screen and (min-width: 600px) {
+  div.section h1 {
+    font-size: 150%;
+  }
+
+  div.section h2 {
+    font-size: 140%;
+  }
+
+  div.section h3 {
+    font-size: 120%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.section h1 {
+    font-size: 130%;
+  }
+
+  div.section h2 {
+    font-size: 120%;
+  }
+
+  div.section h3 {
+    font-size: 110%;
+  }
 }
 
 div.section h2, div.section h3 {
@@ -220,12 +252,10 @@ div.section h2, div.section h3 {
 }
 
 div.section h2 {
-  font-size: 140%;
-  margin: 1.5em 0.3em 0;
+  margin: 1em 0.3em 0;
 }
 
 div.section h3 {
-  font-size: 120%;
   margin: 1em 0.5em -0.2em;
 }
 
@@ -255,8 +285,6 @@ tt, code {
 
 div.section blockquote {
   font-style: italic;
-  font-size: 110%;
-  margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
   background-color: $subsection-bg;
   color: $body-em;
@@ -264,6 +292,19 @@ div.section blockquote {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
   position: relative;
+}
+
+@media screen and (min-width: 600px) {
+  div.section blockquote {
+    font-size: 110%;
+    margin: 1.5em 3em 1em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.section blockquote {
+    margin: 1.5em 2em 1em;
+  }
 }
 
 div.section blockquote:before {
@@ -293,7 +334,6 @@ div.section blockquote:after {
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   white-space: pre;
-  font-size: 90%;
 }
 
 div.section pre {
@@ -303,7 +343,18 @@ div.section pre {
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
-  font-size: 90%;
+}
+
+@media screen and (min-width: 600px) {
+  pre, section pre {
+    font-size: 90%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  pre, section pre {
+    font-size: 80%; // Reduce pre font size more on small viewports.
+  }
 }
 
 div.sphinxsidebarsection {
@@ -563,7 +614,6 @@ big {
 }
 
 table.codehilitetable {
-  margin: 1em 2em 0.5em;
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -571,6 +621,18 @@ table.codehilitetable {
   overflow-x: auto;
   overflow-y: hidden;
   max-width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  table.codehilitetable {
+    margin: 1em 2em 0.5em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  table.codehilitetable {
+    margin: 1em 1em 0.5em;
+  }
 }
 
 table.codehilitetable td {
