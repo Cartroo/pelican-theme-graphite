@@ -29,8 +29,8 @@
     {% if SITEIMAGEURL %}<meta property="og:image" content="{{ SITEIMAGEURL }}" />{% endif %}
     {% if THEME_CSS_MOBILE and THEME_CSS %}
     <meta name="viewport" content="initial-scale=1.0" />
-    <link rel="stylesheet" media="screen and (max-width: 750px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 750px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (max-width: 800px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 800px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
