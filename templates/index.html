@@ -14,7 +14,7 @@
                         title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a>
               </h1>
               {% if article.series %}
-                  <div class="parts">
+                  <div class="parts border-under">
                     <p><strong>
                       This is part {{ article.series.index }} of the
                       &ldquo;{{ article.series.name }}&rdquo;
@@ -42,7 +42,7 @@
                            title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a></h1>
                 </h1>
                 {% if article.series %}
-                    <div class="parts">
+                    <div class="parts border-under">
                       <p><strong>
                         This is part {{ article.series.index }} of the
                         &ldquo;{{ article.series.name }}&rdquo;

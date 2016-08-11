@@ -334,11 +334,17 @@ div.section ol {
   text-indent: -1.6em;
 }
 
+div.section div.border-under {
+  border-bottom: 1px solid $doc-bg;
+}
+
+div.section div.border-over {
+  border-top: 1px solid $doc-bg;
+}
+
 div.section div.parts {
   margin: 0;
-  padding: 0.1em;
   color: $link-fg;
-  border-bottom: 1px solid $doc-bg;
   line-height: 1.2;
 }
 
@@ -348,6 +354,10 @@ div.section div.parts ol {
 
 div.section li {
   margin: 0.1em 0.1em 0.1em 1em;
+}
+
+div.section div.border-under ul {
+  padding-bottom: 1em;
 }
 
 div.section ul > li:before {

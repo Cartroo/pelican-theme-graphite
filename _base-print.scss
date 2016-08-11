@@ -187,10 +187,16 @@ div.section ol {
   text-indent: -1.6em;
 }
 
+div.section div.border-under {
+  border-bottom: 1px solid black;
+}
+
+div.section div.border-over {
+  border-top: 1px solid black;
+}
+
 div.section div.parts {
   margin: 0;
-  padding: 0.1em;
-  border-bottom: 1px solid black;
   line-height: 1.2;
 }
 
@@ -444,5 +450,6 @@ div.comments {
   display: none;
 }
 
+@import "jquery.markdownFootnotes";
 @import "base-shared";
 

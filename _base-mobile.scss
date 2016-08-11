@@ -337,7 +337,6 @@ pre {
 }
 
 div.section pre {
-  margin: 1em 2em 0.5em;
   padding: 0.5em;
   color: $body-em;
   white-space: pre;
@@ -349,11 +348,19 @@ div.section pre {
   pre, section pre {
     font-size: 90%;
   }
+
+  div.section pre {
+    margin: 1em 2em 0.5em;
+  }
 }
 
 @media screen and (max-width: 600px) {
   pre, section pre {
     font-size: 80%; // Reduce pre font size more on small viewports.
+  }
+
+  div.section pre {
+    margin: 1em 1.5em 0.5em;
   }
 }
 
@@ -414,16 +421,26 @@ div.section ol {
   text-indent: -1.6em;
 }
 
+div.section div.border-under {
+  border-bottom: 1px solid $doc-bg;
+}
+
+div.section div.border-over {
+  border-top: 1px solid $doc-bg;
+}
+
 div.section div.parts {
   margin: 0;
-  padding: 0.1em;
   color: $link-fg;
-  border-bottom: 1px solid $doc-bg;
   line-height: 1.2;
 }
 
 div.section div.parts ol {
   padding-left: 5em;
+}
+
+div.section div.border-under ul {
+  padding-bottom: 1em;
 }
 
 div.section li {
@@ -569,12 +586,18 @@ div.body {
 
 div.sphinxsidebar {
   padding: 1em 0.5em;
-  font-size: 80%;
 }
 
 @media screen and (min-width: 450px) {
   div.sphinxsidebar {
     text-align: center;
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  div.sphinxsidebar {
+    font-size: 70%;
   }
 }
 
