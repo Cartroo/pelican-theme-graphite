@@ -380,8 +380,8 @@ div.sphinxsidebar, div.sphinxsidebar a {
 div.section ul {
   list-style: none;
   margin-left: 0;
-  padding-left: 2.2em;
-  text-indent: -1.2em;
+  padding-left: 1.5em;
+  text-indent: -1em;
 }
 
 div.sphinxsidebar ul {
@@ -419,8 +419,8 @@ div.section ol {
   counter-reset: li;
   list-style: none;
   margin-left: 0;
-  padding-left: 2.6em;
-  text-indent: -1.6em;
+  padding-left: 2em;
+  text-indent: -1.4em;
 }
 
 div.section div.border-under {
@@ -455,9 +455,10 @@ div.section ul > li:before {
 }
 
 div.section ol > li:before {
-  content: counter(li) ". \2000";
+  content: counter(li) ".\2002";
   counter-increment: li;
   color: $body-em;
+  font-weight: $body-bold-weight;
 }
 
 div.section div.parts ul > li:before {
