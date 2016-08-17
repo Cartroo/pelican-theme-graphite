@@ -2,6 +2,7 @@ $dark-menu-bg: #444444 !default;
 $menu-bg: #555555 !default;
 $menu-fg: #eeeeee !default;
 $menu-dim-fg: #dddddd !default;
+$body-bold-weight: bold !default;
 
 .footnoteContent {
 	background: $dark-menu-bg;
@@ -34,7 +35,7 @@ $menu-dim-fg: #dddddd !default;
 
 .footnoteContent strong {
 	color: $menu-fg;
-        font-weight: bold;
+        font-weight: $body-bold-weight;
 }
 
 .footnoteContent a {

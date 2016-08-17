@@ -19,6 +19,7 @@ $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
 $backup-font: sans-serif !default;
 $backup-monospace-font: monospace !default;
+$body-bold-weight: bold !default;
 
 // Default to having text shadow
 $shadow: true !default;
@@ -57,7 +58,7 @@ aside, nav, article, figure {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+  font-weight: $body-bold-weight;
   line-height: 1.2;
 }
 
@@ -248,15 +249,16 @@ div.section h2, div.section h3 {
   color: $highlight-fg;
   text-align: left;
   font-weight: normal;
-  padding: 0.2em
+  padding: 0.2em;
+  line-height: 1em;
 }
 
 div.section h2 {
-  margin: 1em 0.3em 0;
+  margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
-  margin: 1em 0.5em -0.2em;
+  margin: 1.5em 0.5em -0.2em;
 }
 
 div.section div.section-foot {
@@ -271,8 +273,8 @@ div.section div.section-foot {
 }
 
 div.section p {
-  margin: 0.5em;
-  padding: 0.5em 0.5em 0;
+  margin: 0.8em;
+  padding: 0 0.5em;
 }
 
 tt, code {
@@ -337,7 +339,7 @@ pre {
 }
 
 div.section pre {
-  padding: 0.5em;
+  padding: 0 0.5em;
   color: $body-em;
   white-space: pre;
   text-shadow: none;
@@ -350,7 +352,7 @@ div.section pre {
   }
 
   div.section pre {
-    margin: 1em 2em 0.5em;
+    margin: 0.5em 2em;
   }
 }
 
@@ -360,7 +362,7 @@ div.section pre {
   }
 
   div.section pre {
-    margin: 1em 1.5em 0.5em;
+    margin: 0.5em 1.5em;
   }
 }
 
@@ -404,7 +406,7 @@ div.sphinxsidebar p.topless {
 
 div.sphinxsidebar h3 {
   display: inline-block;
-  font-weight: bold;
+  font-weight: $body-bold-weight;
   font-size: 1em;
   width: 2.5em;
   text-align: right;
@@ -482,7 +484,7 @@ div.section li p {
 }
 
 div.section dl {
-  margin: 1em 2em 0.5em;
+  margin: 1em 1.5em 0.5em;
   padding: 0;
 }
 
@@ -490,13 +492,13 @@ div.section dt {
   background-color: $subsection-bg;
   margin: 1em 0 0;
   padding: 0.2em 0.5em;
-  font-weight: bold;
+  font-weight: $body-bold-weight;
   color: $body-em;
 }
 
 div.section dd {
   margin: 0;
-  padding: 0 2em 0.2em;
+  padding: 0 1.5em 0.2em;
 }
 
 div.section div.right, div.section div.left {
@@ -620,7 +622,7 @@ em.property {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: $body-bold-weight;
   font-style: normal;
   color: $body-em;
 }
@@ -648,13 +650,13 @@ table.codehilitetable {
 
 @media screen and (min-width: 600px) {
   table.codehilitetable {
-    margin: 1em 2em 0.5em;
+    margin: 0.5em 2em;
   }
 }
 
 @media screen and (max-width: 600px) {
   table.codehilitetable {
-    margin: 1em 1em 0.5em;
+    margin: 0.5em 1em;
   }
 }
 
