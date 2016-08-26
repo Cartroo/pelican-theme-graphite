@@ -4,7 +4,7 @@
 {% import "twitter.html" as twitter with context %}
 {% block content %}
 <div class="section">
-    <h1 class="entry-title">
+    <h1>
       {{ twitter.tweetbutton(article.url) }}
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
          title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title}}</a>

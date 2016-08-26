@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <title>{% block title %}{{ SITENAME|striptags }}{%endblock%}</title>
     <meta charset="utf-8" />
     {% if article is defined and article.summary is defined %}
       <meta name="description" content="{{ article.summary|striptags }}" />
@@ -78,7 +78,11 @@
 {% include 'github.html' %}
     <div class="related">
         <ul>
-            <li class="right" style="margin-right: 0.5em"><a href="/blog">Blog</a></li>
+            <li class="right" style="margin-right: 0.5em"><a href="{{ SITEURL }}">Blog</a></li>
+          {% if PAGES and DISPLAY_PAGES_ON_MENU %}{% for page in PAGES %}
+            <li class="right">
+              <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
+          {% endfor %}{% endif %}
           {% for title, link in MENUITEMS %}
             <li class="right" {% if loop.last %}style="margin-left: 1em"{% endif %}>
               <a href="{{ link }}">{{ title }}</a> |</li>
@@ -109,16 +113,6 @@
                   {% endif %}
                 </ul>
               </div>
-                {% if PAGES and DISPLAY_PAGES_ON_MENU %}
-              <div class="sphinxsidebarsection">
-                  <h3>Other Pages</h3>
-                  <ul>
-                    {% for page in PAGES %}
-                      <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-                    {% endfor %}
-                  </ul>
-              </div>
-                {% endif %}
                 {% if SOCIAL %}
               <div class="sphinxsidebarsection">
                   <h3>Me</h3>
