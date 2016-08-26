@@ -1,4 +1,4 @@
 {% extends "index.html" %}
-{% block title %}{{ SITENAME }}: Posts in {{ category }}{% endblock %}
+{% block title %}{{ SITENAME|striptags }}: Posts in {{ category|striptags }}{% endblock %}
 {% block breadcrumbs %}&#x00bb; <a href="{{ SITEURL }}/{{ output_file }}">{{ category }}</a>{% endblock %}
 

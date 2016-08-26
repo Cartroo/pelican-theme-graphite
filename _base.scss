@@ -371,7 +371,6 @@ div.section ol > li:before {
   content: counter(li) ".\2002";
   counter-increment: li;
   color: $body-em;
-  font-weight: $body-bold-weight;
 }
 
 div.section div.parts ul > li:before {
