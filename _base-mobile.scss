@@ -115,7 +115,7 @@ body > h1, h1.title {
   padding: 0;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   body > h1, h1.title {
     font-size: 240%;
   }
@@ -216,7 +216,7 @@ div.section h1 {
   line-height: 1.1;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   div.section h1 {
     font-size: 150%;
   }
@@ -296,7 +296,7 @@ div.section blockquote {
   position: relative;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   div.section blockquote {
     font-size: 110%;
     margin: 1.5em 3em 1em;
@@ -346,7 +346,7 @@ div.section pre {
   border-left: 1px solid $link-fg;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   pre, section pre {
     font-size: 90%;
   }
@@ -590,7 +590,7 @@ div.sphinxsidebar {
   padding: 1em 0.5em;
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 451px) {
   div.sphinxsidebar {
     text-align: center;
     font-size: 80%;
@@ -648,7 +648,7 @@ table.codehilitetable {
   max-width: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   table.codehilitetable {
     margin: 0.5em 2em;
   }
