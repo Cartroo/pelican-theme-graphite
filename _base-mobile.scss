@@ -105,6 +105,11 @@ nav li.active a {
   color: $section-bg;
 }
 
+div.document {
+  max-width: max-content;
+  margin: auto;
+}
+
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   text-align: center;
