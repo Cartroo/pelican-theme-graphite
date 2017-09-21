@@ -2,9 +2,11 @@
 {% block title %}{{ page.title|striptags }}{% endblock %}
 {% block breadcrumbs %}
   {% if page.category %}
-    &#x00bb; <a href="{{ SITEURL }}/{{ page.category.url }}">{{ page.category }}</a>
+    <li class="breadcrumb-history"><a href="{{ SITEURL }}/{{ page.category.url }}">{{ page.category }}</a><li>
   {% endif %}
-  &#x00bb; <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% endblock %}
+  <li class="breadscrumb-current"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+{% endblock %}
+{% import "twitter.html" as twitter with context %}
 {% block content %}
 <div class="section">
     <h1>

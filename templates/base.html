@@ -30,13 +30,33 @@
     {% if THEME_CSS_MOBILE and THEME_CSS %}
     <meta name="viewport" content="initial-scale=1.0" />
     <link rel="stylesheet" media="screen and (max-width: 800px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 800px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 801px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
     {% if THEME_CSS_PRINT %}
     <link rel="stylesheet" media="print" href="{{ SITEURL }}/theme/{{ THEME_CSS_PRINT }}" type="text/css" />
     {% endif %}
+    <style media="screen and (min-width: 801px)">
+      .menu-top {
+        display: block;
+      {% if LOGOURL %}
+        margin-left: 120px !important;
+      {% else %}
+        margin-left: 1em;
+      {% endif %}
+      }
+    </style>
+    <style media="screen and (max-width: 800px)">
+      .menu-top {
+        display: block;
+      {% if LOGOURL %}
+        margin-left: 60px !important;
+      {% else %}
+        margin-left: 0.5em;
+      {% endif %}
+      }
+    </style>
 
     {% if FEED_ATOM %}
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: All Posts" />
@@ -76,19 +96,28 @@
 
 <body id="index" class="home">
 {% include 'github.html' %}
-    <div class="related">
-        <ul>
-            <li class="right" style="margin-right: 0.5em"><a href="{{ SITEURL }}">Blog</a></li>
+    <div class="related fixed-top">
+        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" /></a>{% endif %}
+        <div class="menu-top">
+        {% block sitemenu %}
+        <ul class="right">
+          {% for title, link in MENUITEMS %}
+            <li {% if loop.first %}class="left-edge-menu-item"{% endif %}>
+              <a href="{{ link }}">{{ title }}</a> |</li>
+          {% endfor %} 
           {% if PAGES and DISPLAY_PAGES_ON_MENU %}{% for page in PAGES %}
-            <li class="right">
+            <li>
               <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
           {% endfor %}{% endif %}
-          {% for title, link in MENUITEMS %}
-            <li class="right" {% if loop.last %}style="margin-left: 1em"{% endif %}>
-              <a href="{{ link }}">{{ title }}</a> |</li>
-          {% endfor %}
-          <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {% block breadcrumbs %}{% endblock %}</li>
+          <li class="right-edge-menu-item"><a href="/blog">Blog</a></li>
+        </ul>
+        {% endblock %}
+        <ul>
+          {% if self.breadcrumbs() | trim %} <li class="breadcrumb-history"> {% else %} <li class="breadcrumb-current"> {% endif %}
+          <a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
+          {% block breadcrumbs %}{% endblock %}
         </ul>         
+        </div>
     </div>
     <div class="document">
         <header id="banner" class="body">
@@ -150,12 +179,10 @@
     </div>
     <div class="clearer"></div>
     <div class="related">
+        {{ self.sitemenu() }}
         <ul>
-            <li class="right" style="margin-right: 0.5em"><a href="/blog">Blog</a></li>
-          {% for title, link in MENUITEMS %}
-            <li class="right"><a href="{{ link }}">{{ title }}</a> |</li>
-          {% endfor %}
-            <li style="margin-left: 0.5em"><a href="{{ SITEURL }}">{{ SITENAME }}</a> {{ self.breadcrumbs() }}</li>
+            <li class="left-edge-menu-item breadcrumb-history"><a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
+            {{ self.breadcrumbs() }}
         </ul>         
     </div>
     <div class="footer">

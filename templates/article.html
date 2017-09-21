@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
-{% block breadcrumbs %} &#x00bb; <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> &#x00bb; <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>{% endblock %}
+{% block breadcrumbs %}
+  <li class="breadcrumb-history"><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+  <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
+{% endblock %}
 {% import "twitter.html" as twitter with context %}
 {% block content %}
 <div class="section">
