@@ -15,8 +15,8 @@ for entry in os.listdir("."):
     if ext != ".scss":
         continue
     try:
-        # css_content = sass.compile_file(entry, output_style=sass.SASS_STYLE_COMPRESSED)
-        css_content = sass.compile(filename=entry, output_style='compressed')
+        css_content = sass.compile_file(entry, output_style=sass.SASS_STYLE_COMPRESSED)
+        # css_content = sass.compile(filename=entry, output_style='compressed') # either nested or compressed
         #with open(os.path.join("static", base + ".css"), "w") as output_fd:
         with codecs.open(os.path.join("static", base + ".css"),'w',encoding='utf8') as output_fd:
             output_fd.write(css_content)
