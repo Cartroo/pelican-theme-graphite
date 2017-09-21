@@ -116,7 +116,7 @@ body > h1, h1.title {
   font-weight: normal;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 1em 0 0 0;
+  margin: 2em 0 0 0;
   padding: 0;
 }
 
@@ -148,6 +148,23 @@ body > h1, h1.title {
   color: $highlight-fg;
 }
 
+#logo {
+  z-index: 999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 60px;
+  border: 0;
+  margin: 1px;
+}
+
+div.fixed-top {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
 div.related {
   background-color: $menu-bg;
   color: $menu-fg;
@@ -155,6 +172,23 @@ div.related {
   padding: 0.2em;
   clear: both;
   font-size: 0.8em;
+  z-index: 998;
+}
+
+.right-edge-menu-item {
+  margin-right: 0.5em !important;
+}
+
+.left-edge-menu-item {
+  margin-left: 0.5em !important;
+}
+
+div.related li.breadcrumb-history {
+  display: none;
+}
+
+div.related li.breadcrumb-current {
+  font-weight: bold;
 }
 
 div.related h3 {
@@ -172,9 +206,8 @@ div.related li {
   display: inline;
 }
 
-div.related li.right {
+div.related ul.right {
   float: right;
-  margin-right: 0.25em;
 }
 
 div.related a {

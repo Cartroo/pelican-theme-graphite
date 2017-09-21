@@ -20,19 +20,24 @@
 {% endif %}
 
 {% block breadcrumbs %}
-  &#x00bb; <a href="{{ SITEURL }}/archives.html">Archives</a>
+  {% if archive_year is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
+    <a href="{{ SITEURL }}/archives.html">Archives</a></li>
   {% if archive_year is not none %}
+    {% if archive_month is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
     {% if year_archive_strftime is none %}
-      &#x00bb; {{ archive_year }}
+      {{ archive_year }}
     {% else %}
-      &#x00bb; <a href="{{ SITEURL }}/{{ dates[0].date|strftime(year_archive_strftime) }}">{{ archive_year }}</a>
+      <a href="{{ SITEURL }}/{{ dates[0].date|strftime(year_archive_strftime) }}">{{ archive_year }}</a>
     {% endif %}
+    </li>
     {% if archive_month is not none %}
+      <li class="breadcrumb-current">
       {% if month_archive_strftime is none %}
-        &#x00bb; {{ archive_month }}
+        {{ archive_month }}
       {% else %}
-        &#x00bb; <a href="{{ SITEURL }}/{{ dates[0].date|strftime(month_archive_strftime) }}">{{ archive_month }}</a>
+        <a href="{{ SITEURL }}/{{ dates[0].date|strftime(month_archive_strftime) }}">{{ archive_month }}</a>
       {% endif %}
+      </li>
     {% endif %}
   {% endif %}
 {% endblock %}
