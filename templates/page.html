@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}{{ page.title|striptags }}{% endblock %}
 {% block breadcrumbs %}
   {% if page.category %}
-    &#x00bb; <a href="{{ SITEURL }}/{{ page.category.url }}">{{ page.category }}</a>
+    <li class="breadcrumb-history"><a href="{{ SITEURL }}/{{ page.category.url }}">{{ page.category }}</a><li>
   {% endif %}
-  &#x00bb; <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>{% endblock %}
+  <li class="breadscrumb-current"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+{% endblock %}
 {% import "twitter.html" as twitter with context %}
 {% block content %}
 <div class="section">
-    <h1 class="entry-title">
-      {{ twitter.tweetbutton(article.url) }}
+    <h1>
       <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark"
          title="Permalink to {{ page.title|striptags }}">
-         {{ HEADING_PREFIX }} {{ page.title}}
+         {{ page.title}}
       </a>
     </h1>
     {% import 'translations.html' as translations with context %}
