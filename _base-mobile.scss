@@ -15,6 +15,7 @@ $body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
+$heading-weight: normal !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
 $backup-font: sans-serif !default;
@@ -107,13 +108,14 @@ nav li.active a {
 
 div.document {
   max-width: max-content;
+  display: table;
   margin: auto;
 }
 
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   text-align: center;
-  font-weight: normal;
+  font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   margin: 2em 0 0 0;
@@ -247,7 +249,7 @@ div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
-  font-weight: normal;
+  font-weight: $heading-weight;
   border-bottom: 1px solid $doc-bg;
   padding: 0.2em;
   margin: 0;
@@ -286,7 +288,7 @@ div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
-  font-weight: normal;
+  font-weight: $heading-weight;
   padding: 0.2em;
   line-height: 1em;
 }
