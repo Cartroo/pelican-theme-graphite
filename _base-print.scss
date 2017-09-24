@@ -5,6 +5,7 @@ $pre-fg-print: #666666 !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
+$heading-weight: normal !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
 $backup-font: sans-serif !default;
@@ -51,7 +52,7 @@ nav {
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   font-size: 240%;
-  font-weight: normal;
+  font-weight: $heading-weight;
   margin: 1em 0 0 0;
   padding: 0;
 }
@@ -100,7 +101,7 @@ div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
   font-size: 150%;
-  font-weight: normal;
+  font-weight: $heading-weight;
   border-bottom: 1px solid black;
   padding: 0.2em;
   margin: 0;
@@ -110,7 +111,7 @@ div.section h1 {
 div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
-  font-weight: normal;
+  font-weight: $heading-weight;
   padding: 0.2em;
   line-height: 1em;
 }
