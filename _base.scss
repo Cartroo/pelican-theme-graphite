@@ -15,6 +15,7 @@ $body-em: #ffffff !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $heading-font: sans-serif !default;
+$heading-weight: normal !default;
 $monospace-font: monospace !default;
 // Define backups, these are unlikely to be defined but may be.
 $backup-font: sans-serif !default;
@@ -102,14 +103,20 @@ nav li.active a {
   color: $section-bg;
 }
 
+div.document {
+  max-width: max-content;
+  display: table;
+  margin: auto;
+}
+
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   text-align: center;
   font-size: 240%;
-  font-weight: normal;
+  font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 0.5em 1em 1em;
+  margin: 1em 1em 1em;
   padding: 0;
 }
 
@@ -129,12 +136,50 @@ body > h1, h1.title {
   color: $highlight-fg;
 }
 
+#logo {
+  z-index: 999;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  margin: 3px;
+  border: 0;
+  width: 120px;
+}
+
+div.fixed-top {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
 div.related {
   background-color: $menu-bg;
   color: $menu-fg;
   margin: 0;
   padding: 0.2em;
   clear: both;
+  z-index: 998;
+}
+
+.right-edge-menu-item {
+  margin-right: 1em !important;
+}
+
+.left-edge-menu-item {
+  margin-left: 1em !important;
+}
+
+div.related li.breadcrumb-history a {
+  color: #839496;
+}
+
+div.related li.breadcrumb-history::after {
+  content: " \00bb";
+}
+
+div.related li.breadcrumb-current {
+  font-weight: bold;
 }
 
 div.related h3 {
@@ -152,9 +197,8 @@ div.related li {
   display: inline;
 }
 
-div.related li.right {
+div.related ul.right {
   float: right;
-  margin-right: 0.25em;
 }
 
 div.related a {
@@ -195,7 +239,7 @@ div.section h1 {
   color: $highlight-fg;
   text-align: left;
   font-size: 200%;
-  font-weight: normal;
+  font-weight: $heading-weight;
   border-bottom: 1px solid $doc-bg;
   padding: 0.2em;
   margin: 0;
@@ -206,7 +250,7 @@ div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
-  font-weight: normal;
+  font-weight: $heading-weight;
   padding: 0.2em;
   line-height: 1em;
 }
@@ -315,8 +359,8 @@ div.sphinxsidebar, div.sphinxsidebar a {
 div.section ul, div.sphinxsidebar ul {
   list-style: none;
   margin: 0.2em 0;
-  padding-left: 2.2em;
-  text-indent: -1.2em;
+  padding-left: 1.5em;
+  text-indent: -1em;
 }
 
 div.sphinxsidebar ul > li:before {
@@ -332,8 +376,8 @@ div.section ol {
   counter-reset: li;
   list-style: none;
   margin-left: 0;
-  padding-left: 2.6em;
-  text-indent: -1.6em;
+  padding-left: 2em;
+  text-indent: -1.4em;
 }
 
 div.section div.border-under {
@@ -368,7 +412,7 @@ div.section ul > li:before {
 }
 
 div.section ol > li:before {
-  content: counter(li) ". \2000";
+  content: counter(li) ".\2002";
   counter-increment: li;
   color: $body-em;
 }
