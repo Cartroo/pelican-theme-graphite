@@ -29,15 +29,15 @@
     {% if SITEIMAGEURL %}<meta property="og:image" content="{{ SITEIMAGEURL }}" />{% endif %}
     {% if THEME_CSS_MOBILE and THEME_CSS %}
     <meta name="viewport" content="initial-scale=1.0" />
-    <link rel="stylesheet" media="screen and (max-width: 800px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
-    <link rel="stylesheet" media="screen and (min-width: 801px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (max-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (min-width: 901px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
     {% if THEME_CSS_PRINT %}
     <link rel="stylesheet" media="print" href="{{ SITEURL }}/theme/{{ THEME_CSS_PRINT }}" type="text/css" />
     {% endif %}
-    <style media="screen and (min-width: 801px)">
+    <style media="screen and (min-width: 901px)">
       .menu-top {
         display: block;
       {% if LOGOURL %}
@@ -47,7 +47,7 @@
       {% endif %}
       }
     </style>
-    <style media="screen and (max-width: 800px)">
+    <style media="screen and (max-width: 900px)">
       .menu-top {
         display: block;
       {% if LOGOURL %}
@@ -181,9 +181,10 @@
     <div class="related">
         {{ self.sitemenu() }}
         <ul>
-            <li class="left-edge-menu-item breadcrumb-history"><a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
+            <li class="left-edge-menu-item {% if self.breadcrumbs() | trim %}breadcrumb-history{% else %}breadcrumb-current{% endif %}">
+            <a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
             {{ self.breadcrumbs() }}
-        </ul>         
+        </ul>
     </div>
     <div class="footer">
         {% if COPYRIGHT %}{{ COPYRIGHT }}{% endif %}
