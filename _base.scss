@@ -57,7 +57,7 @@ aside, nav, article, figure {
 h1, h2, h3, h4, h5, h6 {
   margin: 1em 0.2em 0.2em 0.2em;
   font-weight: $body-bold-weight;
-  line-height: 2;
+  line-height: 1.2;
 }
 
 header {
@@ -116,7 +116,7 @@ body > h1, h1.title {
   font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 1em 1em 1em;
+  margin: 2em 1em 1.5em;
   padding: 0;
 }
 
@@ -447,8 +447,9 @@ div.section dl {
 
 div.section dt {
   background-color: $subsection-bg;
+  border-radius: 1em;
   margin: 1em 0 0;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 1em;
   font-weight: $body-bold-weight;
   color: $body-em;
 }

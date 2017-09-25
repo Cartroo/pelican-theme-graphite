@@ -157,6 +157,8 @@ div.section blockquote {
   margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
   border: 0;
+  background-color: #eeeeee;
+  border-radius: 0.5em;
 }
 
 pre {
@@ -167,11 +169,11 @@ pre {
 
 div.section pre {
   margin: 0.5em 2em;
-  padding: 0;
+  padding: 0.5em;
   color: $pre-fg-print;
   white-space: pre;
   text-shadow: none;
-  border-left: 1px solid $link-fg;
+  border-left: 1px solid black;
   font-size: 90%;
 }
 
@@ -248,8 +250,10 @@ div.section dl {
 
 div.section dt {
   margin: 1em 0 0;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 1em;
   font-weight: $body-bold-weight;
+  background-color: #eeeeee;
+  border-radius: 1em;
 }
 
 div.section dd {
