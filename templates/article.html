@@ -4,11 +4,9 @@
   <li class="breadcrumb-history"><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
   <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 {% endblock %}
-{% import "twitter.html" as twitter with context %}
 {% block content %}
 <div class="section">
     <h1>
-      {{ twitter.tweetbutton(article.url) }}
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
          title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title}}</a>
     </h1>
@@ -18,6 +16,7 @@
     </div>
     {% endif %}
     <div class="article-summary">{{ article.summary }}</div>
+    {% include 'article_img.html' %}
     {{ article.content }}
     {% if article.series %}
     <div class="parts border-over">

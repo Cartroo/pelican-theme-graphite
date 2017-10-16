@@ -108,7 +108,6 @@ nav li.active a {
 
 div.document {
   max-width: max-content;
-  display: table;
   margin: auto;
 }
 
@@ -118,19 +117,20 @@ body > h1, h1.title {
   font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 2em 0 0 0;
   padding: 0;
 }
 
 @media screen and (min-width: 601px) {
   body > h1, h1.title {
     font-size: 240%;
+    margin: 2em 0 0 0;
   }
 }
 
 @media screen and (max-width: 600px) {
   body > h1, h1.title {
     font-size: 140%;
+    margin: 3em 0 0 0;
   }
 }
 
@@ -221,7 +221,7 @@ div.section {
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
-  margin: 2em 0;
+  margin: 2em auto;
   padding: 0 0 1em 0;
   max-width: 45em;
 }
@@ -243,6 +243,19 @@ div.section div.article-summary {
 div.section div.article-summary p {
   margin: 0;
   padding: 0;
+}
+
+div.section img.article-image {
+  float: right;
+  width: 50%;
+  max-width: 320px;
+  margin: 8px;
+  border: 1px solid $body-fg;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -webkit-shape-outside: circle();
+  shape-outside: circle();
 }
 
 div.section h1 {
@@ -319,7 +332,7 @@ div.section p {
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
-  font-size: 90%; // Reduce monospace font size in inline text.
+  font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
   color: $link-fg;
@@ -388,7 +401,7 @@ div.section pre {
 
 @media screen and (min-width: 601px) {
   pre, section pre {
-    font-size: 90%;
+    font-size: 80%;
   }
 
   div.section pre {
@@ -398,7 +411,7 @@ div.section pre {
 
 @media screen and (max-width: 600px) {
   pre, section pre {
-    font-size: 80%; // Reduce pre font size more on small viewports.
+    font-size: 75%; // Reduce pre font size more on small viewports.
   }
 
   div.section pre {
@@ -437,6 +450,7 @@ div.sphinxsidebar ul > li {
   border-left: 1px solid $link-fg;
   padding-left: 0.5em;
   vertical-align: middle;
+  text-align: left;
 }
 
 div.sphinxsidebar p.topless {
@@ -529,9 +543,11 @@ div.section dl {
 }
 
 div.section dt {
+  display: inline-block;
   background-color: $subsection-bg;
+  border-radius: 1em;
   margin: 1em 0 0;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 1em;
   font-weight: $body-bold-weight;
   color: $body-em;
 }

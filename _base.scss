@@ -57,7 +57,7 @@ aside, nav, article, figure {
 h1, h2, h3, h4, h5, h6 {
   margin: 1em 0.2em 0.2em 0.2em;
   font-weight: $body-bold-weight;
-  line-height: 2;
+  line-height: 1.2;
 }
 
 header {
@@ -116,7 +116,7 @@ body > h1, h1.title {
   font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 1em 1em 1em;
+  margin: 2em 1em 1.5em;
   padding: 0;
 }
 
@@ -210,7 +210,7 @@ div.section {
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
-  margin: 2em 0;
+  margin: 2em 80px 2em 0;
   padding: 0 0 1em 0;
   max-width: 45em;
 }
@@ -232,6 +232,17 @@ div.section div.article-summary {
 div.section div.article-summary p {
   margin: 0;
   padding: 0;
+}
+
+div.section img.article-image {
+  float: right;
+  border: 1px solid $body-fg;
+  border-radius: 50%;
+  margin: 8px -80px 8px 8px;
+  height: 320px;
+  width: 320px;
+  -webkit-shape-outside: circle(165px);
+  shape-outside: circle(165px);
 }
 
 div.section h1 {
@@ -283,7 +294,7 @@ div.section p {
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
-  font-size: 90%; // Reduce monospace font size in inline text.
+  font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
   color: $link-fg;
@@ -333,7 +344,7 @@ pre {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  font-size: 90%;
+  font-size: 80%;
 }
 
 div.section pre {
@@ -343,7 +354,7 @@ div.section pre {
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
-  font-size: 90%;
+  font-size: 80%;
 }
 
 div.sphinxsidebarsection {
@@ -446,9 +457,11 @@ div.section dl {
 }
 
 div.section dt {
+  display: inline-block;
   background-color: $subsection-bg;
+  border-radius: 1em;
   margin: 1em 0 0;
-  padding: 0.2em 0.5em;
+  padding: 0.2em 1em;
   font-weight: $body-bold-weight;
   color: $body-em;
 }
@@ -461,6 +474,11 @@ div.section dd {
 div.section div.right, div.section div.left {
   margin: 0;
   padding: 0;
+}
+
+div.tweetbutton {
+  max-width: 5em;
+  max-height: 2em;
 }
 
 a {
