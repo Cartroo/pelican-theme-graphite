@@ -1,0 +1,10 @@
+    {% if article.image and ( ARTICLE_IMG_PATH or ARTICLE_IMG_SMALL_PATH ) -%}
+      <img class="article-image" {% if ARTICLE_IMG_SMALL_PATH -%}
+          src="{{ ARTICLE_IMG_SMALL_PATH }}/{{ article.image }}"
+        {%- elif ARTICLE_IMG_PATH -%}
+          src="{{ ARTICLE_IMG_PATH }}/{{ article.image }}"
+          {%- endif %} alt="{{ article.image|replace("_", " ")|replace("-", " ")|replace(".jpg", "") }}" {% if article.img_author -%}
+          title="Photo by {{ article.img_author }}{% if article.img_unsplash_key %} on Unsplash{% endif %}"
+        {%- endif %} />
+    {%- endif %}
+
