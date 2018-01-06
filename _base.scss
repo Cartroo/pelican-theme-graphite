@@ -88,6 +88,7 @@ nav li {
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 nav a {
@@ -97,6 +98,7 @@ nav a {
 
 nav li.active {
   background-color: $highlight-fg;
+  box-shadow: none;
 }
 
 nav li.active a {
@@ -144,6 +146,10 @@ body > h1, h1.title {
   margin: 3px;
   border: 0;
   width: 120px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 div.fixed-top {
@@ -160,6 +166,7 @@ div.related {
   padding: 0.2em;
   clear: both;
   z-index: 998;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .right-edge-menu-item {
@@ -210,6 +217,7 @@ div.section {
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin: 2em 80px 2em 0;
   padding: 0 0 1em 0;
   max-width: 45em;
@@ -243,6 +251,7 @@ div.section img.article-image {
   width: 320px;
   -webkit-shape-outside: circle(165px);
   shape-outside: circle(165px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 div.section h1 {
