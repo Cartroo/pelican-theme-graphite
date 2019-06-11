@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% set archive_year, archive_month = None, None %}
+{% set ns = namespace(archive_year=None, archive_month=None, last_date=None) %}
 {% if dates[0].date.year == dates[-1].date.year %}
-  {% set archive_year = dates[0].date|strftime("%Y") %}
+  {% set ns.archive_year = dates[0].date|strftime("%Y") %}
   {% if dates[0].date.month == dates[-1].date.month %}
-    {% set archive_month = dates[0].date|strftime("%B") %}
+    {% set ns.archive_month = dates[0].date|strftime("%B") %}
   {% endif %}
 {% endif %}
 
@@ -20,22 +20,22 @@
 {% endif %}
 
 {% block breadcrumbs %}
-  {% if archive_year is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
+  {% if ns.archive_year is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
     <a href="{{ SITEURL }}/archives.html">Archives</a></li>
-  {% if archive_year is not none %}
-    {% if archive_month is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
+  {% if ns.archive_year is not none %}
+    {% if ns.archive_month is none %} <li class="breadcrumb-current"> {% else %} <li class="breadcrumb-history"> {% endif %}
     {% if year_archive_strftime is none %}
-      {{ archive_year }}
+      {{ ns.archive_year }}
     {% else %}
-      <a href="{{ SITEURL }}/{{ dates[0].date|strftime(year_archive_strftime) }}">{{ archive_year }}</a>
+      <a href="{{ SITEURL }}/{{ dates[0].date|strftime(year_archive_strftime) }}">{{ ns.archive_year }}</a>
     {% endif %}
     </li>
-    {% if archive_month is not none %}
+    {% if ns.archive_month is not none %}
       <li class="breadcrumb-current">
       {% if month_archive_strftime is none %}
-        {{ archive_month }}
+        {{ ns.archive_month }}
       {% else %}
-        <a href="{{ SITEURL }}/{{ dates[0].date|strftime(month_archive_strftime) }}">{{ archive_month }}</a>
+        <a href="{{ SITEURL }}/{{ dates[0].date|strftime(month_archive_strftime) }}">{{ ns.archive_month }}</a>
       {% endif %}
       </li>
     {% endif %}
@@ -53,21 +53,20 @@
 {% block content %}
 <div class="section">
 <h1>Archives
-  {% if archive_year is not none or archive_month is not none %}for{% endif %}
-  {% if archive_month is not none %} {{ archive_month }} {% endif %}
-  {% if archive_year is not none %} {{ archive_year }} {% endif %}
+  {% if ns.archive_year is not none or ns.archive_month is not none %}for{% endif %}
+  {% if ns.archive_month is not none %} {{ ns.archive_month }} {% endif %}
+  {% if ns.archive_year is not none %} {{ ns.archive_year }} {% endif %}
 </h1>
 
-{% set last_date = None %}
 <dl>
 {% for article in dates %}
-    {% if last_date != (article.date.year, article.date.month) %}
+    {% if ns.last_date != (article.date.year, article.date.month) %}
       <dt>{{ monthlink(article.date) }}</dt>
     {% endif %}
     <dd>
       <a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>
     </dd>
-    {% set last_date = (article.date.year, article.date.month) %}
+    {% set ns.last_date = (article.date.year, article.date.month) %}
 {% endfor %}
 </dl>
 </div>

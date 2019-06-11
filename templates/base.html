@@ -101,16 +101,16 @@
     <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: All Posts" />
     {% endif %}
     {% if CATEGORY_FEED_ATOM and category %}
-    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: {{ category }} Posts" />
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: {{ category }} Posts" />
     {% endif %}
     {% if CATEGORY_FEED_RSS and category %}
-    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: {{ category }} Posts" />
+    <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: {{ category }} Posts" />
     {% endif %}
     {% if TAG_FEED_ATOM and tag %}
-    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: Posts Tagged {{ tag }}" />
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed: Posts Tagged {{ tag }}" />
     {% endif %}
     {% if TAG_FEED_RSS and tag %}
-    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
+    <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
     {% endif %}
     {% if 'mdx_math' in MD_EXTENSIONS %}
       <script type="text/x-mathjax-config">
@@ -135,7 +135,7 @@
             <li {% if loop.first %}class="left-edge-menu-item"{% endif %}>
               <a href="{{ link }}">{{ title }}</a> |</li>
           {% endfor %} 
-          {% if PAGES and DISPLAY_PAGES_ON_MENU %}{% for page in PAGES %}
+          {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
             <li>
               <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
           {% endfor %}{% endif %}
@@ -164,9 +164,9 @@
                   <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
                   <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
                   {% if TAG_FEED_ATOM and tag %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
                   {% elif CATEGORY_FEED_ATOM and category %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
                   {% elif FEED_ALL_ATOM %}
                       <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
                   {% endif %}

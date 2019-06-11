@@ -38,23 +38,23 @@
 {% endmacro %}
 
 <dl>
-{% set last_date, posts = None, 0 %}
+{% set ns = namespace(last_date=None, posts=0) %}
 {% for article in dates %}
-  {% if last_date is none or (last_date.year, last_date.month) != (article.date.year, article.date.month) %}
-    {% if posts > 0 %}
-      {{ monthlink(last_date, posts) }}
+  {% if ns.last_date is none or (ns.last_date.year, ns.last_date.month) != (article.date.year, article.date.month) %}
+    {% if ns.posts > 0 %}
+      {{ monthlink(ns.last_date, ns.posts) }}
     {% endif %}
-    {% if last_date.year != article.date.year %}
+    {% if ns.last_date is none or ns.last_date.year != article.date.year %}
       {{ yearlink(article) }}
     {% endif %}
-    {% set posts = 0 %}
+    {% set ns.posts = 0 %}
   {% endif %}
-  {{ articlelink(article) }}
+    {{ articlelink(article) }}
 
-  {% set last_date = article.date %}
-  {% set posts = posts + 1 %}
+  {% set ns.last_date = article.date %}
+  {% set ns.posts = ns.posts + 1 %}
   {% if loop.revindex == 1 %}
-    {{ monthlink(last_date, posts) }}
+    {{ monthlink(ns.last_date, ns.posts) }}
   {% endif %}
 {% endfor %}
 </dl>
