@@ -8,18 +8,17 @@ import codecs
 import os
 import sass
 
-for entry in os.listdir("."):
-    if entry[0] in (".", "_"):
+for entry in os.scandir("."):
+    if entry.name[0] in (".", "_"):
         continue
-    base, ext = os.path.splitext(entry)
+    base, ext = os.path.splitext(entry.name)
     if ext != ".scss":
         continue
     try:
-        css_content = sass.compile_file(entry.encode('utf-8'), output_style=sass.SASS_STYLE_COMPRESSED)
-        # css_content = sass.compile(filename=entry, output_style='compressed') # either nested or compressed
-        #with open(os.path.join("static", base + ".css"), "w") as output_fd:
-        with codecs.open(os.path.join("static", base + ".css"),'w',encoding='utf8') as output_fd:
-            output_fd.write(css_content.decode('utf-8'))
+        # Use "nested" instead of "compressed" for readable output.
+        css_content = sass.compile(filename=entry.name, output_style="compressed")
+        output_filename = os.path.join("static", base + ".css")
+        with open(output_filename, "w", encoding="utf-8") as output_fd:
+            output_fd.write(css_content)
     except Exception as e:
         print("Error processing %s: %s" % (entry, e))
-
