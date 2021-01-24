@@ -13,6 +13,11 @@
     {% if META_KEYWORDS %}<meta name="keywords" content="{{ META_KEYWORDS }}" /> {% endif %}
     {% if META_AUTHOR %} <meta name="author" property="author" content="{{ META_AUTHOR }}" /> {% endif %}
 
+    <!-- Canonical link for articles -->
+    {% if article is defined %}
+    <link rel="canonical" href="{{ SITEURL }}/{{ article.url }}" />
+    {% endif %}
+
     <!-- Favourite icons -->
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon-apple-touch-114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon-apple-touch-114.png" />
