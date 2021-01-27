@@ -55,9 +55,17 @@
     {% if article and ARTICLE_IMG_PATH and article.image %}
       <meta property="og:image" content="{{ ARTICLE_IMG_PATH }}/{{ article.image }}" />
       <meta name="twitter:image" content="{{ ARTICLE_IMG_PATH }}/{{ article.image }}" />
-    {% elif SITEIMAGEURL %}
+    {% else %}
+      {% if SITEIMAGEOGURL %}
+      <meta property="og:image" content="{{ SITEIMAGEOGURL }}" />
+      {% elif SITEIMAGEURL %}
       <meta property="og:image" content="{{ SITEIMAGEURL }}" />
+      {% endif %}
+      {% if SITEIMAGETWITTERURL %}
+      <meta name="twitter:image" content="{{ SITEIMAGETWITTERURL }}" />
+      {% elif SITEIMAGEURL %}
       <meta name="twitter:image" content="{{ SITEIMAGEURL }}" />
+      {% endif %}
     {% endif %}
 
     <!-- Styling for smaller viewports -->
