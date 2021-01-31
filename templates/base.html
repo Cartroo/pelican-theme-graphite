@@ -19,13 +19,13 @@
     {% endif %}
 
     <!-- Favourite icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicon-apple-touch-114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicon-apple-touch-114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="favicon-apple-touch-144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="favicon-apple-touch-144.png" />
-    <link rel="icon" type="image/vnd.microsoft.icon" sizes="32x32 48x48" href="favicon.ico" />
-    <link rel="icon" sizes="128x128" href="favicon.icns" />
-    <link rel="icon" href="favicon.png" type="image/x-icon" />
+    {% if MANIFEST_URL %}
+    <link rel="manifest" href="{{ MANIFEST_URL }}" />
+    {% endif %}{% if APPLE_ICON_URL %}
+    <link rel="apple-touch-icon" href="{{ APPLE_ICON_URL }}" />
+    {% endif %}{% for icon_url, size in FAVICON_URLS %}
+    <link rel="icon" href="{{ icon_url }}" sizes="{{ size }}" />
+    {% endfor %}
 
     <!-- Social media metadata -->
     {% if TWITTER_USERNAME %}<meta name="twitter:creator" content="@{{ TWITTER_USERNAME }}">{% endif %}
