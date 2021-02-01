@@ -125,7 +125,7 @@
     {% if TAG_FEED_RSS and tag %}
     <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
     {% endif %}
-    {% if 'mdx_math' in MD_EXTENSIONS %}
+    {% if MARKDOWN and "mdx_math" in MARKDOWN.get("extension_configs", {}) %}
       <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
           config: ["MMLorHTML.js"],
@@ -133,8 +133,26 @@
           extensions: ["MathMenu.js", "MathZoom.js"]
         });
       </script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
     {% endif %}
+    <script type="text/javascript">
+      // Toggle the dropdown menu if someone clicks the button.
+      function togglesitemenu() {
+        document.getElementById("top-sitemenu-dropdown").classList.toggle("show");
+      }
+      // Close the dropdown menu if the user clicks outside of it.
+      window.onclick = function(event) {
+        if (!event.target.matches('.sitemenu-button')) {
+          let dropdowns = document.getElementsByClassName("sitemenu-content");
+          for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
 </head>
 
 <body id="index" class="home">
@@ -143,8 +161,8 @@
         {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" /></a>{% endif %}
         <div class="menu-top">
         <div class="right sitemenu-container">
-          <button class="sitemenu-button">&#x2630;</button>
-          <div class="sitemenu-content">
+          <button onclick="togglesitemenu()" class="sitemenu-button">&#x2630;</button>
+          <div class="sitemenu-content" id="top-sitemenu-dropdown">
             <a href="/blog">&raquo; Blog</a>
             {% for title, link in MENUITEMS %}
             <a href="{{ link }}">&raquo; {{ title }}</a>
@@ -154,9 +172,6 @@
             {% endfor %}{% endif %}
           </div>
         </div>
-        <ul class="right">
-          <li class="right-edge-menu-item"></li>
-        </ul>
         <ul>
           {% if self.breadcrumbs() | trim %} <li class="breadcrumb-history"> {% else %} <li class="breadcrumb-current"> {% endif %}
           <a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
@@ -187,21 +202,25 @@
                   {% endif %}
                 </ul>
               </div>
+              <div class="sphinxsidebarsection">
+                <h3>Site</h3>
+                <ul>
+                  {% for title, link in MENUITEMS %}
+                  <li><a href="{{ link }}">{{ title }}</a></li>
+                  {% endfor %} 
+                  {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
+                  <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
+                  {% endfor %}{% endif %}
+                  {% if LINKS %}{% for name, link in LINKS %}
+                  <li><a href="{{ link }}">{{ name }}</a></li>
+                  {% endfor %}{% endif %}
+                </ul>
+              </div>
                 {% if SOCIAL %}
               <div class="sphinxsidebarsection">
                   <h3>Me</h3>
                   <ul>
                     {% for name, link in SOCIAL %}
-                      <li><a href="{{ link }}">{{ name }}</a></li>
-                    {% endfor %}
-                  </ul>
-              </div>
-                {% endif %}
-                {% if LINKS %}
-              <div class="sphinxsidebarsection">
-                  <h3>Links</h3>
-                  <ul>
-                    {% for name, link in LINKS %}
                       <li><a href="{{ link }}">{{ name }}</a></li>
                     {% endfor %}
                   </ul>
