@@ -304,7 +304,7 @@ div.section p {
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
-  font-size: 80%; // Reduce monospace font size in inline text.
+  font-size: 90%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
   color: $link-fg;
@@ -354,7 +354,7 @@ pre {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  font-size: 80%;
+  font-size: 90%;
 }
 
 div.section pre {
@@ -364,7 +364,7 @@ div.section pre {
   white-space: pre;
   text-shadow: none;
   border-left: 1px solid $link-fg;
-  font-size: 80%;
+  font-size: 90%;
 }
 
 div.sphinxsidebarsection {
