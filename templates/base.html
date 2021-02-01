@@ -142,19 +142,21 @@
     <div class="related fixed-top">
         {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" /></a>{% endif %}
         <div class="menu-top">
-        {% block sitemenu %}
+        <div class="right sitemenu-container">
+          <button class="sitemenu-button">&#x2630;</button>
+          <div class="sitemenu-content">
+            <a href="/blog">&raquo; Blog</a>
+            {% for title, link in MENUITEMS %}
+            <a href="{{ link }}">&raquo; {{ title }}</a>
+            {% endfor %} 
+            {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
+            <a href="{{ SITEURL }}/{{ page.url }}">&raquo; {{ page.title }}</a>
+            {% endfor %}{% endif %}
+          </div>
+        </div>
         <ul class="right">
-          {% for title, link in MENUITEMS %}
-            <li {% if loop.first %}class="left-edge-menu-item"{% endif %}>
-              <a href="{{ link }}">{{ title }}</a> |</li>
-          {% endfor %} 
-          {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
-            <li>
-              <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a> |</li>
-          {% endfor %}{% endif %}
-          <li class="right-edge-menu-item"><a href="/blog">Blog</a></li>
+          <li class="right-edge-menu-item"></li>
         </ul>
-        {% endblock %}
         <ul>
           {% if self.breadcrumbs() | trim %} <li class="breadcrumb-history"> {% else %} <li class="breadcrumb-current"> {% endif %}
           <a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
@@ -222,7 +224,7 @@
     </div>
     <div class="clearer"></div>
     <div class="related">
-        {{ self.sitemenu() }}
+        <div class="right"><a href="#top">&#8593; Back to top</a></div>
         <ul>
             <li class="left-edge-menu-item {% if self.breadcrumbs() | trim %}breadcrumb-history{% else %}breadcrumb-current{% endif %}">
             <a href="{{ SITEURL }}">{{ SITENAME }}</a></li>
