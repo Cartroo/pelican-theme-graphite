@@ -396,7 +396,7 @@ tt, code {
   margin-left: 0.2em;
   margin-right: 0.2em;
   color: $link-fg;
-  word-break: break-all; // Long inline code can ruin page layout.
+  word-break: break-word; // Long inline code can ruin page layout.
 }
 
 div.section blockquote {
