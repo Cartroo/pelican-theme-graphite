@@ -3,14 +3,18 @@
 {% block content %}
 {% if articles %}
     {% for article in articles_page.object_list %}
-
         {# First item #}
-        {% if not article_summary_only is defined %}
             <div class="section">
               <h1>
-                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmerk"
+                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
                         title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a>
               </h1>
+              {% if not article_summary_only is defined %}
+              <div class="section-head small">
+                {% include 'article_infos.html' %}
+                {% include 'comments.html' %}
+              </div>
+              {% endif %}
               {% if article.series %}
                   <div class="parts border-under">
                     <p><strong>
@@ -26,43 +30,17 @@
                   </div>
               {% endif %}
               <div class="article-summary">{{ article.summary }}</div>
-              {% include 'article_img.html' %}
-              {{ article.content }}
+              {% if article_summary_only is defined %}
+              <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read article &rarr;</a></p>
+              {% else %}
+                {% include 'article_img.html' %}
+                {{ article.content }}
+              {% endif %}
               <div class="section-foot small">
                   {% include 'article_infos.html' %}
-                  &ensp;|&ensp;
                   {% include 'comments.html' %}
               </div>
             </div>
-        {% else %}
-            <div class="section">
-                <h1>
-                  <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-                           title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a></h1>
-                </h1>
-                {% if article.series %}
-                    <div class="parts border-under">
-                      <p><strong>
-                        This is part {{ article.series.index }} of the
-                        &ldquo;{{ article.series.name }}&rdquo;
-                        {% if article.series.index > 1 %}
-                          series which started with
-                          <a href='{{ SITEURL }}/{{ article.series.all[0].url }}'>{{ article.series.all[0].title }}</a>.
-                        {% else %}
-                          series.
-                        {% endif %}
-                      </strong></p>
-                    </div>
-                {% endif %}
-                <div class="article-summary">{{ article.summary }}</div>
-                <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read post &rarr;</a></p>
-                <div class="section-foot small">
-                  {% include 'article_infos.html' %}
-                  &ensp;|&ensp;
-                  {% include 'comments.html' %}
-                </div>
-            </div>
-        {% endif %}
     {% endfor %}
     {% if articles_page.has_previous() or articles_page.has_next() %}
         {% include 'pagination.html' %}

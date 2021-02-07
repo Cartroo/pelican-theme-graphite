@@ -44,6 +44,7 @@ body {
   } @else {
     text-shadow: none;
   }
+  font-size: 1.1em;
   line-height: 1.5;
 }
 
@@ -251,7 +252,7 @@ div.section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin: 2em 80px 2em 0;
   padding: 0 0 1em 0;
-  max-width: 45em;
+  max-width: 50em;
   min-width: 25em;
 }
 
@@ -286,6 +287,19 @@ div.section img.article-image {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+div.section > div.toc {
+  font-size: 80%;
+  padding: 0.5em;
+  margin-left: 2.2em;
+  margin-top: 1em;
+  border-left: 1px solid $link-fg;
+  width: max-content;
+}
+
+div.section > div.toc > span.toctitle {
+  font-weight: $body-bold-weight;
+}
+
 div.section h1 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
@@ -313,14 +327,25 @@ div.section h2 {
 }
 
 div.section h3 {
-  font-size: 140%;
+  font-size: 120%;
   margin: 1.5em 0.5em -0.2em;
 }
 
 div.section div.section-foot {
-  margin: 1em 0 -0.5em;
+  margin: 0 0 -0.5em;
   padding: 0.5em 1em 0;
   border-top: 1px solid $doc-bg;
+  line-height: 1.2;
+}
+
+#hyvor-talk-view {
+  min-height: 20em;
+}
+
+div.section div.section-head {
+  margin: 0;
+  padding: 0.5em 1em 0.5em;
+  border-bottom: 1px solid $doc-bg;
   line-height: 1.2;
 }
 

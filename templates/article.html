@@ -10,6 +10,10 @@
       <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
          title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title}}</a>
     </h1>
+    <div class="section-head small">
+      {% include 'article_infos.html' %}
+      {% include 'comments.html' %}
+    </div>
     {% if article.series %}
     <div class="parts border-under">
       {% include 'article_series.html' %}

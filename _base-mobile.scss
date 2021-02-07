@@ -49,6 +49,7 @@ body {
   -moz-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  font-size: 110%;
   line-height: 1.5;
 }
 
@@ -262,7 +263,6 @@ div.section {
   -webkit-border-radius: 0.5em;
   margin: 2em auto;
   padding: 0 0 1em 0;
-  max-width: 45em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -278,6 +278,19 @@ div.section div.article-summary {
   color: $link-fg;
   margin: 0;
   padding: 0.5em 1em 0.5em;
+}
+
+div.section > div.toc {
+  font-size: 80%;
+  padding: 0.5em;
+  margin-left: 2.2em;
+  margin-top: 1em;
+  border-left: 1px solid $link-fg;
+  width: max-content;
+}
+
+div.section > div.toc > span.toctitle {
+  font-weight: $body-bold-weight;
 }
 
 div.section div.article-summary p {
@@ -320,7 +333,7 @@ div.section h1 {
   }
 
   div.section h3 {
-    font-size: 120%;
+    font-size: 110%;
   }
 }
 
@@ -356,10 +369,21 @@ div.section h3 {
 }
 
 div.section div.section-foot {
-  margin: 1em 0 -0.5em;
+  margin: 0 0 -0.5em;
   padding: 0.5em 1em 0;
   border-top: 1px solid $doc-bg;
   line-height: 1.2;
+}
+
+div.section div.section-head {
+  margin: 1em 0 -0.5em;
+  padding: 0.5em 1em 0;
+  border-bottom: 1px solid $doc-bg;
+  line-height: 1.2;
+}
+
+#hyvor-talk-view {
+  min-height: 20em;
 }
 
 .small {
