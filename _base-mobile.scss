@@ -283,9 +283,8 @@ div.section div.article-summary {
 div.section > div.toc {
   font-size: 80%;
   padding: 0.5em;
-  margin-left: 2.2em;
-  margin-top: 1em;
-  border-left: 1px solid $link-fg;
+  margin: 1em 0.5em;
+  border: 1px solid $link-fg;
   width: max-content;
 }
 
@@ -376,8 +375,8 @@ div.section div.section-foot {
 }
 
 div.section div.section-head {
-  margin: 1em 0 -0.5em;
-  padding: 0.5em 1em 0;
+  margin: 0;
+  padding: 0.5em 1em 0.5em;
   border-bottom: 1px solid $doc-bg;
   line-height: 1.2;
 }
@@ -387,8 +386,8 @@ div.section div.section-head {
 }
 
 div.section p {
-  margin: 0.8em;
-  padding: 0 0.5em;
+  margin: 0.1em;
+  padding: 0 0.2em;
 }
 
 tt, code {
@@ -476,7 +475,8 @@ div.section pre {
   }
 
   div.section pre {
-    margin: 0.5em 1.5em;
+    // Don't bother indenting, we need to make use of all the space.
+    margin: 0.5em 0.5em;
   }
 }
 
@@ -494,8 +494,12 @@ div.sphinxsidebar, div.sphinxsidebar a {
 div.section ul {
   list-style: none;
   margin-left: 0;
-  padding-left: 1.5em;
+  padding-left: 1.4em;
   text-indent: -1em;
+}
+
+div.section ul ul {
+  padding-left: 0.8em;
 }
 
 div.sphinxsidebar ul {
@@ -534,8 +538,12 @@ div.section ol {
   counter-reset: li;
   list-style: none;
   margin-left: 0;
-  padding-left: 2em;
+  padding-left: 1.4em;
   text-indent: -1.4em;
+}
+
+div.section ol ol {
+  padding-left: 0.8em;
 }
 
 div.section div.border-under {
@@ -561,11 +569,16 @@ div.section div.border-under ul {
 }
 
 div.section li {
-  margin: 0.1em 0.1em 0.1em 1em;
+  margin: 0.1em;
 }
 
 div.section ul > li:before {
-  content: "\2023 \2002";
+  content: "\25b8 \2002";
+  color: $body-em;
+}
+
+div.section ul > li li:before {
+  content: "\25b9 \2002";
   color: $body-em;
 }
 

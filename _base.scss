@@ -290,9 +290,8 @@ div.section img.article-image {
 div.section > div.toc {
   font-size: 80%;
   padding: 0.5em;
-  margin-left: 2.2em;
-  margin-top: 1em;
-  border-left: 1px solid $link-fg;
+  margin: 1em 2.2em;
+  border: 1px solid $link-fg;
   width: max-content;
 }
 
@@ -437,7 +436,7 @@ div.section ul, div.sphinxsidebar ul {
 }
 
 div.sphinxsidebar ul > li:before {
-  content: "\2022 \2002";
+  content: "\2023 \2002";
 }
 
 div.sphinxsidebar p.topless {
@@ -480,7 +479,12 @@ div.section div.border-under ul {
 }
 
 div.section ul > li:before {
-  content: "\2023 \2002";
+  content: "\25b8 \2002";
+  color: $body-em;
+}
+
+div.section ul > li li:before {
+  content: "\25b9 \2002";
   color: $body-em;
 }
 
