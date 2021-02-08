@@ -563,14 +563,16 @@ div.section div.parts {
   margin: 0;
   color: $link-fg;
   line-height: 1.2;
+  padding: 0.5em 1em 0.5em;
+}
+
+div.section div.parts p {
+  margin: 0;
+  padding: 0;
 }
 
 div.section div.parts ol {
-  padding-left: 5em;
-}
-
-div.section div.border-under ul {
-  padding-bottom: 1em;
+  padding-left: 4em;
 }
 
 div.section li {

@@ -234,6 +234,12 @@ div.section div.border-over {
 div.section div.parts {
   margin: 0;
   line-height: 1.2;
+  padding: 0.5em 1em 0.5em;
+}
+
+div.section div.parts p {
+  margin: 0;
+  padding: 0;
 }
 
 div.tweetbutton {
