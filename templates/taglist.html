@@ -1,6 +1,6 @@
 {% if article.tags %}
-  &ensp;&#xFF5C;&ensp;Tags:
+  &ensp;&#xFF5C;&ensp;
   {% for tag in article.tags %}
-  <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.revindex > 2 %}&nbsp;{% endif %}
+  <a class="badge" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.revindex > 2 %}&nbsp;{% endif %}
   {% endfor %}
 {% endif %}

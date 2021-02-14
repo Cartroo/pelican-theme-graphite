@@ -12,15 +12,17 @@ $link-fg: #bbbbbb !default;
 $highlight-fg: #cccccc !default;
 $body-fg: #eeeeee !default;
 $body-em: #ffffff !default;
-// Define main fonts, these may well already be defined.
+// Define main fonts
 $body-font: sans-serif !default;
+$body-weight: normal !default;
+$body-bold-weight: bold !default;
 $heading-font: sans-serif !default;
 $heading-weight: normal !default;
 $monospace-font: monospace !default;
-// Define backups, these are unlikely to be defined but may be.
+$monospace-weight: normal !default;
+// Define backups
 $backup-font: sans-serif !default;
 $backup-monospace-font: monospace !default;
-$body-bold-weight: bold !default;
 
 // Default to having text shadow
 $shadow: true !default;
@@ -35,6 +37,7 @@ $shadow: true !default;
 
 body {
   @include font-family-list($body-font, $backup-font);
+  font-weight: $body-weight;
   background-color: $doc-bg;
   padding: 0;
   margin: 0;
@@ -163,11 +166,11 @@ body > h1, h1.title {
 
 .byline {
   @include font-family-list($body-font, $backup-font);
+  font-weight: $body-weight;
+  font-size: 40%;
   margin: 0;
   padding: 0.5ex 0 0;
   line-height: 1;
-  font-size: 40%;
-  font-weight: normal;
   font-variant: small-caps;
   @if $shadow {
     text-shadow: 0 1px 1px black;
@@ -217,7 +220,7 @@ div.related li.breadcrumb-history::after {
 }
 
 div.related li.breadcrumb-current {
-  font-weight: bold;
+  font-weight: $body-bold-weight;
 }
 
 div.related h3 {
@@ -321,12 +324,12 @@ div.section h2, div.section h3 {
 
 div.section h2 {
   font-size: 160%;
-  margin: 1.5em 0.3em 0;
+  margin: 1em 0.3em -0.4em;
 }
 
 div.section h3 {
   font-size: 120%;
-  margin: 1.5em 0.5em -0.2em;
+  margin: 1em 0.5em -0.4em;
 }
 
 div.section div.section-foot {
@@ -348,12 +351,13 @@ div.section div.section-head {
 }
 
 div.section p {
-  margin: 1.5em 0.8em;
+  margin: 1em 0.8em;
   padding: 0 0.5em;
 }
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
+  font-weight: $monospace-weight;
   font-size: 90%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
@@ -366,11 +370,7 @@ div.section blockquote {
   margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
   position: relative;
-  background-color: $subsection-bg;
-  color: $body-em;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  color: $link-fg;
 }
 
 div.section blockquote:before {
@@ -378,11 +378,12 @@ div.section blockquote:before {
   padding-left: 10px;
   content: "\201C";
   font-size: 400%;
+  font-weight: $body-bold-weight;
   position: absolute;
   left: -5px;
   top: 30px;
   line-height: 0;
-  color: $section-bg;;
+  color: $link-fg;
 }
 
 div.section blockquote:after {
@@ -390,15 +391,26 @@ div.section blockquote:after {
   padding-left: 10px;
   content: "\201D";
   font-size: 400%;
+  font-weight: $body-bold-weight;
   position: absolute;
   right: 10px;
-  bottom: 0;
+  bottom: 10px;
   line-height: 0;
-  color: $section-bg;;
+  color: $link-fg;
+}
+
+div.section blockquote strong {
+  font-style: italic;
+  color: $link-fg;
+}
+
+div.section blockquote em {
+  font-style: normal;
 }
 
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
+  font-weight: $monospace-weight;
   white-space: pre;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -519,23 +531,34 @@ div.section li p {
 }
 
 div.section dl {
-  margin: 1em 1.5em 0.5em;
-  padding: 0;
+  margin: 0.2em 0;
+  padding-left: 1.5em;
 }
 
 div.section dt {
-  display: inline-block;
-  background-color: $subsection-bg;
-  border-radius: 1em;
-  margin: 1em 0 0;
-  padding: 0.2em 1em;
+  margin: 0.1em 0.1em 0.1em 1em;
   font-weight: $body-bold-weight;
+  text-indent: -1em;
+}
+
+div.section dt tt, div.section dt code {
+  font-weight: bold;
+}
+
+div.section dl > dt:before {
+  content: "\2023 \2002";
   color: $body-em;
 }
 
 div.section dd {
-  margin: 0;
+  margin: 0.1em 0.1em 0.1em 1em;
   padding: 0 1.5em 0.2em;
+  text-indent: -1em;
+}
+
+div.section dd:before {
+  content: "\2026 \2002";
+  color: $body-em;
 }
 
 div.section div.right, div.section div.left {
@@ -644,7 +667,7 @@ table.indextable td {
 }
 
 em {
-  font-weight: normal;
+  font-weight: $body-weight;
   font-style: italic;
 }
 
@@ -696,6 +719,7 @@ table.codehilitetable div.linenodiv pre {
 
 table.codehilitetable pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
+  font-weight: $monospace-weight;
   border: 0;
   margin: 0;
   padding: 0.5em; 
@@ -774,6 +798,24 @@ sub {
 
 sup {
   top: -0.8ex;
+}
+
+div.section a.badge {
+  background-color: $link-fg;
+  color: $section-bg;
+  text-decoration: none;
+  border-radius: 2em;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  padding: 0 0.5em 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 90%;
+  font-weight: $body-weight;
+}
+
+div.section a.badge:hover {
+  background-color: $body-fg;
 }
 
 @import "jquery.markdownFootnotes";

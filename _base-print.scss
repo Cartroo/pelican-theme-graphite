@@ -1,17 +1,17 @@
 // Note: I've just begun to use sass for the colours, I'm sure there's more
 //       refactoring that could happen when I get chance.
 
-$pre-fg-print: #666666 !default;
-// Define main fonts, these may well already be defined.
+// Define main fonts.
 $body-font: sans-serif !default;
+$body-weight: normal !default;
+$body-bold-weight: bold !default;
 $heading-font: sans-serif !default;
 $heading-weight: normal !default;
 $monospace-font: monospace !default;
-// Define backups, these are unlikely to be defined but may be.
+$monospace-weight: normal !default;
+// Define backups.
 $backup-font: sans-serif !default;
 $backup-monospace-font: monospace !default;
-$body-bold-weight: bold !default;
-
 
 @mixin font-family-list($main, $backup) {
   @if $main == $backup {
@@ -21,13 +21,12 @@ $body-bold-weight: bold !default;
   }
 }
 
-
 body {
   @include font-family-list($body-font, $backup-font);
+  font-weight: $body-weight;
   padding: 0;
   margin: 0;
   color: black;
-  font-size: 90%;
   text-align: center;
 }
 
@@ -59,11 +58,11 @@ body > h1, h1.title {
 
 .byline {
   @include font-family-list($body-font, $backup-font);
+  font-weight: $body-weight;
   margin: 0;
   padding: 0.5ex 0 0;
   line-height: 1;
   font-size: 40%;
-  font-weight: normal;
   font-variant: small-caps;
 }
 
@@ -74,7 +73,7 @@ div.related {
 div.section {
   margin: 2em 0;
   padding: 0 0 1em;
-  display: inline-block;
+  display: block;
   text-align: left;
 }
 
@@ -83,7 +82,7 @@ div.document > div.section {
 }
 
 div.section div.article-summary {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #888888;
   font-size: 90%;
   font-style: italic;
   margin: 0;
@@ -105,7 +104,7 @@ div.section > div.toc {
   padding: 0.5em;
   margin-left: 2.2em;
   margin-top: 1em;
-  border-left: 1px solid black;
+  border-left: 1px solid #888888;
 }
 
 div.section > div.toc > ul {
@@ -122,7 +121,7 @@ div.section h1 {
   text-align: left;
   font-size: 150%;
   font-weight: $heading-weight;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #888888;
   padding: 0.2em;
   margin: 0;
   line-height: 1.1;
@@ -138,25 +137,25 @@ div.section h2, div.section h3 {
 
 div.section h2 {
   font-size: 140%;
-  margin: 1.5em 0.3em 0;
+  margin: 1em 0.3em -0.4em;
 }
 
 div.section h3 {
   font-size: 110%;
-  margin: 1.5em 0.5em -0.2em;
+  margin: 1em 0.5em -0.4em;
 }
 
 div.section div.section-foot {
   margin: 0 0 -0.5em;
   padding: 0.5em 1em 0;
-  border-top: 1px solid black;
+  border-top: 1px solid #888888;
   line-height: 1.2;
 }
 
 div.section div.section-head {
-  margin: 1em 0 -0.5em;
-  padding: 0.5em 1em 0;
-  border-bottom: 1px solid black;
+  margin: 0;
+  padding: 0.5em 1em 0.5em;
+  border-bottom: 1px solid #888888;
   line-height: 1.2;
 }
 
@@ -169,42 +168,76 @@ div.section div.section-head {
 }
 
 div.section p {
-  margin: 1.5em 0.8em;
+  margin: 1em 0.8em;
   padding: 0 0.5em;
 }
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
+  font-weight: $monospace-weight;
   font-size: 90%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
-  color: $pre-fg-print;
+  color: #666666;
 }
 
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
-  color: $pre-fg-print;
+  color: #666666;
   margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
   border: 0;
-  background-color: #eeeeee;
   border-radius: 0.5em;
+  position: relative;
+}
+
+div.section blockquote:before {
+  display: block;
+  padding-left: 10px;
+  content: "\201C";
+  font-size: 400%;
+  position: absolute;
+  left: -5px;
+  top: 30px;
+  line-height: 0;
+  color: #777777;
+}
+
+div.section blockquote:after {
+  display: block;
+  padding-left: 10px;
+  content: "\201D";
+  font-size: 400%;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  line-height: 0;
+  color: #777777;
+}
+
+div.section blockquote strong {
+  font-style: italic;
+}
+
+div.section blockquote em {
+  font-style: normal;
 }
 
 pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
-  white-space: pre;
+  font-weight: $monospace-weight;
+  white-space: pre-wrap;
   font-size: 90%;
 }
 
 div.section pre {
   margin: 0.5em 2em;
   padding: 0.5em;
-  color: $pre-fg-print;
-  white-space: pre;
+  color: #666666;
+  white-space: pre-wrap;
   text-shadow: none;
-  border-left: 1px solid black;
+  border-left: 1px solid #888888;
   font-size: 90%;
 }
 
@@ -224,11 +257,11 @@ div.section ol {
 }
 
 div.section div.border-under {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #888888;
 }
 
 div.section div.border-over {
-  border-top: 1px solid black;
+  border-top: 1px solid #888888;
 }
 
 div.section div.parts {
@@ -285,24 +318,32 @@ div.section li p {
 }
 
 div.section dl {
-  margin: 1em 1.5em 0.5em;
-  padding: 0;
+  margin: 0.2em 0;
+  padding-left: 1.5em;
 }
 
 div.section dt {
-  display: inline-block;
-  background-color: #eeeeee;
-  border-radius: 1em;
-  margin: 1em 0 0;
-  padding: 0.2em 1em;
+  margin: 0.1em 0.1em 0.1em 1em;
   font-weight: $body-bold-weight;
-  background-color: #eeeeee;
-  border-radius: 1em;
+  text-indent: -1em;
+}
+
+div.section dt tt, div.section dt code {
+  font-weight: bold;
+}
+
+div.section dl > dt:before {
+  content: "\2023 \2002";
 }
 
 div.section dd {
-  margin: 0;
+  margin: 0.1em 0.1em 0.1em 1em;
   padding: 0 1.5em 0.2em;
+  text-indent: -1em;
+}
+
+div.section dd:before {
+  content: "\2026 \2002";
 }
 
 div.section div.right, div.section div.left {
@@ -374,7 +415,7 @@ table.indextable td {
 }
 
 em {
-  font-weight: normal;
+  font-weight: $body-weight;
   font-style: italic;
 }
 
@@ -415,15 +456,16 @@ table.codehilitetable td {
 table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  border-right: 1px solid black;
+  border-right: 1px solid #888888;
 }
 
 table.codehilitetable pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
+  font-weight: $monospace-weight;
   border: 0;
   margin: 0;
   padding: 0.5em; 
-  white-space: pre;
+  white-space: pre-wrap;
   line-height: 1.25;
 }
 
@@ -441,12 +483,12 @@ hr {
   width: 80%;
   height: 0;
   border: 0;
-  border-top: 1px solid black;
+  border-top: 1px solid #888888;
 }
 
 div.section hr {
   width: 100%;
-  border-top: 1px solid black;
+  border-top: 1px solid #888888;
 }
 
 div.section img {
@@ -499,6 +541,18 @@ sup {
 
 div.comments {
   display: none;
+}
+
+div.section a.badge {
+  text-decoration: none;
+  border: 1px solid #888888;
+  border-radius: 2em;
+  -moz-border-radius: 2em;
+  -webkit-border-radius: 2em;
+  padding: 0 0.5em 0;
+  margin: 0;
+  font-size: 90%;
+  font-weight: $body-weight;
 }
 
 @import "jquery.markdownFootnotes";
