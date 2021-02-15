@@ -548,17 +548,13 @@ div.section dt tt, div.section dt code {
 div.section dl > dt:before {
   content: "\2023 \2002";
   color: $body-em;
+  font-weight: $body-weight;
 }
 
 div.section dd {
-  margin: 0.1em 0.1em 0.1em 1em;
-  padding: 0 1.5em 0.2em;
-  text-indent: -1em;
-}
-
-div.section dd:before {
-  content: "\2026 \2002";
-  color: $body-em;
+  margin: 0.1em 0.1em 0.1em 1.5em;
+  padding: 0 0.5em 0.2em;
+  border-left: 1px solid $link-fg;
 }
 
 div.section div.right, div.section div.left {
