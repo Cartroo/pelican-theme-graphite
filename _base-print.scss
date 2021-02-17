@@ -56,6 +56,10 @@ body > h1, h1.title {
   padding: 0;
 }
 
+div.body > div.toc {
+  display: none;
+}
+
 .byline {
   @include font-family-list($body-font, $backup-font);
   font-weight: $body-weight;
@@ -64,6 +68,18 @@ body > h1, h1.title {
   line-height: 1;
   font-size: 40%;
   font-variant: small-caps;
+}
+
+div.body > h1 {
+  @include font-family-list($body-font, $backup-font);
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: $body-bold-weight;
+  color: #444444;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  border-bottom: 1px solid $body-em;
 }
 
 div.related {
@@ -95,7 +111,7 @@ div.section div.article-summary p {
   padding: 0;
 }
 
-div.section img.article-image {
+div.section img.article-image, div.section img.article-image-small {
   display: none;
 }
 
@@ -338,8 +354,8 @@ div.section dl > dt:before {
 }
 
 div.section dd {
-  margin: 0.1em 0.1em 0.1em 1.5em;
-  padding: 0 0.5em 0.2em;
+  margin: 0 0.1em 0 1.5em;
+  padding: 0.1em 0.5em 0.3em;
   border-left: 1px solid #888888;
 }
 

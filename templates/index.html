@@ -1,10 +1,29 @@
 {% extends "base.html" %}
+{% set ns = namespace(last_date=None) %}
 {% block content_title %}{% endblock %}
 {% block content %}
 {% if articles %}
+{% if articles_page.has_previous() or articles_page.has_next() %}
+{% include 'pagination.html' %}
+{% endif %}
+    <div class="toc">
+    <span class="toctitle">Page contents</span>
+    <ul>
+      {% for article in articles_page.object_list %}
+      <li><a href="#{{ article.slug }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d %Y") }})</span></li>
+      {% endfor %}  
+    </ul>
+    </div>
     {% for article in articles_page.object_list %}
-        {# First item #}
-            <div class="section">
+            {% if ns.last_date != (article.date.year, article.date.month) %}
+            <h1>{{ article.date|strftime('%B %Y') }}</h1>
+            {% set ns.last_date = (article.date.year, article.date.month) %}
+            {% endif %}
+            <div class="section" style="position: relative">
+              {% if article_summary_only is defined %}
+              {% include 'article_img.html' %}
+              {% endif %}
+              <a id="{{ article.slug }}" style="position:absolute; top:-50px;"></a>
               <h1>
                 <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
                         title="Permalink to {{ article.title|striptags }}">{{ HEADING_PREFIX }} {{ article.title }}</a>

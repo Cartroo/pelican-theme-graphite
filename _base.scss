@@ -164,6 +164,18 @@ body > h1, h1.title {
   padding: 0;
 }
 
+div.body > h1 {
+  @include font-family-list($body-font, $backup-font);
+  text-align: left;
+  font-size: 1.2em;
+  font-weight: $body-bold-weight;
+  color: $body-em;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  border-bottom: 1px solid $body-em;
+}
+
 .byline {
   @include font-family-list($body-font, $backup-font);
   font-weight: $body-weight;
@@ -252,7 +264,7 @@ div.section {
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 2em 80px 2em 0;
+  margin: 1em 80px 2em 0;
   padding: 0 0 1em 0;
   max-width: 50em;
   min-width: 25em;
@@ -289,11 +301,28 @@ div.section img.article-image {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+div.section img.article-image-small {
+  float: right;
+  width: 50%;
+  max-width: 160px;
+  margin: -30px -30px 8px 8px;
+  border: 1px solid $body-fg;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -webkit-shape-outside: circle();
+  shape-outside: circle(85px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 div.section > div.toc {
   font-size: 80%;
   padding: 0.5em;
   margin: 1em 2.2em;
   border: 1px solid $link-fg;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
   width: max-content;
 }
 
@@ -552,8 +581,8 @@ div.section dl > dt:before {
 }
 
 div.section dd {
-  margin: 0.1em 0.1em 0.1em 1.5em;
-  padding: 0 0.5em 0.2em;
+  margin: 0 0.1em 0 1.5em;
+  padding: 0.1em 0.5em 0.3em;
   border-left: 1px solid $link-fg;
 }
 
@@ -783,6 +812,11 @@ div.footnote p {
   box-shadow: 0 3px 6px rgba(0,0,0,0.5);
 }
 
+p.paginator {
+  width: 90%;
+  text-align: center;
+}
+
 sup, sub {
   vertical-align: baseline;
   position: relative;
@@ -812,6 +846,32 @@ div.section a.badge {
 
 div.section a.badge:hover {
   background-color: $body-fg;
+}
+
+div.body > div.toc {
+  padding: 0.5em;
+  margin: 1em 0 2em 0;
+  border: 1px solid $body-em;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  width: 90%;
+}
+
+div.body > div.toc > span.toctitle {
+  font-weight: $body-bold-weight;
+  color: $body-em;
+}
+
+div.body > div.toc > ul {
+  margin: 0;
+  padding: 0.5em 1.5em;
+  list-style: none;
+  text-indent: -1em;
+}
+
+div.body > div.toc > ul > li:before {
+  content: "\2023 \2002";
 }
 
 @import "jquery.markdownFootnotes";

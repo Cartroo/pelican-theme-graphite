@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block breadcrumbs %}<li class="breadcrumb-current"><a href="{{ SITEURL }}/archives.html">Archives</a></li>{% endblock %}
 {% block content %}
-<div class="section">
-<h1>Archives</h1>
-
+{% set ns = namespace(last_date=None, last_year=None, posts=0) %}
 {% if YEAR_ARCHIVE_SAVE_AS %}
   {% set year_archive_strftime = YEAR_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
 {% else %}
@@ -15,47 +13,62 @@
   {% set month_archive_strftime = None %}
 {% endif %}
 
+<div class="section">
+<h1>Index</h1>
+<p>
+  The links below jump you to the section for that year, where you can jump direct to an article or click any year or month heading to see article summaries.
+</p>
+<ul class="four-col-list">
+{% for article in dates %}
+  {% if ns.last_year is none or article.date.year != ns.last_year %}
+  {% if ns.posts > 0 %}
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&nbsp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+  {% endif %}
+  {% set ns.last_year = article.date.year %}
+  {% set ns.posts = 0 %}
+  {% endif %}
+  {% set ns.posts = ns.posts + 1 %}
+{% endfor %}
+{% if ns.posts > 0 %}
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&nbsp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+{% endif %}
+</ul>
+
 {% macro yearlink(article) %}
-   <dt>
-   {% if year_archive_strftime is none %}
-     {{ article.date|strftime("%Y") }}
-   {% else %}
-     <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">{{ article.date|strftime("%Y") }}</a>
-   {% endif %}
-   </dt>
+</dl></div><div class="section" style="position: relative">
+  <a id="archive{{ article.date.year }}" style="position:absolute; top:-50px;"></a><h1>
+    {% if year_archive_strftime is none %}
+    Archives for {{ article.date|strftime('%Y') }}
+    {% else %}
+    <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">Archives for {{ article.date|strftime('%Y') }}</a>
+    {% endif %}
+  </h1><dl>
 {% endmacro %}
 
 {% macro articlelink(article) %}
-  {% if month_archive_strftime is none %}
     <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d") }})</span></dd>
-  {% endif %}
 {% endmacro %}
 
-{% macro monthlink(last_date, posts) %}
-  {% if month_archive_strftime is not none %}
-    <dd><a href="{{ SITEURL }}/{{ last_date|strftime(month_archive_strftime) }}">{{ last_date|strftime("%B") }}</a>&nbsp;<span class="small">({{ posts }} posts)</span></dd>
-  {% endif %}
+{% macro monthlink(article) %}
+  <dt>
+    {% if year_archive_strftime is none %}
+    {{ article.date|strftime('%B') }}
+    {% else %}
+    <a href="{{ SITEURL }}/{{ article.date|strftime(month_archive_strftime) }}">{{ article.date|strftime('%B') }}</a>
+    {% endif %}
+  </dt>
 {% endmacro %}
 
 <dl>
-{% set ns = namespace(last_date=None, posts=0) %}
 {% for article in dates %}
-  {% if ns.last_date is none or (ns.last_date.year, ns.last_date.month) != (article.date.year, article.date.month) %}
-    {% if ns.posts > 0 %}
-      {{ monthlink(ns.last_date, ns.posts) }}
-    {% endif %}
-    {% if ns.last_date is none or ns.last_date.year != article.date.year %}
-      {{ yearlink(article) }}
-    {% endif %}
-    {% set ns.posts = 0 %}
+  {% if ns.last_date is none or ns.last_date.year != article.date.year %}
+    {{ yearlink(article) }}
+    {{ monthlink(article) }}
+  {% elif ns.last_date.month != article.date.month %}
+    {{ monthlink(article) }}
   {% endif %}
-    {{ articlelink(article) }}
-
+  {{ articlelink(article) }}
   {% set ns.last_date = article.date %}
-  {% set ns.posts = ns.posts + 1 %}
-  {% if loop.revindex == 1 %}
-    {{ monthlink(ns.last_date, ns.posts) }}
-  {% endif %}
 {% endfor %}
 </dl>
 </div>

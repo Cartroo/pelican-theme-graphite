@@ -1,5 +1,5 @@
     {% if article.image and ( ARTICLE_IMG_PATH or ARTICLE_IMG_SMALL_PATH ) -%}
-      <img class="article-image" {% if ARTICLE_IMG_SMALL_PATH -%}
+      <img {% if article_summary_only is defined %}class="article-image-small"{% else %}class="article-image"{% endif %} {% if ARTICLE_IMG_SMALL_PATH -%}
           src="{{ ARTICLE_IMG_SMALL_PATH }}/{{ article.image }}"
         {%- elif ARTICLE_IMG_PATH -%}
           src="{{ ARTICLE_IMG_PATH }}/{{ article.image }}"

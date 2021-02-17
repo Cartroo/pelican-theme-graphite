@@ -64,3 +64,11 @@ a.footnote-ref:before {
 a.footnote-ref:after {
   content: "]";
 }
+
+ul.two-col-list {
+  column-count: 2;
+}
+
+ul.four-col-list {
+  column-count: 4;
+}
