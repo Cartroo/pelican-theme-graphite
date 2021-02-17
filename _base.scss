@@ -304,14 +304,14 @@ div.section img.article-image {
 div.section img.article-image-small {
   float: right;
   width: 50%;
-  max-width: 160px;
+  max-width: 120px;
   margin: -30px -30px 8px 8px;
   border: 1px solid $body-fg;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   -webkit-shape-outside: circle();
-  shape-outside: circle(85px);
+  shape-outside: circle(65px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
