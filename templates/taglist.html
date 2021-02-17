@@ -1,6 +1,8 @@
 {% if article.tags %}
   &ensp;&#xFF5C;&ensp;
+  <div style="display: inline-block">
   {% for tag in article.tags %}
   <a class="badge" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.revindex > 2 %}&nbsp;{% endif %}
   {% endfor %}
+  </div>
 {% endif %}

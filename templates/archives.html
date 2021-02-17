@@ -18,7 +18,7 @@
 <p>
   The links below jump you to the section for that year, where you can jump direct to an article or click any year or month heading to see article summaries.
 </p>
-<ul class="four-col-list">
+<ul class="multi-column-list">
 {% for article in dates %}
   {% if ns.last_year is none or article.date.year != ns.last_year %}
   {% if ns.posts > 0 %}

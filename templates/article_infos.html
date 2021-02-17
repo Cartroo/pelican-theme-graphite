@@ -1,9 +1,10 @@
+    <div style="display: inline-block">
     <abbr class="published" title="{{ article.date.isoformat() }}">
         <strong>{{ article.locale_date }}</strong>
     </abbr>
   {% if article.author and article.author != AUTHOR %}
         by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
   {% endif %}
-    in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+    in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></div>
   {% include 'taglist.html' %}
   {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">[PDF version]</a>{% endif %}

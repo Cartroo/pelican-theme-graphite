@@ -994,6 +994,10 @@ div.body > div.toc > ul > li:before {
   content: "\2023 \2002";
 }
 
+ul.multi-column-list {
+  column-count: 2;
+}
+
 @import "jquery.markdownFootnotes";
 @import "base-shared";
 

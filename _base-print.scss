@@ -568,6 +568,10 @@ div.section a.badge {
   font-weight: $body-weight;
 }
 
+ul.multi-column-list {
+  column-count: 4;
+}
+
 @import "jquery.markdownFootnotes";
 @import "base-shared";
 
