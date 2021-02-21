@@ -247,7 +247,7 @@ div.related li.breadcrumb-history {
 }
 
 div.related li.breadcrumb-current {
-  font-weight: bold;
+  font-weight: $body-bold-weight
 }
 
 div.related h3 {
@@ -959,6 +959,7 @@ sup {
   padding: 0 0.5em 0;
   margin: 0;
   display: inline-block;
+  text-indent: 0;
   font-size: 90%;
   font-weight: $body-weight;
 }

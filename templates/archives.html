@@ -22,7 +22,7 @@
 {% for article in dates %}
   {% if ns.last_year is none or article.date.year != ns.last_year %}
   {% if ns.posts > 0 %}
-  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small"><div class="badge">{{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %}</div></span></li>
   {% endif %}
   {% set ns.last_year = article.date.year %}
   {% set ns.posts = 0 %}
@@ -30,7 +30,7 @@
   {% set ns.posts = ns.posts + 1 %}
 {% endfor %}
 {% if ns.posts > 0 %}
-  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small"><div class="badge">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</div></span></li>
 {% endif %}
 </ul>
 
