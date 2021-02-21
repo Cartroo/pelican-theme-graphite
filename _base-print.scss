@@ -79,7 +79,7 @@ div.body > h1 {
   margin: 0;
   padding: 0;
   width: 90%;
-  border-bottom: 1px solid $body-em;
+  border-bottom: 1px dotted $body-em;
 }
 
 div.related {
@@ -556,9 +556,8 @@ div.comments {
   display: none;
 }
 
-div.section a.badge {
-  text-decoration: none;
-  border: 1px solid #888888;
+.badge {
+  border: 1px dotted #888888;
   border-radius: 2em;
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
@@ -566,6 +565,10 @@ div.section a.badge {
   margin: 0;
   font-size: 90%;
   font-weight: $body-weight;
+}
+
+div.section a.badge {
+  text-decoration: none;
 }
 
 ul.multi-column-list {

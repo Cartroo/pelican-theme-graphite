@@ -173,7 +173,7 @@ div.body > h1 {
   margin: 0;
   padding: 0;
   width: 90%;
-  border-bottom: 1px solid $body-em;
+  border-bottom: 1px dotted $body-em;
 }
 
 .byline {
@@ -835,7 +835,7 @@ sup {
   border-radius: 2em;
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
-  border: 1px solid $link-fg;
+  border: 1px dotted $link-fg;
   padding: 0 0.5em 0;
   margin: 0;
   display: inline-block;
@@ -843,8 +843,14 @@ sup {
   font-weight: $body-weight;
 }
 
+div.section a.badge {
+  text-decoration: none;
+}
+
 div.section a.badge:hover {
-  background-color: $body-fg;
+  background-color: $doc-bg;
+  border: 1px solid $link-fg;
+  text-shadow: none;
 }
 
 div.body > div.toc {
