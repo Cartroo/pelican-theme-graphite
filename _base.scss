@@ -319,7 +319,7 @@ div.section > div.toc {
   font-size: 80%;
   padding: 0.5em;
   margin: 1em 2.2em;
-  border: 1px solid $link-fg;
+  border: 1px dotted $link-fg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -830,28 +830,32 @@ sup {
   top: -0.8ex;
 }
 
-div.section a.badge {
-  background-color: $link-fg;
-  color: $section-bg;
-  text-decoration: none;
+.badge {
+  color: $link-fg;
   border-radius: 2em;
   -moz-border-radius: 2em;
   -webkit-border-radius: 2em;
+  border: 1px solid $link-fg;
   padding: 0 0.5em 0;
   margin: 0;
   display: inline-block;
   font-size: 90%;
-  font-weight: $body-weight;
+  font-weight: $body-bold-weight;
+}
+
+div.section a.badge {
+  text-decoration: none;
 }
 
 div.section a.badge:hover {
-  background-color: $body-fg;
+  background-color: $link-fg;
+  color: $section-bg;
 }
 
 div.body > div.toc {
   padding: 0.5em;
   margin: 1em 0 2em 0;
-  border: 1px solid $body-em;
+  border: 1px dotted $body-em;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
@@ -861,6 +865,10 @@ div.body > div.toc {
 div.body > div.toc > span.toctitle {
   font-weight: $body-bold-weight;
   color: $body-em;
+}
+
+div.body > div.toc ul a {
+  text-decoration: underline;
 }
 
 div.body > div.toc > ul {

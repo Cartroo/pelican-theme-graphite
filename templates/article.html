@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
+{% if YEAR_ARCHIVE_SAVE_AS %}
+  {% set year_archive_strftime = YEAR_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set year_archive_strftime = None %}
+{% endif %}
+{% if MONTH_ARCHIVE_SAVE_AS %}
+  {% set month_archive_strftime = MONTH_ARCHIVE_SAVE_AS|replace("{date:", "")|replace("}", "") %}
+{% else %}
+  {% set month_archive_strftime = None %}
+{% endif %}
 {% block breadcrumbs %}
-  <li class="breadcrumb-history"><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+  <li class="breadcrumb-history"><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+  <li class="breadcrumb-history">
+  {% if year_archive_strftime is none %}{{ article.date.strftime('%Y') }}{% else %}
+    <a href="{{ SITEURL }}/{{ article.date|strftime(year_archive_strftime) }}">{{ article.date.strftime('%Y') }}</a>
+  {% endif %}</li><li class="breadcrumb-history">
+  {% if month_archive_strftime is none %}{{ article.date.strftime('%B') }}{% else %}
+      <a href="{{ SITEURL }}/{{ article.date|strftime(month_archive_strftime) }}">{{ article.date.strftime('%B') }}</a>
+  {% endif %}</li>
   <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 {% endblock %}
 {% block content %}

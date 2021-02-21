@@ -22,7 +22,7 @@
 {% for article in dates %}
   {% if ns.last_year is none or article.date.year != ns.last_year %}
   {% if ns.posts > 0 %}
-  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&nbsp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
   {% endif %}
   {% set ns.last_year = article.date.year %}
   {% set ns.posts = 0 %}
@@ -30,7 +30,7 @@
   {% set ns.posts = ns.posts + 1 %}
 {% endfor %}
 {% if ns.posts > 0 %}
-  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&nbsp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
+  <li><a href="#archive{{ ns.last_year }}">{{ ns.last_year }}</a>&ensp;<span class="small">({{ ns.posts }} post{% if ns.posts > 1 %}s{% endif %})</span></li>
 {% endif %}
 </ul>
 
@@ -46,7 +46,7 @@
 {% endmacro %}
 
 {% macro articlelink(article) %}
-    <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d") }})</span></dd>
+    <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&ensp;<span class="small"><div class="badge">{{ article.date|strftime("%a %b %d") }}</div></span></dd>
 {% endmacro %}
 
 {% macro monthlink(article) %}

@@ -3,17 +3,18 @@
 {% block content_title %}{% endblock %}
 {% block content %}
 {% if articles %}
-{% if articles_page.has_previous() or articles_page.has_next() %}
-{% include 'pagination.html' %}
-{% endif %}
     <div class="toc">
-    <span class="toctitle">Page contents</span>
+    <span class="toctitle">Articles on current page <span class="small">({{ articles_page.start_index() }}-{{ articles_page.end_index() }} of {{ articles_paginator.count }})</span></span>
+    <div>
     <ul>
       {% for article in articles_page.object_list %}
-      <li><a href="#{{ article.slug }}">{{ article.title }}</a>&nbsp;<span class="small">({{ article.date|strftime("%a %b %d %Y") }})</span></li>
-      {% endfor %}  
+      <li><a href="#{{ article.slug }}">{{ article.title }}</a>&ensp;<span class="small"><span class="badge">{{ article.date|strftime("%a %b %d %Y") }}</span></span></li>
+      {% endfor %}
     </ul>
-    </div>
+    {% if articles_page.has_previous() or articles_page.has_next() %}
+    {% include 'pagination.html' %}
+    {% endif %}
+    </div></div>
     {% for article in articles_page.object_list %}
             {% if ns.last_date != (article.date.year, article.date.month) %}
             <h1>{{ article.date|strftime('%B %Y') }}</h1>

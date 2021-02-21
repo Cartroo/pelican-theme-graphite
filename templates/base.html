@@ -165,7 +165,7 @@
             <a href="/blog">&raquo; Blog</a>
             {% for title, link in MENUITEMS %}
             <a href="{{ link }}">&raquo; {{ title }}</a>
-            {% endfor %} 
+            {% endfor %}
             {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
             <a href="{{ SITEURL }}/{{ page.url }}">&raquo; {{ page.title }}</a>
             {% endfor %}{% endif %}
