@@ -960,16 +960,11 @@ sup {
   margin: 0;
   display: inline-block;
   font-size: 90%;
-  font-weight: $body-bold-weight;
-}
-
-div.section a.badge {
-  text-decoration: none;
+  font-weight: $body-weight;
 }
 
 div.section a.badge:hover {
-  background-color: $link-fg;
-  color: $section-bg;
+  background-color: $body-fg;
 }
 
 div.body > div.toc {
