@@ -79,7 +79,7 @@ div.body > h1 {
   margin: 0;
   padding: 0;
   width: 90%;
-  border-bottom: 1px dotted $body-em;
+  border-bottom: 1px dotted #888888;
 }
 
 div.related {
@@ -98,7 +98,7 @@ div.document > div.section {
 }
 
 div.section div.article-summary {
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px dotted #888888;
   font-size: 90%;
   font-style: italic;
   margin: 0;
@@ -120,7 +120,7 @@ div.section > div.toc {
   padding: 0.5em;
   margin-left: 2.2em;
   margin-top: 1em;
-  border-left: 1px solid #888888;
+  border-left: 1px dotted #888888;
 }
 
 div.section > div.toc > ul {
@@ -137,7 +137,7 @@ div.section h1 {
   text-align: left;
   font-size: 150%;
   font-weight: $heading-weight;
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px dotted #888888;
   padding: 0.2em;
   margin: 0;
   line-height: 1.1;
@@ -147,31 +147,32 @@ div.section h2, div.section h3 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
   font-weight: $heading-weight;
+  border-bottom: 1px dotted #888888;
   padding: 0.2em;
   line-height: 1em;
 }
 
 div.section h2 {
   font-size: 140%;
-  margin: 1em 0.3em -0.4em;
+  margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
   font-size: 110%;
-  margin: 1em 0.5em -0.4em;
+  margin: 1.5em 0.5em 0;
 }
 
 div.section div.section-foot {
   margin: 0 0 -0.5em;
   padding: 0.5em 1em 0;
-  border-top: 1px solid #888888;
+  border-top: 1px dotted #888888;
   line-height: 1.2;
 }
 
 div.section div.section-head {
   margin: 0;
   padding: 0.5em 1em 0.5em;
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px dotted #888888;
   line-height: 1.2;
 }
 
@@ -186,6 +187,15 @@ div.section div.section-head {
 div.section p {
   margin: 1em 0.8em;
   padding: 0 0.5em;
+}
+
+div.section dd p {
+  margin: 0 0.1em 0.1em 0;
+  padding: 0;
+}
+
+div.section dd li {
+  margin: 0.1em;
 }
 
 tt, code {
@@ -248,13 +258,35 @@ pre {
 }
 
 div.section pre {
-  margin: 0.5em 2em;
+  margin: 0.5em 3em;
   padding: 0.5em;
   color: #666666;
   white-space: pre-wrap;
   text-shadow: none;
-  border-left: 1px solid #888888;
+  border-left: 1px dotted #888888;
   font-size: 90%;
+}
+
+div.section table {
+  margin: 0.5em auto;
+  padding: 0 0.5em;
+  border-collapse: collapse;
+  max-width: 90%;
+}
+
+div.section table th {
+  font-weight: $body-bold-weight;
+  color: black;
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+  margin-bottom: 1em;
+  padding: 0.1em 1em;
+  text-align: left;
+}
+
+div.section table td {
+  border-bottom: 1px dotted #888888;
+  padding: 0.1em 1em;
 }
 
 div.section ul {
@@ -273,11 +305,11 @@ div.section ol {
 }
 
 div.section div.border-under {
-  border-bottom: 1px solid #888888;
+  border-bottom: 1px dotted #888888;
 }
 
 div.section div.border-over {
-  border-top: 1px solid #888888;
+  border-top: 1px dotted #888888;
 }
 
 div.section div.parts {
@@ -356,7 +388,26 @@ div.section dl > dt:before {
 div.section dd {
   margin: 0 0.1em 0 1.5em;
   padding: 0.1em 0.5em 0.3em;
-  border-left: 1px solid #888888;
+  border-left: 1px dotted #888888;
+}
+
+div.section dd p {
+  margin: 0 0.1em 1em 0;
+  padding: 0;
+}
+
+div.section dd ul {
+  padding-left: 1em;
+  margin: 0 0.1em 0.1em 0;
+}
+
+div.section dd ol {
+  padding-left: 1.5em;
+  margin: 0 0.1em 0.1em 0;
+}
+
+div.section dd li {
+  margin: 0.1em;
 }
 
 div.section div.right, div.section div.left {
@@ -452,7 +503,7 @@ big {
   vertical-align: text-top;
 }
 
-table.codehilitetable {
+div.section table.codehilitetable {
   margin: 0.5em 2em;
   padding: 0;
   border-collapse: collapse;
@@ -462,17 +513,18 @@ table.codehilitetable {
   max-width: 100%;
 }
 
-table.codehilitetable td {
+div.section table.codehilitetable td {
   padding: 0;
+  border: 0;
 }
 
-table.codehilitetable div.linenodiv {
+div.section table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  border-right: 1px solid #888888;
+  border-right: 1px dotted #888888;
 }
 
-table.codehilitetable pre {
+div.section table.codehilitetable pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
   border: 0;
@@ -488,7 +540,7 @@ div.codehilite {
   line-height: 1.25;
 }
 
-div.section>div.codehilite {
+div.section > div.codehilite {
   overflow: visible;
 }
 
@@ -496,12 +548,12 @@ hr {
   width: 80%;
   height: 0;
   border: 0;
-  border-top: 1px solid #888888;
+  border-top: 1px dotted #888888;
 }
 
 div.section hr {
   width: 100%;
-  border-top: 1px solid #888888;
+  border-top: 1px dotted #888888;
 }
 
 div.section img {

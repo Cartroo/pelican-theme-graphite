@@ -247,7 +247,7 @@ div.related li.breadcrumb-history {
 }
 
 div.related li.breadcrumb-current {
-  font-weight: $body-bold-weight
+  font-weight: $body-bold-weight;
 }
 
 div.related h3 {
@@ -389,16 +389,17 @@ div.section h2, div.section h3 {
   color: $highlight-fg;
   text-align: left;
   font-weight: $heading-weight;
-  padding: 0.2em;
+  border-bottom: 1px dotted $highlight-fg;
+  padding: 0.1em;
   line-height: 1em;
 }
 
 div.section h2 {
-  margin: 1em 0.3em -0.4em;
+  margin: 1.5em 0.3em 0;
 }
 
 div.section h3 {
-  margin: 1em 0.5em -0.4em;
+  margin: 1.5em 0.5em 0;
 }
 
 div.section div.section-foot {
@@ -427,10 +428,10 @@ div.section p {
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
-  font-size: 90%; // Reduce monospace font size in inline text.
+  font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
-  color: $link-fg;
+  color: $highlight-fg;
   word-break: break-word; // Long inline code can ruin page layout.
 }
 
@@ -448,7 +449,6 @@ div.section blockquote {
 
 @media screen and (min-width: 601px) {
   div.section blockquote {
-    font-size: 110%;
     margin: 1.5em 1.5em 1em;
   }
 }
@@ -505,7 +505,7 @@ div.section pre {
   color: $body-em;
   white-space: pre;
   text-shadow: none;
-  border-left: 1px solid $link-fg;
+  border-left: 1px dotted $link-fg;
 }
 
 @media screen and (min-width: 601px) {
@@ -527,6 +527,28 @@ div.section pre {
     // Don't bother indenting, we need to make use of all the space.
     margin: 0.5em;
   }
+}
+
+div.section table {
+  margin: 0.5em auto;
+  padding: 0 0.5em;
+  border-collapse: collapse;
+  max-width: 95%;
+}
+
+div.section table th {
+  font-weight: $body-bold-weight;
+  color: $body-em;
+  border: 0;
+  background-color: $doc-bg;
+  margin-bottom: 1em;
+  padding: 0.1em 1em;
+  text-align: left;
+}
+
+div.section table td {
+  border-bottom: 1px dotted $link-fg;
+  padding: 0.1em 1em;
 }
 
 div.sphinxsidebarsection {
@@ -686,12 +708,36 @@ div.section dl > dt:before {
 div.section dd {
   margin: 0 0.1em 0 1.5em;
   padding: 0.1em 0.5em 0.3em;
-  border-left: 1px solid $link-fg;
+  border-left: 1px dotted $link-fg;
+}
+
+div.section dd p {
+  margin: 0 0.1em 1em 0;
+  padding: 0;
+}
+
+div.section dd ul {
+  padding-left: 1em;
+  margin: 0 0.1em 0.1em 0;
+}
+
+div.section dd ol {
+  padding-left: 1.5em;
+  margin: 0 0.1em 0.1em 0;
+}
+
+div.section dd li {
+  margin: 0.1em;
 }
 
 div.section div.right, div.section div.left {
   margin: 0;
   padding: 0;
+}
+
+div.tweetbutton {
+  max-width: 5em;
+  max-height: 2em;
 }
 
 a {
@@ -791,17 +837,8 @@ div.sphinxsidebar {
   }
 }
 
-table.indextable {
-  margin-bottom: 1em;
-}
-
-table.indextable td {
-  margin: 0;
-  padding: 0.2em 2em 0.2em 0.5em;
-}
-
 em {
-  font-weight: normal;
+  font-weight: $body-weight;
   font-style: italic;
 }
 
@@ -826,7 +863,9 @@ big {
   vertical-align: text-top;
 }
 
-table.codehilitetable {
+div.section table.codehilitetable {
+  margin: 0.5em 1em;
+  border: 0;
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -837,32 +876,33 @@ table.codehilitetable {
 }
 
 @media screen and (min-width: 601px) {
-  table.codehilitetable {
+  div.section table.codehilitetable {
     margin: 0.5em 1em;
   }
 }
 
 @media screen and (max-width: 600px) {
-  table.codehilitetable {
+  div.section table.codehilitetable {
     margin: 0.5em;
   }
 }
 
-table.codehilitetable td {
+div.section table.codehilitetable td {
   padding: 0;
+  border: 0;
 }
 
-table.codehilitetable div.linenodiv {
+div.section table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
-  border-right: 1px solid $link-fg;
+  border-right: 1px dotted $link-fg;
 }
 
-table.codehilitetable div.linenodiv pre {
+div.section table.codehilitetable div.linenodiv pre {
   color: $link-fg;
 }
 
-table.codehilitetable pre {
+div.section table.codehilitetable pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
   border: 0;
@@ -872,13 +912,17 @@ table.codehilitetable pre {
   line-height: 1.25;
 }
 
+div.section pre code {
+  font-size: 100%;
+}
+
 div.codehilite {
   margin: 0;
   padding: 0;
   line-height: 1.25;
 }
 
-div.section>div.codehilite {
+div.section > div.codehilite {
   overflow-x: auto;
   overflow-y: hidden;
 }
@@ -984,19 +1028,23 @@ div.body > div.toc {
   width: 90%;
 }
 
-div.body > div.toc > span.toctitle {
+div.body > div.toc span.toctitle {
   font-weight: $body-bold-weight;
   color: $body-em;
 }
 
-div.body > div.toc > ul {
+div.body > div.toc ul a {
+  text-decoration: underline;
+}
+
+div.body > div.toc ul {
   margin: 0;
   padding: 0.5em 1.5em;
   list-style: none;
   text-indent: -1em;
 }
 
-div.body > div.toc > ul > li:before {
+div.body > div.toc ul > li:before {
   content: "\2023 \2002";
 }
 
