@@ -38,13 +38,17 @@
               {% if article.series %}
                   <div class="parts border-under">
                     <p><strong>
-                      This is part {{ article.series.index }} of the
-                      &ldquo;{{ article.series.name }}&rdquo;
+                      This is part {{ article.series.index }}
+                      of the &ldquo;{{ article.series.name }}&rdquo;
                       {% if article.series.index > 1 %}
                         series which started with
                         <a href='{{ SITEURL }}/{{ article.series.all[0].url }}'>{{ article.series.all[0].title }}</a>.
                       {% else %}
                         series.
+                      {% endif %}
+                      {% if article.series.index > 2 %}
+                        The previous article in the series was
+                        <a href='{{ SITEURL }}/{{ article.series.all_previous[-1].url }}'>{{ article.series.all_previous[-1].title }}</a>.
                       {% endif %}
                     </strong></p>
                   </div>
