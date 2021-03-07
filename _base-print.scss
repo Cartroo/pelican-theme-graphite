@@ -282,11 +282,13 @@ div.section table th {
   margin-bottom: 1em;
   padding: 0.1em 1em;
   text-align: left;
+  vertical-align: top;
 }
 
 div.section table td {
   border-bottom: 1px dotted #888888;
   padding: 0.1em 1em;
+  vertical-align: top;
 }
 
 div.section ul {
