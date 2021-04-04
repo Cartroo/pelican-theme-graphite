@@ -547,6 +547,16 @@ div.section table th {
   vertical-align: top;
 }
 
+div.section table tr th:first-child {
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+div.section table tr th:last-child {
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
 div.section table td {
   border-bottom: 1px dotted $link-fg;
   padding: 0.1em 1em;
@@ -898,6 +908,8 @@ div.section table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
   border-right: 1px dotted $link-fg;
+  min-width: 2em;
+  text-align: right;
 }
 
 div.section table.codehilitetable div.linenodiv pre {
@@ -916,6 +928,7 @@ div.section table.codehilitetable pre {
 
 div.section pre code {
   font-size: 100%;
+  margin: 0;
 }
 
 div.codehilite {

@@ -201,7 +201,7 @@ div.section dd li {
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
-  font-size: 90%; // Reduce monospace font size in inline text.
+  font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
   color: #666666;
@@ -254,7 +254,7 @@ pre {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
   white-space: pre-wrap;
-  font-size: 90%;
+  font-size: 80%;
 }
 
 div.section pre {
@@ -264,7 +264,11 @@ div.section pre {
   white-space: pre-wrap;
   text-shadow: none;
   border-left: 1px dotted #888888;
-  font-size: 90%;
+  font-size: 80%;
+}
+
+div.section pre code {
+  margin: 0;
 }
 
 div.section table {
@@ -283,6 +287,16 @@ div.section table th {
   padding: 0.1em 1em;
   text-align: left;
   vertical-align: top;
+}
+
+div.section table tr th:first-child {
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+div.section table tr th:last-child {
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }
 
 div.section table td {
@@ -524,6 +538,8 @@ div.section table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
   border-right: 1px dotted #888888;
+  min-width: 2em;
+  text-align: right;
 }
 
 div.section table.codehilitetable pre {
