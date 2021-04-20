@@ -31,12 +31,12 @@
       {% include 'article_infos.html' %}
       {% include 'comments.html' %}
     </div>
+    <div class="article-summary">{{ article.summary }}</div>
     {% if article.series %}
     <div class="parts border-under">
       {% include 'article_series.html' %}
     </div>
     {% endif %}
-    <div class="article-summary">{{ article.summary }}</div>
     {% include 'article_img.html' %}
     {{ article.content }}
     {% if article.series %}

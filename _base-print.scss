@@ -329,6 +329,7 @@ div.section div.border-over {
 }
 
 div.section div.parts {
+  font-size: 90%;
   margin: 0;
   line-height: 1.2;
   padding: 0.5em 1em 0.5em;
@@ -470,6 +471,14 @@ div.right {
 
 div.left {
   float: left;
+}
+
+div.left-icon {
+  float: left;
+  font-size: 180%;
+  margin: -0.2em 0.5em 0 0;
+  padding: 0;
+  line-height: 1;
 }
 
 div.bodywrapper {
