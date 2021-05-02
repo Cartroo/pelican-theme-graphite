@@ -588,14 +588,14 @@ div.section ul ul {
 div.sphinxsidebar ul {
   list-style: none;
   display: inline-block;
-  padding: 0 0 0 0.5em;
-  margin: 0;
+  border-left: 1px dotted $link-fg;
+  padding: 0;
+  margin: 0 0 0 0.5em;
   vertical-align: middle;
 }
 
 div.sphinxsidebar ul > li {
   display: list-item;
-  border-left: 1px solid $link-fg;
   padding-left: 0.5em;
   vertical-align: middle;
   text-align: left;
