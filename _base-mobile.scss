@@ -61,8 +61,8 @@ body {
 }
 
 .sitemenu-button {
-  background-color: #073642;
-  color: #839496;
+  background-color: $menu-bg;
+  color: $menu-dim-fg;
   padding: 1px 12px;
   margin: 1px 20px;
   text-align: center;
@@ -79,8 +79,8 @@ body {
   display: none;
   padding: 1em;
   position: absolute;
-  background-color: #073642;
-  color: #839496;
+  background-color: $menu-bg;
+  color: $menu-dim-fg;
   z-index: 1;
   right: 10px;
 }
@@ -88,7 +88,7 @@ body {
 .sitemenu-content a {
   display: block;
   padding: 0.2em 0.5em;
-  color: #839496;
+  color: $menu-dim-fg;
 }
 
 .show {
