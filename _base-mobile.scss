@@ -191,7 +191,7 @@ div.body > h1 {
   margin: 0;
   padding: 0;
   width: 90%;
-  border-bottom: 1px dotted $body-em;
+  border-bottom: 1px dotted $link-fg;
 }
 
 .byline {
@@ -322,7 +322,7 @@ div.section img.article-image {
   width: 50%;
   max-width: 320px;
   margin: 8px;
-  border: 1px solid $body-fg;
+  border: 1px solid $section-bg;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -336,7 +336,7 @@ div.section img.article-image-small {
   width: 50%;
   max-width: 130px;
   margin: 8px;
-  border: 1px solid $body-fg;
+  border: 1px solid $section-bg;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -1046,7 +1046,7 @@ div.section a.badge:hover {
 div.body > div.toc {
   padding: 0.5em;
   margin: 1em 0 2em 0;
-  border: 1px dotted $body-em;
+  border: 1px dotted $link-fg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;

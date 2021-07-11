@@ -76,6 +76,14 @@
     {% else %}
     <link rel="stylesheet" href="{{ SITEURL }}/theme/{{ THEME_CSS|default('graphite.css') }}" type="text/css" />
     {% endif %}
+    {% if THEME_CSS_DARK %}
+    {% if THEME_CSS_MOBILE_DARK %}
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark) and (max-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE_DARK }}" type="text/css" />
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark) and (min-width: 901px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_DARK }}" type="text/css" />
+    {% else %}
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)" href="{{ SITEURL }}/theme/{{ THEME_CSS_DARK }}" type="text/css" />
+    {% endif %}
+    {% endif %}
     {% if THEME_CSS_PRINT %}
     <link rel="stylesheet" media="print" href="{{ SITEURL }}/theme/{{ THEME_CSS_PRINT }}" type="text/css" />
     {% endif %}
@@ -253,14 +261,14 @@
         {% if COPYRIGHT %}{{ COPYRIGHT }}{% endif %}
         Created using <a href="http://getpelican.com/">Pelican</a> with my own
         <a href="https://github.com/Cartroo/pelican-theme-graphite">Graphite</a>
-        {% if THEME_CSS == "solarized.css" %}
+        {% if THEME_CSS[:9] == "solarized" %}
           theme incorporating the
           <a href="http://ethanschoonover.com/solarized">Solarized palette</a>
-          by Ethan Schoonover. Stock photos courtesy of
-          <a href="https://unsplash.com">Unsplash</a>.
+          by Ethan Schoonover.
         {% else %}
           theme.
         {% endif %}
+        {% if CREDIT %}{{ CREDIT }}{% endif %}
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

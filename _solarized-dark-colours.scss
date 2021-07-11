@@ -9,27 +9,35 @@ Solarized palette designed by Ethan Schoonover.
 [http://ethanschoonover.com/solarized]
 */
 
-$doc-bg: #eee8d5;
-$section-bg: #fdf6e3;
-$subsection-bg: #eee8d5;
-$dark-menu-bg: #002b36;
-$menu-bg: #073642;
-$menu-fg: #93a1a1;
-$menu-dim-fg: #839496;
-$link-fg: #93a1a1;
-$body-fg: #657b83;
-$body-em: #586e75;
+$doc-bg: #073642;
+$section-bg: #002b36;
+$subsection-bg: #073642;
+$dark-menu-bg: #839496;
+$menu-bg: #586e75;
+$menu-fg: #002b36;
+$menu-dim-fg: #073642;
+/* Really these should be as follows, but I don't think it looks good.
+ * $dark-menu-bg: #fdf6e3;
+ * $menu-bg: #eee8d5;
+ * $menu-fg: #586e75;
+ * $menu-dim-fg: #657b83; */
+$link-fg: #586e75;
+$body-fg: #839496;
+$body-em: #93a1a1;
 $body-weight: 300;
 $body-bold-weight: 500;
 $heading-weight: 300;
 $monospace-weight: 400;
 
 // Any of these highlight colours should work for headings.
-$highlight-fg: #268bd2; // blue
+//$highlight-fg: #268bd2; // blue
+$highlight-fg: #6c71c4; // violet
 //$highlight-fg: #2aa198; // cyan
 //$highlight-fg: #d33682; // magenta
 //$highlight-fg: #859900; // green
 //$highlight-fg: #b58900; // yellow
+//$highlight-fg: #cb4b16; // orange
+//$highlight-fg: #dc322f; // red
 
 //$body-font: 'Alegreya';
 $body-font: 'Alegreya Sans';

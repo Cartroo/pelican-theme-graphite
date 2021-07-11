@@ -8,6 +8,7 @@ $section-bg: #444444 !default;
 $subsection-bg: #555555 !default;
 $menu-bg: #555555 !default;
 $menu-fg: #eeeeee !default;
+$menu-dim-fg: #dddddd !default;
 $link-fg: #bbbbbb !default;
 $highlight-fg: #cccccc !default;
 $body-fg: #eeeeee !default;
@@ -57,8 +58,8 @@ body {
 }
 
 .sitemenu-button {
-  background-color: #073642;
-  color: #839496;
+  background-color: $menu-bg;
+  color: $menu-dim-fg;
   padding: 1px 12px;
   margin: 1px 20px;
   text-align: center;
@@ -75,8 +76,8 @@ body {
   display: none;
   padding: 1em;
   position: absolute;
-  background-color: #073642;
-  color: #839496;
+  background-color: $menu-bg;
+  color: $menu-dim-fg;
   z-index: 1;
   right: 10px;
 }
@@ -84,7 +85,7 @@ body {
 .sitemenu-content a {
   display: block;
   padding: 0.2em 0.5em;
-  color: #839496;
+  color: $menu-dim-fg;
 }
 
 .show {
@@ -173,7 +174,7 @@ div.body > h1 {
   margin: 0;
   padding: 0;
   width: 90%;
-  border-bottom: 1px dotted $body-em;
+  border-bottom: 1px dotted $link-fg;
 }
 
 .byline {
@@ -224,7 +225,7 @@ div.related {
 }
 
 div.related li.breadcrumb-history a {
-  color: #839496;
+  color: $menu-dim-fg;
 }
 
 div.related li.breadcrumb-history::after {
@@ -305,7 +306,7 @@ div.section div.article-summary p {
 
 div.section img.article-image {
   float: right;
-  border: 1px solid $body-fg;
+  border: 1px solid $section-bg;
   border-radius: 50%;
   margin: 8px -80px 8px 8px;
   height: 320px;
@@ -320,7 +321,7 @@ div.section img.article-image-small {
   width: 50%;
   max-width: 120px;
   margin: -30px -30px 8px 8px;
-  border: 1px solid $body-fg;
+  border: 1px solid $section-bg;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -920,7 +921,7 @@ div.section a.badge:hover {
 div.body > div.toc {
   padding: 0.5em;
   margin: 1em 0 2em 0;
-  border: 1px dotted $body-em;
+  border: 1px dotted $link-fg;
   border-radius: 0.5em;
   -moz-border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
