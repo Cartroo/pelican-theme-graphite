@@ -3,6 +3,11 @@ $menu-bg: #555555 !default;
 $menu-fg: #eeeeee !default;
 $menu-dim-fg: #dddddd !default;
 $body-bold-weight: bold !default;
+$menu-selection-bg: #666666 !default;
+
+.footnoteContent ::selection {
+	background: $menu-selection-bg;
+}
 
 .footnoteContent {
 	background: $dark-menu-bg;

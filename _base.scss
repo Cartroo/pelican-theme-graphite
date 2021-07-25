@@ -13,6 +13,8 @@ $link-fg: #bbbbbb !default;
 $highlight-fg: #cccccc !default;
 $body-fg: #eeeeee !default;
 $body-em: #ffffff !default;
+$selection-bg: #666666 !default;
+$menu-selection-bg: #666666 !default;
 // Define main fonts, these may well already be defined.
 $body-font: sans-serif !default;
 $body-weight: normal !default;
@@ -34,6 +36,14 @@ $shadow: true !default;
   } @else {
     font-family: $main, $backup;
   }
+}
+
+::selection {
+  background: $selection-bg;
+}
+
+div.related ::selection {
+  background: $menu-selection-bg;
 }
 
 body {
