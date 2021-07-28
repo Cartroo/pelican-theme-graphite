@@ -1,7 +1,7 @@
-$dark-menu-bg: #444444 !default;
+$footnote-bg: #444444 !default;
+$footnote-fg: #dddddd !default;
 $menu-bg: #555555 !default;
 $menu-fg: #eeeeee !default;
-$menu-dim-fg: #dddddd !default;
 $body-bold-weight: bold !default;
 $menu-selection-bg: #666666 !default;
 
@@ -10,8 +10,8 @@ $menu-selection-bg: #666666 !default;
 }
 
 .footnoteContent {
-	background: $dark-menu-bg;
-        color: $menu-dim-fg;
+	background: $footnote-bg;
+        color: $footnote-fg;
 	display: none;
 	max-height: 100%;
 	-webkit-overflow-scrolling: touch;
@@ -34,7 +34,7 @@ $menu-selection-bg: #666666 !default;
 }
 
 .footnoteContent em {
-        color: $menu-dim-fg;
+        color: $footnote-fg;
         font-style: italic;
 }
 

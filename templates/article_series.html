@@ -5,15 +5,15 @@
         <ul>
         {% for part_article in article.series.all_previous %}
           <li class="ticked">
-              <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+              <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>&ensp;<span><div class="badge">{{ part_article.date|strftime("%a %-d %b, %Y") }}</div></span>
           </li>
         {% endfor %}
         <li class="ticked">
-          <strong>{{ article.title }}</strong>
+          <strong>{{ article.title }}</strong>&ensp;<span><div class="badge">{{ article.date|strftime("%a %-d %b, %Y") }}</div></span>
         </li>
         {% for part_article in article.series.all_next %}
           <li>
-            <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>
+            <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>&ensp;<span><div class="badge">{{ part_article.date|strftime("%a %-d %b, %Y") }}</div></span>
           </li>
         {% endfor %}
         </ul>

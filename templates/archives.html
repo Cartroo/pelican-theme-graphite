@@ -46,7 +46,7 @@
 {% endmacro %}
 
 {% macro articlelink(article) %}
-    <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&ensp;<span class="small"><div class="badge">{{ article.date|strftime("%a %b %d") }}</div></span></dd>
+    <dd><a href="{{ SITEURL }}/{{ article.url }}" title="{{ article.locale_date }}: {{ article.summary|striptags|escape }}">{{ article.title }}</a>&ensp;<span class="small"><div class="badge">{{ article.date|strftime("%a %-d %b") }}</div></span></dd>
 {% endmacro %}
 
 {% macro monthlink(article) %}

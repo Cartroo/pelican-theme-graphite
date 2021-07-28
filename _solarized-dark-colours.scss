@@ -12,12 +12,14 @@ Solarized palette designed by Ethan Schoonover.
 $doc-bg: #073642;
 $section-bg: #002b36;
 $subsection-bg: #073642;
-$dark-menu-bg: #839496;
+$footnote-bg: #002b36;
+$footnote-fg: #839496;
 $menu-bg: #586e75;
 $menu-fg: #002b36;
 $menu-dim-fg: #073642;
 /* Really these should be as follows, but I don't think it looks good.
- * $dark-menu-bg: #fdf6e3;
+ * (the colours are too bright for a dark theme)
+ * $footnote-bg: #fdf6e3;
  * $menu-bg: #eee8d5;
  * $menu-fg: #586e75;
  * $menu-dim-fg: #657b83; */
