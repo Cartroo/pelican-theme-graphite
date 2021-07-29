@@ -1,4 +1,4 @@
 {% set article_summary_only = True %}
 {% extends "index.html" %}
 {% block title %}{{ SITENAME|striptags }}: Posts tagged {{ tag|striptags }}{% endblock %}
-{% block breadcrumbs %}<li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ output_file }}">{{ tag }}</a></li>{% endblock %}
+{% block breadcrumbs %}<li class="breadcrumb-history"><a href="{{ SITEURL }}/tags.html">Tags</a></li> <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ output_file }}">{{ tag }}</a></li>{% endblock %}

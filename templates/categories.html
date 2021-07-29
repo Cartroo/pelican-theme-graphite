@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}<li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ output_file }}">Categories</a></li>{% endblock %}
+{% block content %}
+<div class="section">
+<h1>Categories</h1>
+<ul>
+    {% for category, articles in categories|sort %}
+        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>&ensp;<span class="small"><div class="badge">{{ articles|count }} post{% if articles|count > 1 %}s{% endif %}</div></span>
+    {% endfor %}
+    </ul>
+</div>
+{% endblock %}
