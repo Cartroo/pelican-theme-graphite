@@ -702,6 +702,15 @@ div.section div.parts ul > li.ticked:before {
   text-align: center;
 }
 
+div.section div.parts ul > li.blank:before {
+  content: "\2002 \2002";
+  color: $body-em;
+  float: left;
+  margin-right: 1em;
+  min-width: 1em;
+  text-align: center;
+}
+
 div.section li p {
   margin: 0;
   padding: 0;

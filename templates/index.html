@@ -2,6 +2,13 @@
 {% extends "base.html" %}
 {% set ns = namespace(last_date=None) %}
 {% block content_title %}{% endblock %}
+{% macro ordinal(number) -%}
+    {%- if number % 100 > 3 and number % 100 < 21 -%}{{ number }}th
+    {%- elif number % 10 == 1 -%}{{ number }}st
+    {%- elif number % 10 == 2 -%}{{ number }}nd
+    {%- elif number % 10 == 3 -%}{{ number }}rd
+    {%- else -%}{{ number }}th{%- endif -%}
+{%- endmacro %}
 {% block content %}
 {% if articles %}
     <div class="toc">
@@ -41,16 +48,20 @@
                   <div class="parts border-under">
                     <div class="left-icon">&#x2398; </div>
                     <p>
-                      This is <strong>part {{ article.series.index }}</strong>
-                      of the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
+                      This is the
+                      <strong>{{ ordinal(article.series.index) }}</strong>
+                      of the
+                      <strong>{{ article.series.all|length }}</strong>
+                      articles that currently make up the
+                      <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
                       {% if article.series.index > 1 %}
-                        series which started with
+                        series, the first of which was
                         <a href='{{ SITEURL }}/{{ article.series.all[0].url }}'>{{ article.series.all[0].title }}</a>.
                       {% else %}
                         series.
                       {% endif %}
                       {% if article.series.index > 2 %}
-                        The previous article in the series was
+                        This article was preceded by
                         <a href='{{ SITEURL }}/{{ article.series.all_previous[-1].url }}'>{{ article.series.all_previous[-1].title }}</a>.
                       {% endif %}
                     </p>

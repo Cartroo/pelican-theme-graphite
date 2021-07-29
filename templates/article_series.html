@@ -1,19 +1,43 @@
+{% macro part_link(other_article) -%}
+            <a href='{{ SITEURL }}/{{ other_article.url }}'>{{ other_article.title }}</a>&ensp;<span><div class="badge">{{ other_article.date|strftime("%a %-d %b, %Y") }}</div></span>
+{%- endmacro %}
+{% macro ordinal(number) -%}
+    {%- if number % 100 > 3 and number % 100 < 21 -%}{{ number }}th
+    {%- elif number % 10 == 1 -%}{{ number }}st
+    {%- elif number % 10 == 2 -%}{{ number }}nd
+    {%- elif number % 10 == 3 -%}{{ number }}rd
+    {%- else -%}{{ number }}th{%- endif -%}
+{%- endmacro %}
         <p>
-          This is <strong>part {{ article.series.index }}</strong> of the
-          <strong>&ldquo;{{ article.series.name }}&rdquo;</strong> series of posts:
+          This is the <strong>{{ ordinal(article.series.index) }}</strong> of the
+          <strong>{{ article.series.all|length }}</strong> articles that currently
+          make up the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
+          series.
         </p>
         <ul>
+        {% if article.series.all_previous|length > 5 %}
+        <li class="ticked">{{ part_link(article.series.all_previous[0]) }}</li>
+        <li class="ticked">{{ part_link(article.series.all_previous[1]) }}</li>
+        <li class="blank"><em>… {{ article.series.all_previous|length - 4}} more articles…</em></li>
+        <li class="ticked">{{ part_link(article.series.all_previous[-2]) }}</li>
+        <li class="ticked">{{ part_link(article.series.all_previous[-1]) }}</li>
+        {% else %}
         {% for part_article in article.series.all_previous %}
-          <li class="ticked">
-              <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>&ensp;<span><div class="badge">{{ part_article.date|strftime("%a %-d %b, %Y") }}</div></span>
-          </li>
+          <li class="ticked">{{ part_link(part_article) }}</li>
         {% endfor %}
+        {% endif %}
         <li class="ticked">
           <strong>{{ article.title }}</strong>&ensp;<span><div class="badge">{{ article.date|strftime("%a %-d %b, %Y") }}</div></span>
         </li>
+        {% if article.series.all_next|length > 5 %}
+        <li class="ticked">{{ part_link(article.series.all_next[0]) }}</li>
+        <li class="ticked">{{ part_link(article.series.all_next[1]) }}</li>
+        <li class="blank"><em>… {{ article.series.all_next|length - 4}} more articles…</em></li>
+        <li class="ticked">{{ part_link(article.series.all_next[-2]) }}</li>
+        <li class="ticked">{{ part_link(article.series.all_next[-1]) }}</li>
+        {% else %}
         {% for part_article in article.series.all_next %}
-          <li>
-            <a href='{{ SITEURL }}/{{ part_article.url }}'>{{ part_article.title }}</a>&ensp;<span><div class="badge">{{ part_article.date|strftime("%a %-d %b, %Y") }}</div></span>
-          </li>
+          <li>{{ part_link(part_article) }}</li>
         {% endfor %}
+        {% endif %}
         </ul>
