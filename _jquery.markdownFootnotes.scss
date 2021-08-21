@@ -1,7 +1,7 @@
 $footnote-bg: #444444 !default;
 $footnote-fg: #dddddd !default;
+$footnote-em: #eeeeee !default;
 $menu-bg: #555555 !default;
-$menu-fg: #eeeeee !default;
 $body-bold-weight: bold !default;
 $menu-selection-bg: #666666 !default;
 
@@ -39,13 +39,13 @@ $menu-selection-bg: #666666 !default;
 }
 
 .footnoteContent strong {
-	color: $menu-fg;
-        font-weight: $body-bold-weight;
+	color: $footnote-em;
+    font-weight: $body-bold-weight;
 }
 
 .footnoteContent a {
-	color: $menu-fg;
-        text-decoration: underline;
+	color: $footnote-em;
+    text-decoration: underline;
 }
 
 .footnoteContent a.closeFootnote {
@@ -53,12 +53,12 @@ $menu-selection-bg: #666666 !default;
 	display: block;
 	font-size: 26px;
 	font-family: sans-serif;
-        font-weight: bold;
+    font-weight: bold;
 	text-transform: uppercase;
-        background-color: $menu-bg;
-	color: $menu-fg;
+    background-color: $menu-bg;
+	color: $footnote-em;
 	text-decoration: none;
-        line-height: 0;
+    line-height: 0;
 	padding: 1ex;
-        margin: 0 0 0.5em;
+    margin: 0 0 0.5em;
 }
