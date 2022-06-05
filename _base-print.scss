@@ -204,13 +204,13 @@ tt, code {
   font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2em;
   margin-right: 0.2em;
-  color: #666666;
+  color: #808080;
 }
 
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
-  color: #666666;
+  color: #808080;
   margin: 1.5em 3em 1em;
   padding: 0.1em 1em 0.5em;
   border: 0;
@@ -227,7 +227,7 @@ div.section blockquote:before {
   left: -5px;
   top: 30px;
   line-height: 0;
-  color: #777777;
+  color: #999999;
 }
 
 div.section blockquote:after {
@@ -239,7 +239,7 @@ div.section blockquote:after {
   right: 10px;
   bottom: 0;
   line-height: 0;
-  color: #777777;
+  color: #808080;
 }
 
 div.section blockquote strong {
@@ -260,7 +260,7 @@ pre {
 div.section pre {
   margin: 0.5em 3em;
   padding: 0.5em;
-  color: #666666;
+  color: #808080;
   white-space: pre-wrap;
   text-shadow: none;
   border-left: 1px dotted #888888;
@@ -340,6 +340,10 @@ div.section div.parts p {
   padding: 0;
 }
 
+div.section div.parts ul {
+  display: none;
+}
+
 div.tweetbutton {
   display: none;
 }
@@ -359,30 +363,6 @@ div.section ul > li li:before {
 div.section ol > li:before {
   content: counter(li) ".\2002";
   counter-increment: li;
-}
-
-div.section div.parts ul > li:before {
-  content: "\2610 \2002";
-  float: left;
-  margin-right: 1em;
-  min-width: 1em;
-  text-align: center;
-}
-
-div.section div.parts ul > li.ticked:before {
-  content: "\2611 \2002";
-  float: left;
-  margin-right: 1em;
-  min-width: 1em;
-  text-align: center;
-}
-
-div.section div.parts ul > li.blank:before {
-  content: "\2002 \2002";
-  float: left;
-  margin-right: 1em;
-  min-width: 1em;
-  text-align: center;
 }
 
 div.section li p {
@@ -442,6 +422,7 @@ div.section div.right, div.section div.left {
 
 a {
   text-decoration: none;
+  border-bottom: 1px dotted #888888;
   color: black;
 }
 
