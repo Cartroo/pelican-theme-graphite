@@ -11,7 +11,7 @@
   {% set month_archive_strftime = None %}
 {% endif %}
 {% block breadcrumbs %}
-  <li class="breadcrumb-history"><a href="{{ SITEURL }}/archives.html">Archives</a></li>
+  <li class="breadcrumb-history"><a href="{{ SITEURL }}/archives.html">Articles</a></li>
   <li class="breadcrumb-history">
   {% if year_archive_strftime is none %}{{ article.date.strftime('%Y') }}{% else %}
     <a href="{{ SITEURL }}/{{ article.date|strftime(year_archive_strftime) }}">{{ article.date.strftime('%Y') }}</a>

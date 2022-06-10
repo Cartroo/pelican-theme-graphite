@@ -197,15 +197,15 @@
               <div class="sphinxsidebarsection">
                 <h3>Blog</h3>
                   <ul>
-                  <li><a href="{{ SITEURL }}/">Recent Posts</a></li>
-                  <li><a href="{{ SITEURL }}/archives.html">Archives</a></li>
-                  <li><a href="{{ SITEURL }}/tags.html">Tag Cloud</a></li>
+                  <li><a href="{{ SITEURL }}/">&#x1F5D3;&#xFE0F;Recent Articles</a></li>
+                  <li><a href="{{ SITEURL }}/archives.html">&#x1F5C3;&#xFE0F; All Articles</a></li>
+                  <li><a href="{{ SITEURL }}/tags.html">&#x2601;&#xFE0F;Tag Cloud</a></li>
                   {% if TAG_FEED_ATOM and tag %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml">Feed: {{ tag }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: {{ tag }}</a></li>
                   {% elif CATEGORY_FEED_ATOM and category %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml">Feed: {{ category }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: {{ category }}</a></li>
                   {% elif FEED_ALL_ATOM %}
-                      <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">Feed: All Posts</a></li>
+                      <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: All</a></li>
                   {% endif %}
                 </ul>
               </div>

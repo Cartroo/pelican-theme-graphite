@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block breadcrumbs %}<li class="breadcrumb-current"><a href="{{ SITEURL }}/archives.html">Archives</a></li>{% endblock %}
+{% block breadcrumbs %}<li class="breadcrumb-current"><a href="{{ SITEURL }}/archives.html">Articles</a></li>{% endblock %}
 {% block content %}
 {% set ns = namespace(last_date=None, last_year=None, posts=0) %}
 {% if YEAR_ARCHIVE_SAVE_AS %}
@@ -38,9 +38,9 @@
 </dl></div><div class="section" style="position: relative">
   <a id="archive{{ article.date.year }}" style="position:absolute; top:-50px;"></a><h1>
     {% if year_archive_strftime is none %}
-    Archives for {{ article.date|strftime('%Y') }}
+    Articles for {{ article.date|strftime('%Y') }}
     {% else %}
-    <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">Archives for {{ article.date|strftime('%Y') }}</a>
+    <a href="{{SITEURL}}/{{article.date|strftime(year_archive_strftime)}}">Articles for {{ article.date|strftime('%Y') }}</a>
     {% endif %}
   </h1><dl>
 {% endmacro %}
