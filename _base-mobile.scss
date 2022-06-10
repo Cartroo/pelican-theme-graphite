@@ -577,7 +577,7 @@ div.sphinxsidebarsection {
   display: inline-block;
   padding: 0;
   margin: 1em 0 0 0;
-  min-width: 25%;
+  min-width: 30%;
 }
 
 div.sphinxsidebar, div.sphinxsidebar a {
@@ -598,10 +598,10 @@ div.section ul ul {
 div.sphinxsidebar ul {
   list-style: none;
   display: inline-block;
-  border-left: 1px dotted $link-fg;
+  border-top: 1px dotted $link-fg;
   padding: 0;
   margin: 0 0 0 0.5em;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 div.sphinxsidebar ul > li {
@@ -617,11 +617,10 @@ div.sphinxsidebar p.topless {
 }
 
 div.sphinxsidebar h3 {
-  display: inline-block;
   font-weight: $body-bold-weight;
   font-size: 1em;
-  width: 2.5em;
-  text-align: right;
+  width: 100%;
+  text-align: center;
   margin: 0;
   padding: 0;
   vertical-align: middle;
