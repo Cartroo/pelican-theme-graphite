@@ -1,5 +1,5 @@
 {% if PIWIK_URL and PIWIK_SITE_ID %}
-    <script type="text/javascript">
+    <script type="text/javascript" async>
     {% if PIWIK_SSL_URL %}
         var pkBaseURL = (("https:" == document.location.protocol) ? "https://{{ PIWIK_SSL_URL }}/" : "http://{{ PIWIK_URL }}/");
     {% else %}

@@ -1,10 +1,19 @@
-    {% if article.image and ( ARTICLE_IMG_PATH or ARTICLE_IMG_SMALL_PATH ) -%}
-      <img {% if article_summary_only is defined %}class="article-image-small"{% else %}class="article-image"{% endif %} {% if ARTICLE_IMG_SMALL_PATH -%}
-          src="{{ ARTICLE_IMG_SMALL_PATH }}/{{ article.image }}"
-        {%- elif ARTICLE_IMG_PATH -%}
-          src="{{ ARTICLE_IMG_PATH }}/{{ article.image }}"
-          {%- endif %} alt="{{ article.image|replace("_", " ")|replace("-", " ")|replace(".jpg", "") }}" {% if article.img_author -%}
-          title="Photo by {{ article.img_author }}{% if article.img_unsplash_key %} on Unsplash{% endif %}"
+{% macro render_img_small(img_path, img_small_path, a_image, a_img_author, a_unsplash_key, loopnum) -%}
+    {% if a_image and ( img_path or img_small_path ) -%}
+      <img class="article-image-small" width="320" height="320" {% if img_small_path -%}
+          src="{{ img_small_path }}/{{ a_image }}"
+        {%- else -%}
+          src="{{ img_path }}/{{ a_image }}"
+          {%- endif %} alt="{{ a_image|replace("_", " ")|replace("-", " ")|replace(".jpg", "") }}" {% if a_img_author -%}
+          title="Photo by {{ a_img_author }}{% if a_unsplash_key %} on Unsplash{% endif %}"
+        {%- endif %}{% if loopnum > 4 %}loading="lazy"{% endif %} />
+    {%- endif %}
+{%- endmacro %}
+
+{% macro render_img_big(img_path, a_image, a_img_author, a_unsplash_key) -%}
+    {% if a_image and img_path -%}
+      <img class="article-image" width="800" height="800" src="{{ img_path }}/{{ a_image }}" alt="{{ a_image|replace("_", " ")|replace("-", " ")|replace(".jpg", "") }}" {% if a_img_author -%}
+          title="Photo by {{ a_img_author }}{% if a_unsplash_key %} on Unsplash{% endif %}"
         {%- endif %} />
     {%- endif %}
-
+{%- endmacro %}

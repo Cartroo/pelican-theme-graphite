@@ -331,6 +331,7 @@ div.section img.article-image {
   float: right;
   width: 50%;
   max-width: 320px;
+  height: auto;
   margin: 8px;
   border: 1px solid $section-bg;
   border-radius: 50%;
@@ -345,6 +346,7 @@ div.section img.article-image-small {
   float: right;
   width: 50%;
   max-width: 130px;
+  height: auto;
   margin: 8px;
   border: 1px solid $section-bg;
   border-radius: 50%;

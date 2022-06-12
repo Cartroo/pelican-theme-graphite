@@ -21,6 +21,7 @@
   {% endif %}</li>
   <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 {% endblock %}
+{% from 'article_img.html' import render_img_big %}
 {% block content %}
 <div class="section">
     <h1>
@@ -37,7 +38,7 @@
       {% include 'article_series.html' %}
     </div>
     {% endif %}
-    {% include 'article_img.html' %}
+    {{ render_img_big(ARTICLE_IMG_PATH, article.image, article.img_author, article.img_unsplash_key) }}
     {{ article.content }}
     {% if article.series %}
     <div class="parts border-over">

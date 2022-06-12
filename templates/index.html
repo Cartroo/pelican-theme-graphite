@@ -9,6 +9,7 @@
     {%- elif number % 10 == 3 -%}{{ number }}rd
     {%- else -%}{{ number }}th{%- endif -%}
 {%- endmacro %}
+{% from 'article_img.html' import render_img_small %}
 {% block content %}
 {% if articles %}
     <div class="toc">
@@ -30,7 +31,7 @@
             {% endif %}
             <div class="section" style="position: relative">
               {% if article_summary_only is defined %}
-              {% include 'article_img.html' %}
+              {{ render_img_small(ARTICLE_IMG_PATH, ARTICLE_IMG_SMALL_PATH, article.image, article.img_author, article.img_unsplash_key, loop.index) }}
               {% endif %}
               <a id="{{ article.slug }}" style="position:absolute; top:-50px;"></a>
               <h1>

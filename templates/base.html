@@ -70,7 +70,7 @@
 
     <!-- Styling for smaller viewports -->
     {% if THEME_CSS_MOBILE and THEME_CSS %}
-    <meta name="viewport" content="initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" media="screen and (max-width: 900px)" href="{{ SITEURL }}/theme/{{ THEME_CSS_MOBILE }}" type="text/css" />
     <link rel="stylesheet" media="screen and (min-width: 901px)" href="{{ SITEURL }}/theme/{{ THEME_CSS }}" type="text/css" />
     {% else %}
@@ -165,7 +165,7 @@
 <body id="index" class="home">
 {% include 'github.html' %}
     <div class="related fixed-top">
-        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" /></a>{% endif %}
+        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" alt="Site Logo" role="presentation" /></a>{% endif %}
         <div class="menu-top">
         <div class="right sitemenu-container">
           <button onclick="togglesitemenu()" class="sitemenu-button">&#x2630;</button>
@@ -271,10 +271,10 @@
         {% if CREDIT %}{{ CREDIT }}{% endif %}
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="{{ SITEURL }}/theme/jquery.markdownFootnotes.js"></script>
-    <script src="{{ SITEURL }}/theme/jquery.markdownTocExpand.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script defer src="{{ SITEURL }}/theme/jquery.markdownFootnotes.js"></script>
+    <script defer src="{{ SITEURL }}/theme/jquery.markdownTocExpand.js"></script>
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 
 {% include 'analytics.html' %}
 {% include 'piwik.html' %}
