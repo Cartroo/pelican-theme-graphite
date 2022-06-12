@@ -1,5 +1,4 @@
 $(function() {
-	
 	$("span[class=toctitle]").each(function(){
 		var orig_content = $(this).html();
 		$(this).html("&#x229E;&#x3000;" + orig_content);

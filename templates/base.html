@@ -133,15 +133,6 @@
     {% if TAG_FEED_RSS and tag %}
     <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(slug=tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed: Posts Tagged {{ tag }}" />
     {% endif %}
-    {% if MARKDOWN and "mdx_math" in MARKDOWN.get("extension_configs", {}) %}
-      <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          config: ["MMLorHTML.js"],
-          jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
-          extensions: ["MathMenu.js", "MathZoom.js"]
-        });
-      </script>
-    {% endif %}
     <script type="text/javascript">
       // Toggle the dropdown menu if someone clicks the button.
       function togglesitemenu() {
@@ -165,7 +156,7 @@
 <body id="index" class="home">
 {% include 'github.html' %}
     <div class="related fixed-top">
-        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" src="{{ LOGOURL }}" alt="Site Logo" role="presentation" /></a>{% endif %}
+        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" height="120" width="120" src="{{ LOGOURL }}" alt="Site Logo" role="presentation" /></a>{% endif %}
         <div class="menu-top">
         <div class="right sitemenu-container">
           <button onclick="togglesitemenu()" class="sitemenu-button">&#x2630;</button>
@@ -271,10 +262,24 @@
         {% if CREDIT %}{{ CREDIT }}{% endif %}
     </div>
 
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script defer src="{{ SITEURL }}/theme/jquery.markdownFootnotes.js"></script>
     <script defer src="{{ SITEURL }}/theme/jquery.markdownTocExpand.js"></script>
-    <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+    <script>
+      MathJax = {
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore',
+          processHtmlClass: 'tex2jax_process'
+        },
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 {% include 'analytics.html' %}
 {% include 'piwik.html' %}
