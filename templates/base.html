@@ -87,6 +87,14 @@
     {% if THEME_CSS_PRINT %}
     <link rel="stylesheet" media="print" href="{{ SITEURL }}/theme/{{ THEME_CSS_PRINT }}" type="text/css" />
     {% endif %}
+    {% if THEME_COLOR %}
+    {% if THEME_COLOR_DARK %}
+    <meta name="theme-color" media="screen and (prefers-color-scheme: light)" content="{{ THEME_COLOR }}" />
+    <meta name="theme-color" media="screen and (prefers-color-scheme: dark)" content="{{ THEME_COLOR_DARK }}" />
+    {% else %}
+    <meta name="theme-color" content="{{ THEME_COLOR }}" />
+    {% endif %}
+    {% endif %}
     <style media="screen and (min-width: 901px)">
       .menu-top {
         display: block;
