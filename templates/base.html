@@ -169,12 +169,12 @@
         <div class="right sitemenu-container">
           <button onclick="togglesitemenu()" class="sitemenu-button">&#x2630;</button>
           <div class="sitemenu-content" id="top-sitemenu-dropdown">
-            <a href="/blog">&raquo; Blog</a>
+            <a href="/blog">&#x1F4DD;&ensp;Blog</a>
             {% for title, link in MENUITEMS %}
-            <a href="{{ link }}">&raquo; {{ title }}</a>
+            <a href="{{ link }}">{{ title }}</a>
             {% endfor %}
             {% if DISPLAY_PAGES_ON_MENU %}{% for page in pages %}
-            <a href="{{ SITEURL }}/{{ page.url }}">&raquo; {{ page.title }}</a>
+            <a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a>
             {% endfor %}{% endif %}
           </div>
         </div>
@@ -196,15 +196,15 @@
               <div class="sphinxsidebarsection">
                 <h3>Blog</h3>
                   <ul>
-                  <li><a href="{{ SITEURL }}/">&#x1F5D3;&#xFE0F;Recent Articles</a></li>
-                  <li><a href="{{ SITEURL }}/archives.html">&#x1F5C3;&#xFE0F; All Articles</a></li>
-                  <li><a href="{{ SITEURL }}/tags.html">&#x2601;&#xFE0F;Tag Cloud</a></li>
+                  <li><a href="{{ SITEURL }}/">&#x1F5D3;&#xFE0F;&ensp;Recent Articles</a></li>
+                  <li><a href="{{ SITEURL }}/archives.html">&#x1F5C3;&#xFE0F;&ensp;All Articles</a></li>
+                  <li><a href="{{ SITEURL }}/tags.html">&#x2601;&#xFE0F;&ensp;Tag Cloud</a></li>
                   {% if TAG_FEED_ATOM and tag %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: {{ tag }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(slug=tag.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F;&ensp;Feed: {{ tag }}</a></li>
                   {% elif CATEGORY_FEED_ATOM and category %}
-                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: {{ category }}</a></li>
+                    <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(slug=category.slug) }}" type="application/atom+xml">&#x269B;&#xFE0F;&ensp;Feed: {{ category }}</a></li>
                   {% elif FEED_ALL_ATOM %}
-                      <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">&#x269B;&#xFE0F; Feed: All</a></li>
+                      <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml">&#x269B;&#xFE0F;&ensp;Feed: All</a></li>
                   {% endif %}
                 </ul>
               </div>
