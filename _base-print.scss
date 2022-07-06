@@ -143,13 +143,16 @@ div.section h1 {
   line-height: 1.1;
 }
 
-div.section h2, div.section h3 {
+div.section h2, div.section h3, div.section h4 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
   font-weight: $heading-weight;
-  border-bottom: 1px dotted #888888;
   padding: 0.2em;
   line-height: 1em;
+}
+
+div.section h2, div.section h3 {
+  border-bottom: 1px dotted #888888;
 }
 
 div.section h2 {
@@ -160,6 +163,11 @@ div.section h2 {
 div.section h3 {
   font-size: 110%;
   margin: 1.5em 0.5em 0;
+}
+
+div.section h4 {
+  font-size: 100%;
+  margin: 1.5em 0.8em 0;
 }
 
 div.section div.section-foot {
@@ -363,6 +371,19 @@ div.section ul > li li:before {
 div.section ol > li:before {
   content: counter(li) ".\2002";
   counter-increment: li;
+  font-style: italic;
+}
+
+div.section ol > li > ol > li:before {
+  content: counter(li, lower-alpha) ".\2002";
+  counter-increment: li;
+  font-style: italic;
+}
+
+div.section ol > li > ol > li li:before {
+  content: counter(li, lower-roman) ".\2002";
+  counter-increment: li;
+  font-style: italic;
 }
 
 div.section li p {
@@ -422,7 +443,6 @@ div.section div.right, div.section div.left {
 
 a {
   text-decoration: none;
-  border-bottom: 1px dotted #888888;
   color: black;
 }
 

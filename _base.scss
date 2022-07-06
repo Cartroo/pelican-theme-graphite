@@ -354,14 +354,17 @@ div.section h1 {
   line-height: 1.1;
 }
 
-div.section h2, div.section h3 {
+div.section h2, div.section h3, div.section h4 {
   @include font-family-list($heading-font, $backup-font);
   color: $highlight-fg;
   text-align: left;
   font-weight: $heading-weight;
-  border-bottom: 1px dotted $highlight-fg;
   padding: 0.1em;
   line-height: 1em;
+}
+
+div.section h2, div.section h3 {
+  border-bottom: 1px dotted $highlight-fg;
 }
 
 div.section h2 {
@@ -372,6 +375,11 @@ div.section h2 {
 div.section h3 {
   font-size: 120%;
   margin: 1.5em 0.5em 0;
+}
+
+div.section h4 {
+  font-size: 100%;
+  margin: 1.5em 0.8em 0;
 }
 
 div.section div.section-foot {
@@ -505,6 +513,10 @@ div.section table td {
   vertical-align: top;
 }
 
+div.section abbr {
+  border-bottom: 1px dotted $link-fg;
+}
+
 div.sphinxsidebarsection {
   display: block;
   padding: 0;
@@ -578,6 +590,21 @@ div.section ol > li:before {
   content: counter(li) ".\2002";
   counter-increment: li;
   color: $body-em;
+  font-style: italic;
+}
+
+div.section ol > li > ol > li:before {
+  content: counter(li, lower-alpha) ".\2002";
+  counter-increment: li;
+  color: $body-em;
+  font-style: italic;
+}
+
+div.section ol > li > ol > li li:before {
+  content: counter(li, lower-roman) ".\2002";
+  counter-increment: li;
+  color: $body-em;
+  font-style: italic;
 }
 
 div.section div.parts ul > li:before {
