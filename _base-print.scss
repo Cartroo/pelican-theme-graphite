@@ -50,7 +50,7 @@ nav {
 
 body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
-  font-size: 240%;
+  font-size: 300%;
   font-weight: $heading-weight;
   margin: 1em 0 0 0;
   padding: 0;
@@ -138,7 +138,7 @@ div.section h1 {
   font-size: 150%;
   font-weight: $heading-weight;
   border-bottom: 1px dotted #888888;
-  padding: 0.2em;
+  padding: 0.5em;
   margin: 0;
   line-height: 1.1;
 }

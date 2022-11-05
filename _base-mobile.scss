@@ -177,14 +177,14 @@ body > h1, h1.title {
 
 @media screen and (min-width: 601px) {
   h1.title {
-    font-size: 240%;
+    font-size: 300%;
     margin: 2em 0 0 0;
   }
 }
 
 @media screen and (max-width: 600px) {
   h1.title {
-    font-size: 140%;
+    font-size: 200%;
     margin: 3em 0 0 0;
   }
   p.paginator {
@@ -364,7 +364,7 @@ div.section h1 {
   text-align: left;
   font-weight: $heading-weight;
   border-bottom: 1px solid $doc-bg;
-  padding: 0.2em;
+  padding: 0.5em;
   margin: 0;
   line-height: 1.1;
 }
@@ -609,7 +609,7 @@ div.sphinxsidebar ul {
   list-style: none;
   display: inline-block;
   border-top: 1px dotted $link-fg;
-  padding: 0;
+  padding: 0.5em 0 0 0;
   margin: 0 0 0 0.5em;
   vertical-align: top;
 }
