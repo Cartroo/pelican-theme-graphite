@@ -2,11 +2,11 @@
             <a href='{{ SITEURL }}/{{ other_article.url }}'>{{ other_article.title }}</a>&ensp;<span><div class="badge">{{ other_article.date|strftime("%a %-d %b, %Y") }}</div></span>
 {%- endmacro %}
 {% macro ordinal(articlenum) -%}
-    {%- if articlenum|int % 100 > 3 and articlenum|int % 100 < 21 -%}{{ articlenum }}th
-    {%- elif (articlenum|int % 10) == 1 -%}{{ articlenum }}st
-    {%- elif (articlenum|int % 10) == 2 -%}{{ articlenum }}nd
-    {%- elif (articlenum|int % 10) == 3 -%}{{ articlenum }}rd
-    {%- else -%}{{ articlenum }}th{%- endif -%}
+    {%- if articlenum|int % 100 > 3 and articlenum|int % 100 < 21 -%}{{ articlenum }}<sup>th</sup>
+    {%- elif (articlenum|int % 10) == 1 -%}{{ articlenum }}<sup>st</sup>
+    {%- elif (articlenum|int % 10) == 2 -%}{{ articlenum }}<sup>nd</sup>
+    {%- elif (articlenum|int % 10) == 3 -%}{{ articlenum }}<sup>rd</sup>
+    {%- else -%}{{ articlenum }}<sup>th</sup>{%- endif -%}
 {%- endmacro %}
         <p>
           This is the <strong>{{ ordinal(article.series.index) }}</strong> of the
