@@ -508,7 +508,7 @@ div.section table tr th:last-child {
 }
 
 div.section table td {
-  border-bottom: 1px dotted $link-fg;
+  border-bottom: 1px solid $doc-bg;
   padding: 0.1em 1em;
   vertical-align: top;
 }
