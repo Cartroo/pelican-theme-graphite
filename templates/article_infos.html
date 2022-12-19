@@ -10,5 +10,7 @@
   &ensp;&#xFF5C;&ensp;<div style="display: inline-block">Photo by
   {% if article.img_unsplash_key %}<a href=https://unsplash.com/photos/{{ article.img_unsplash_key }}?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">{% endif %}{{ article.img_author }}{% if article.img_unsplash_key %}</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>{% endif %}</div>
   {% endif %}
+  {% if DISQUS_SITENAME %}&ensp;&#xFF5C;&ensp;<div style="display: inline-block"><a href="{{ SITEURL }}/{{ article.url }}#disqus_thread">See comments</a></div>{% endif %}
+  {% if HYVOR_SITE_ID %}&ensp;&#xFF5C;&ensp;<div style="display: inline-block"><a href="{{ SITEURL }}/{{ article.url }}#hyvor-talk-view"><span data-talk-id="{{ SITEURL }}/{{ article.url }}">See comments</span></a></div>{% endif %}
   {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">[PDF version]</a>{% endif %}
   {% include 'taglist.html' %}
