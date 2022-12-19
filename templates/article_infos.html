@@ -6,5 +6,9 @@
         by <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
   {% endif %}
     in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></div>
-  {% include 'taglist.html' %}
+  {% if article.img_author %}
+  &ensp;&#xFF5C;&ensp;<div style="display: inline-block">Photo by
+  {% if article.img_unsplash_key %}<a href=https://unsplash.com/photos/{{ article.img_unsplash_key }}?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">{% endif %}{{ article.img_author }}{% if article.img_unsplash_key %}</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>{% endif %}</div>
+  {% endif %}
   {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">[PDF version]</a>{% endif %}
+  {% include 'taglist.html' %}
