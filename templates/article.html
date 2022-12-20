@@ -22,6 +22,7 @@
   <li class="breadcrumb-current"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></li>
 {% endblock %}
 {% from 'article_img.html' import render_img_big %}
+{% from 'article_series_lib.html' import part_link %}
 {% block content %}
 <div class="section">
     <h1>
@@ -39,9 +40,11 @@
     {% endif %}
     {{ render_img_big(ARTICLE_IMG_PATH, article.image, article.img_author, article.img_unsplash_key) }}
     {{ article.content }}
-    {% if article.series %}
+    {% if article.series and article.series.next %}
     <div class="parts border-over">
-      {% include 'article_series.html' %}
+        <div class="left-icon">&#x2398; </div>
+        Next article in the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
+        series: {{ part_link(article.series.next) }}
     </div>
     {% endif %}
     <div class="section-foot small">

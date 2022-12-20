@@ -1,6 +1,4 @@
-{% macro part_link(other_article) -%}
-            <a href='{{ SITEURL }}/{{ other_article.url }}'>{{ other_article.title }}</a>&ensp;<span><div class="badge">{{ other_article.date|strftime("%a %-d %b, %Y") }}</div></span>
-{%- endmacro %}
+{% from 'article_series_lib.html' import part_link %}
 {% macro ordinal(articlenum) -%}
     {%- if articlenum|int % 100 > 3 and articlenum|int % 100 < 21 -%}{{ articlenum }}<sup>th</sup>
     {%- elif (articlenum|int % 10) == 1 -%}{{ articlenum }}<sup>st</sup>

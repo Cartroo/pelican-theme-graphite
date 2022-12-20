@@ -1,0 +1,3 @@
+{% macro part_link(other_article) -%}
+            <a href='{{ SITEURL }}/{{ other_article.url }}'>{{ other_article.title }}</a>&ensp;<span><div class="badge">{{ other_article.date|strftime("%a %-d %b, %Y") }}</div></span>
+{%- endmacro %}
