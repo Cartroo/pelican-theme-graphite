@@ -44,7 +44,7 @@
     <div class="parts border-over">
         <div class="left-icon">&#x2398; </div>
         Next article in the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
-        series: {{ part_link(article.series.next) }}
+        series: {{ part_link(SITEURL, article.series.next) }}
     </div>
     {% endif %}
     <div class="section-foot small">

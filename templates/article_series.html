@@ -14,28 +14,28 @@
         </p>
         <ul>
         {% if article.series.all_previous|length > 5 %}
-        <li class="ticked">{{ part_link(article.series.all_previous[0]) }}</li>
-        <li class="ticked">{{ part_link(article.series.all_previous[1]) }}</li>
+        <li class="ticked">{{ part_link(SITEURL,article.series.all_previous[0]) }}</li>
+        <li class="ticked">{{ part_link(SITEURL,article.series.all_previous[1]) }}</li>
         <li class="blank"><em>… {{ article.series.all_previous|length - 4}} more articles…</em></li>
-        <li class="ticked">{{ part_link(article.series.all_previous[-2]) }}</li>
-        <li class="ticked">{{ part_link(article.series.all_previous[-1]) }}</li>
+        <li class="ticked">{{ part_link(SITEURL,article.series.all_previous[-2]) }}</li>
+        <li class="ticked">{{ part_link(SITEURL,article.series.all_previous[-1]) }}</li>
         {% else %}
         {% for part_article in article.series.all_previous %}
-          <li class="ticked">{{ part_link(part_article) }}</li>
+          <li class="ticked">{{ part_link(SITEURL,part_article) }}</li>
         {% endfor %}
         {% endif %}
         <li class="ticked">
           <strong>{{ article.title }}</strong>&ensp;<span><div class="badge">{{ article.date|strftime("%a %-d %b, %Y") }}</div></span>
         </li>
         {% if article.series.all_next|length > 5 %}
-        <li>{{ part_link(article.series.all_next[0]) }}</li>
-        <li>{{ part_link(article.series.all_next[1]) }}</li>
+        <li>{{ part_link(SITEURL,article.series.all_next[0]) }}</li>
+        <li>{{ part_link(SITEURL,article.series.all_next[1]) }}</li>
         <li class="blank"><em>… {{ article.series.all_next|length - 4}} more articles…</em></li>
-        <li>{{ part_link(article.series.all_next[-2]) }}</li>
-        <li>{{ part_link(article.series.all_next[-1]) }}</li>
+        <li>{{ part_link(SITEURL,article.series.all_next[-2]) }}</li>
+        <li>{{ part_link(SITEURL,article.series.all_next[-1]) }}</li>
         {% else %}
         {% for part_article in article.series.all_next %}
-          <li>{{ part_link(part_article) }}</li>
+          <li>{{ part_link(SITEURL,part_article) }}</li>
         {% endfor %}
         {% endif %}
         </ul>
