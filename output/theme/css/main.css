@@ -53,6 +53,9 @@ a:link, a:visited {
 	color: #C74350;
 	padding: 0 1px;
 	text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 a:hover, a:active {
 	background-color: #C74350;

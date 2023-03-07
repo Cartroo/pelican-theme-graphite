@@ -46,6 +46,9 @@ $menu-selection-bg: #666666 !default;
 .footnoteContent a {
 	color: $footnote-em;
     text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
 }
 
 .footnoteContent a.closeFootnote {
