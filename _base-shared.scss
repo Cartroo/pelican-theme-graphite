@@ -38,15 +38,15 @@ div.section ul.tagcloud {
   list-style: none;
   text-indent: 0;
   overflow: hidden;
-  padding: 1em;
-  margin: 1em 8%;
+  padding: 2rem;
+  margin: 2rem 8%;
 }
 
 div.section ul.tagcloud li {
   display: inline-block;
   padding: 2px;
-  margin: 0.5em;
-  line-height: 0.5em;
+  margin: 0.2rem 1rem;
+  line-height: 1.5rem;
 }
 
 div.section ul.tagcloud li:before {

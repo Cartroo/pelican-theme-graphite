@@ -1,4 +1,4 @@
-{% macro render_img_small(img_path, img_small_path, a_image, a_img_author, a_unsplash_key, loopnum) -%}
+{% macro render_img_small(img_path, img_small_path, a_image, a_img_author, a_unsplash_key, a_pexels_key, loopnum) -%}
     {% if a_image and ( img_path or img_small_path ) -%}
       <img class="article-image-small" width="320" height="320" {% if img_small_path -%}
           src="{{ img_small_path }}/{{ a_image }}"
@@ -10,7 +10,7 @@
     {%- endif %}
 {%- endmacro %}
 
-{% macro render_img_big(img_path, a_image, a_img_author, a_unsplash_key) -%}
+{% macro render_img_big(img_path, a_image, a_img_author, a_unsplash_key, a_pexels_key) -%}
     {% if a_image and img_path -%}
       <img class="article-image" width="800" height="800" src="{{ img_path }}/{{ a_image }}" alt="{{ a_image|replace("_", " ")|replace("-", " ")|replace(".jpg", "") }}" {% if a_img_author -%}
           title="Photo by {{ a_img_author }}{% if a_unsplash_key %} on Unsplash{% endif %}"

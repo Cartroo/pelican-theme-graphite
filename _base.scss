@@ -46,6 +46,10 @@ div.related ::selection {
   background: $menu-selection-bg;
 }
 
+html {
+  font-size: 1.1em;
+}
+
 body {
   @include font-family-list($body-font, $backup-font);
   font-weight: $body-weight;
@@ -58,8 +62,7 @@ body {
   } @else {
     text-shadow: none;
   }
-  font-size: 1.1em;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .sitemenu-container {
@@ -84,7 +87,7 @@ body {
 
 .sitemenu-content {
   display: none;
-  padding: 1em;
+  padding: 1rem;
   position: absolute;
   background-color: $menu-bg;
   color: $menu-dim-fg;
@@ -94,7 +97,7 @@ body {
 
 .sitemenu-content a {
   display: block;
-  padding: 0.2em 0.5em;
+  padding: 0.2rem 0.5rem;
   color: $menu-dim-fg;
 }
 
@@ -109,7 +112,7 @@ aside, nav, article, figure {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0.2em 0.2em 0.2em;
+  margin: 1rem 0.2rem 0.2rem 0.2rem;
   font-weight: $body-bold-weight;
   line-height: 1.2;
 }
@@ -120,7 +123,7 @@ header {
 }
 
 nav {
-  margin: 1em 10em 0 0;
+  margin: 1rem 10rem 0 0;
   padding: 0;
   text-align: center;
   color: $body-em;
@@ -135,13 +138,13 @@ nav ul {
 
 nav li {
   display: inline;
-  margin: 0 1em;
-  padding: 1em 0.5em;
-  padding: 0.5em;
+  margin: 0 1rem;
+  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   background-color: $section-bg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -171,14 +174,14 @@ body > h1, h1.title {
   font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  margin: 2em 1em 1.5em;
+  margin: 3rem 1rem 3rem;
   padding: 0;
 }
 
 div.body > h1 {
   @include font-family-list($body-font, $backup-font);
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: $body-bold-weight;
   color: $body-em;
   margin: 0;
@@ -229,7 +232,7 @@ div.related {
   background-color: $menu-bg;
   color: $menu-fg;
   margin: 0;
-  padding: 0.2em;
+  padding: 0.2rem;
   clear: both;
   z-index: 998;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -272,18 +275,18 @@ div.related a {
 
 div.section {
   background-color: $section-bg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin: 1em 80px 2em 0;
-  padding: 0 0 1em 0;
-  max-width: 50em;
-  min-width: 25em;
+  margin: 1rem 80px 2rem 0;
+  padding: 0 0 1rem 0;
+  max-width: 50rem;
+  min-width: 25rem;
 }
 
 div.document > div.section {
-  margin: 2em 2em;
+  margin: 2rem 2rem;
 }
 
 div.section div.article-summary {
@@ -292,17 +295,17 @@ div.section div.article-summary {
   line-height: 1.4;
   color: $link-fg;
   margin: 0;
-  padding: 0.5em 1em 0.5em;
+  padding: 0.5rem 1rem 0.5rem;
 }
 
 div.section > div.toc {
   font-size: 80%;
-  padding: 0.5em;
-  margin: 1em 2.2em;
+  padding: 0.5rem;
+  margin: 1rem 2.2rem;
   border: 1px dotted $link-fg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
   width: max-content;
 }
 
@@ -349,7 +352,7 @@ div.section h1 {
   font-size: 200%;
   font-weight: $heading-weight;
   border-bottom: 1px solid $doc-bg;
-  padding: 0.5em;
+  padding: 0.5rem;
   margin: 0;
   line-height: 1.1;
 }
@@ -359,8 +362,8 @@ div.section h2, div.section h3, div.section h4 {
   color: $highlight-fg;
   text-align: left;
   font-weight: $heading-weight;
-  padding: 0.1em;
-  line-height: 1em;
+  padding: 0.4rem 0.1rem;
+  line-height: 1rem;
 }
 
 div.section h2, div.section h3 {
@@ -369,29 +372,29 @@ div.section h2, div.section h3 {
 
 div.section h2 {
   font-size: 160%;
-  margin: 1.5em 0.3em 0;
+  margin: 2rem 0.3rem 1rem;
 }
 
 div.section h3 {
   font-size: 120%;
-  margin: 1.5em 0.5em 0;
+  margin: 1.5rem 0.5rem 0;
 }
 
 div.section h4 {
   font-size: 100%;
-  margin: 1.5em 0.8em 0;
+  margin: 1.5rem 0.8rem 0;
 }
 
 div.section div.section-foot {
-  margin: 0 0 -0.5em;
-  padding: 0.5em 1em 0;
+  margin: 0 0 -0.5rem;
+  padding: 0.5rem 1rem 0;
   border-top: 1px solid $doc-bg;
   line-height: 1.2;
 }
 
 div.section div.section-head {
   margin: 0;
-  padding: 0.5em 1em 0.5em;
+  padding: 0.5rem 1rem 0.5rem;
   border-bottom: 1px solid $doc-bg;
   line-height: 1.2;
 }
@@ -401,24 +404,24 @@ div.section div.section-head {
 }
 
 div.section p {
-  margin: 1em 0.8em;
-  padding: 0 0.5em;
+  margin: 1rem 0.8rem;
+  padding: 0 0.5rem;
 }
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
   font-size: 80%; // Reduce monospace font size in inline text.
-  margin-left: 0.2em;
-  margin-right: 0.2em;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
   color: $highlight-fg;
 }
 
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
-  margin: 1.5em 3em 1em;
-  padding: 0.1em 1em 0.5em;
+  margin: 1.5rem 3rem 1rem;
+  padding: 0.1rem 1rem 0.5rem;
   position: relative;
   color: $link-fg;
 }
@@ -470,8 +473,8 @@ pre {
 }
 
 div.section pre {
-  margin: 0.5em 2em;
-  padding: 0 0.5em;
+  margin: 0.5rem 2rem;
+  padding: 0 0.5rem;
   color: $body-em;
   white-space: pre;
   text-shadow: none;
@@ -480,8 +483,8 @@ div.section pre {
 }
 
 div.section table {
-  margin: 0.5em auto;
-  padding: 0 0.5em;
+  margin: 0.5rem auto;
+  padding: 0 0.5rem;
   border-collapse: collapse;
   max-width: 90%;
 }
@@ -491,25 +494,25 @@ div.section table th {
   color: $body-em;
   border: 0;
   background-color: $doc-bg;
-  margin-bottom: 1em;
-  padding: 0.1em 1em;
+  margin-bottom: 1rem;
+  padding: 0.1rem 1rem;
   text-align: left;
   vertical-align: top;
 }
 
 div.section table tr th:first-child {
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 div.section table tr th:last-child {
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 div.section table td {
   border-bottom: 1px solid $doc-bg;
-  padding: 0.1em 1em;
+  padding: 0.1rem 1rem;
   vertical-align: top;
 }
 
@@ -529,22 +532,22 @@ div.sphinxsidebar, div.sphinxsidebar a {
 
 div.section ul, div.sphinxsidebar ul {
   list-style: none;
-  margin: 0.2em 0;
-  padding-left: 1.5em;
-  text-indent: -1em;
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
+  text-indent: -1rem;
 }
 
 div.sphinxsidebar p.topless {
   margin-left: 0;
-  padding-left: 1em;
+  padding-left: 1rem;
 }
 
 div.section ol {
   counter-reset: li;
   list-style: none;
   margin-left: 0;
-  padding-left: 2em;
-  text-indent: -1.4em;
+  padding-left: 2rem;
+  text-indent: -1.4rem;
 }
 
 div.section div.border-under {
@@ -560,7 +563,7 @@ div.section div.parts {
   color: $body-em;
   font-size: 90%;
   line-height: 1.2;
-  padding: 1.5em;
+  padding: 1.5rem;
 }
 
 div.section div.parts p {
@@ -569,11 +572,11 @@ div.section div.parts p {
 }
 
 div.section div.parts ol {
-  padding-left: 4em;
+  padding-left: 4rem;
 }
 
 div.section li {
-  margin: 0.1em 0.1em 0.1em 1em;
+  margin: 0.1rem 0.1rem 0.1rem 1rem;
 }
 
 div.section ul > li:before {
@@ -611,8 +614,8 @@ div.section div.parts ul > li:before {
   content: "\2610 \2002";
   color: $body-em;
   float: left;
-  margin-right: 1em;
-  min-width: 1em;
+  margin-right: 1rem;
+  min-width: 1rem;
   text-align: center;
 }
 
@@ -620,8 +623,8 @@ div.section div.parts ul > li.ticked:before {
   content: "\2611 \2002";
   color: $body-em;
   float: left;
-  margin-right: 1em;
-  min-width: 1em;
+  margin-right: 1rem;
+  min-width: 1rem;
   text-align: center;
 }
 
@@ -629,8 +632,8 @@ div.section div.parts ul > li.blank:before {
   content: "\2002 \2002";
   color: $body-em;
   float: left;
-  margin-right: 1em;
-  min-width: 1em;
+  margin-right: 1rem;
+  min-width: 1rem;
   text-align: center;
 }
 
@@ -640,14 +643,14 @@ div.section li p {
 }
 
 div.section dl {
-  margin: 0.2em 0;
-  padding-left: 1.5em;
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
 }
 
 div.section dt {
-  margin: 0.1em 0.1em 0.1em 1em;
+  margin: 0.1rem 0.1rem 0.1rem 1rem;
   font-weight: $body-bold-weight;
-  text-indent: -1em;
+  text-indent: -1rem;
 }
 
 div.section dt tt, div.section dt code {
@@ -661,28 +664,28 @@ div.section dl > dt:before {
 }
 
 div.section dd {
-  margin: 0 0.1em 0 1.5em;
-  padding: 0.1em 0.5em 0.3em;
+  margin: 0 0.1rem 0 1.5rem;
+  padding: 0.1rem 0.5rem 0.3rem;
   border-left: 1px dotted $link-fg;
 }
 
 div.section dd p {
-  margin: 0.5em 0.1em 0.5em 0;
+  margin: 0.5rem 0.1rem 0.5rem 0;
   padding: 0;
 }
 
 div.section dd ul {
-  padding-left: 1em;
-  margin: 0.5em 0.1em 0.5em 0;
+  padding-left: 1rem;
+  margin: 0.5rem 0.1rem 0.5rem 0;
 }
 
 div.section dd ol {
-  padding-left: 1.5em;
-  margin: 0.5em 0.1em 0.5em 0;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0.1rem 0.5rem 0;
 }
 
 div.section dd li {
-  margin: 0.1em;
+  margin: 0.1rem;
 }
 
 div.section div.right, div.section div.left {
@@ -691,8 +694,8 @@ div.section div.right, div.section div.left {
 }
 
 div.tweetbutton {
-  max-width: 5em;
-  max-height: 2em;
+  max-width: 5rem;
+  max-height: 2rem;
 }
 
 a {
@@ -760,7 +763,7 @@ dt:hover > a.headerlink {
 }
 
 div.footer {
-  margin: 0.5em;
+  margin: 0.5rem;
   font-size: 80%;
   text-align: right;
 }
@@ -776,7 +779,7 @@ div.left {
 div.left-icon {
   float: left;
   font-size: 180%;
-  margin: -0.2em 0.5em 0 0;
+  margin: -0.2rem 0.5rem 0 0;
   padding: 0;
   line-height: 1;
 }
@@ -786,16 +789,16 @@ div.documentwrapper {
 }
 
 div.bodywrapper {
-  margin: 0 0 0 10em;
+  margin: 0 0 0 10rem;
 }
 
 div.body {
-  padding: 0 1em;
+  padding: 0 1rem;
 }
 
 div.sphinxsidebar {
   float: left;
-  width: 10em;
+  width: 10rem;
   padding: 10px;
 }
 
@@ -804,7 +807,7 @@ em {
 }
 
 em.property {
-  margin: 0 0.25em;
+  margin: 0 0.25rem;
 }
 
 strong {
@@ -815,17 +818,17 @@ strong {
 
 big {
   font-size: 120%;
-  margin: 0 0.25em;
+  margin: 0 0.25rem;
 }
 
 .viewcode-link {
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
   font-variant: small-caps;
   vertical-align: text-top;
 }
 
 div.section table.codehilitetable {
-  margin: 0.5em 1em;
+  margin: 0.5rem 1rem;
   border: 0;
   padding: 0;
   border-collapse: collapse;
@@ -849,7 +852,7 @@ div.section table.codehilitetable div.linenodiv {
 
 div.section table.codehilitetable div.linenodiv pre {
   color: $link-fg;
-  min-width: 2em;
+  min-width: 2rem;
   text-align: right;
 }
 
@@ -858,9 +861,9 @@ div.section table.codehilitetable pre {
   font-weight: $monospace-weight;
   border: 0;
   margin: 0;
-  padding: 0.5em; 
+  padding: 0.5rem; 
   white-space: pre;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 div.section pre code {
@@ -871,7 +874,7 @@ div.section pre code {
 div.codehilite {
   margin: 0;
   padding: 0;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 div.section > div.codehilite {
@@ -881,14 +884,14 @@ div.section > div.codehilite {
 
 div.section > div.codehilite > span.filename {
   width: fit-content;
-  margin-left: 0.8em;
+  margin-left: 0.8rem;
   font-weight: $body-bold-weight;
   color: $body-em;
   background-color: $doc-bg;
-  padding: 0.1em 1em;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  padding: 0.1rem 1rem;
+  border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
 }
 
 
@@ -921,11 +924,11 @@ div.footnote > ol {
   list-style: none;
   margin: 0;
   padding: 0;
-  text-indent: -1.8em;
+  text-indent: -1.8rem;
 }
 
 div.footnote > ol > li {
-  margin: 1em 3.6em;
+  margin: 1rem 3.6rem;
 }
 
 div.footnote p {
@@ -935,8 +938,8 @@ div.footnote p {
 #footnote_box {
   background-color: $subsection-bg;
   border: 1px solid $doc-bg;
-  padding: 0 1em;
-  margin: 1em;
+  padding: 0 1rem;
+  margin: 1rem;
   -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
   box-shadow: 0 3px 6px rgba(0,0,0,0.5);
@@ -962,11 +965,11 @@ sup {
 
 .badge {
   color: $link-fg;
-  border-radius: 2em;
-  -moz-border-radius: 2em;
-  -webkit-border-radius: 2em;
+  border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -webkit-border-radius: 2rem;
   border: 1px dotted $link-fg;
-  padding: 0 0.5em 0;
+  padding: 0 0.5rem 0;
   margin: 0;
   display: inline-block;
   text-indent: 0;
@@ -985,12 +988,12 @@ div.section a.badge:hover {
 }
 
 div.body > div.toc {
-  padding: 0.5em;
-  margin: 1em 0 2em 0;
+  padding: 0.5rem;
+  margin: 1rem 0 2rem 0;
   border: 1px dotted $link-fg;
-  border-radius: 0.5em;
-  -moz-border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
+  border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
   width: 90%;
 }
 
@@ -1008,9 +1011,9 @@ div.body > div.toc ul a {
 
 div.body > div.toc ul {
   margin: 0;
-  padding: 0.5em 3em;
+  padding: 0.5rem 3rem;
   list-style: none;
-  text-indent: -1em;
+  text-indent: -1rem;
 }
 
 div.body > div.toc ul > li:before {

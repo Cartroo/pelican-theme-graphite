@@ -1,7 +1,7 @@
 @import url("main.css");
 
 body {
-    font:1.3em/1.3 "Hoefler Text","Georgia",Georgia,serif,sans-serif;
+    font:1.3rem/1.3 "Hoefler Text","Georgia",Georgia,serif,sans-serif;
 }
 
 .post-info{
@@ -13,7 +13,7 @@ body {
     -moz-border-radius: 0px;
     margin-bottom: 20px;
     overflow: hidden;
-    font-size: 1em;
+    font-size: 1rem;
     background: #F5F4EF;
 }
 

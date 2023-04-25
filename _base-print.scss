@@ -52,7 +52,7 @@ body > h1, h1.title {
   @include font-family-list($heading-font, $backup-font);
   font-size: 300%;
   font-weight: $heading-weight;
-  margin: 1em 0 0 0;
+  margin: 1rem 0 0 0;
   padding: 0;
 }
 
@@ -73,7 +73,7 @@ div.body > div.toc {
 div.body > h1 {
   @include font-family-list($body-font, $backup-font);
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: $body-bold-weight;
   color: #444444;
   margin: 0;
@@ -87,14 +87,14 @@ div.related {
 }
 
 div.section {
-  margin: 2em 0;
-  padding: 0 0 1em;
+  margin: 2rem 0;
+  padding: 0 0 1rem;
   display: block;
   text-align: left;
 }
 
 div.document > div.section {
-  margin: 2em 2em;
+  margin: 2rem 2rem;
 }
 
 div.section div.article-summary {
@@ -102,7 +102,7 @@ div.section div.article-summary {
   font-size: 90%;
   font-style: italic;
   margin: 0;
-  padding: 0.5em 1em 0.5em;
+  padding: 0.5rem 1rem 0.5rem;
   line-height: 1.4;
 }
 
@@ -117,9 +117,9 @@ div.section img.article-image, div.section img.article-image-small {
 
 div.section > div.toc {
   font-size: 80%;
-  padding: 0.5em;
-  margin-left: 2.2em;
-  margin-top: 1em;
+  padding: 0.5rem;
+  margin-left: 2.2rem;
+  margin-top: 1rem;
   border-left: 1px dotted #888888;
 }
 
@@ -138,7 +138,7 @@ div.section h1 {
   font-size: 150%;
   font-weight: $heading-weight;
   border-bottom: 1px dotted #888888;
-  padding: 0.5em;
+  padding: 0.5rem;
   margin: 0;
   line-height: 1.1;
 }
@@ -147,8 +147,8 @@ div.section h2, div.section h3, div.section h4 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
   font-weight: $heading-weight;
-  padding: 0.2em;
-  line-height: 1em;
+  padding: 0.2rem;
+  line-height: 1rem;
 }
 
 div.section h2, div.section h3 {
@@ -157,29 +157,29 @@ div.section h2, div.section h3 {
 
 div.section h2 {
   font-size: 140%;
-  margin: 1.5em 0.3em 0;
+  margin: 1.5rem 0.3rem 0;
 }
 
 div.section h3 {
   font-size: 110%;
-  margin: 1.5em 0.5em 0;
+  margin: 1.5rem 0.5rem 0;
 }
 
 div.section h4 {
   font-size: 100%;
-  margin: 1.5em 0.8em 0;
+  margin: 1.5rem 0.8rem 0;
 }
 
 div.section div.section-foot {
-  margin: 0 0 -0.5em;
-  padding: 0.5em 1em 0;
+  margin: 0 0 -0.5rem;
+  padding: 0.5rem 1rem 0;
   border-top: 1px dotted #888888;
   line-height: 1.2;
 }
 
 div.section div.section-head {
   margin: 0;
-  padding: 0.5em 1em 0.5em;
+  padding: 0.5rem 1rem 0.5rem;
   border-bottom: 1px dotted #888888;
   line-height: 1.2;
 }
@@ -193,25 +193,25 @@ div.section div.section-head {
 }
 
 div.section p {
-  margin: 1em 0.8em;
-  padding: 0 0.5em;
+  margin: 1rem 0.8rem;
+  padding: 0 0.5rem;
 }
 
 div.section dd p {
-  margin: 0 0.1em 0.1em 0;
+  margin: 0 0.1rem 0.1rem 0;
   padding: 0;
 }
 
 div.section dd li {
-  margin: 0.1em;
+  margin: 0.1rem;
 }
 
 tt, code {
   @include font-family-list($monospace-font, $backup-monospace-font);
   font-weight: $monospace-weight;
   font-size: 80%; // Reduce monospace font size in inline text.
-  margin-left: 0.2em;
-  margin-right: 0.2em;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
   color: #808080;
 }
 
@@ -219,10 +219,10 @@ div.section blockquote {
   font-style: italic;
   font-size: 110%;
   color: #808080;
-  margin: 1.5em 3em 1em;
-  padding: 0.1em 1em 0.5em;
+  margin: 1.5rem 3rem 1rem;
+  padding: 0.1rem 1rem 0.5rem;
   border: 0;
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   position: relative;
 }
 
@@ -266,8 +266,8 @@ pre {
 }
 
 div.section pre {
-  margin: 0.5em 3em;
-  padding: 0.5em;
+  margin: 0.5rem 3rem;
+  padding: 0.5rem;
   color: #808080;
   white-space: pre-wrap;
   text-shadow: none;
@@ -280,8 +280,8 @@ div.section pre code {
 }
 
 div.section table {
-  margin: 0.5em auto;
-  padding: 0 0.5em;
+  margin: 0.5rem auto;
+  padding: 0 0.5rem;
   border-collapse: collapse;
   max-width: 90%;
 }
@@ -291,41 +291,41 @@ div.section table th {
   color: black;
   border-top: 1px solid #888888;
   border-bottom: 1px solid #888888;
-  margin-bottom: 1em;
-  padding: 0.1em 1em;
+  margin-bottom: 1rem;
+  padding: 0.1rem 1rem;
   text-align: left;
   vertical-align: top;
 }
 
 div.section table tr th:first-child {
-  border-top-left-radius: 0.5em;
-  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
 }
 
 div.section table tr th:last-child {
-  border-top-right-radius: 0.5em;
-  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 div.section table td {
   border-bottom: 1px solid #888888;
-  padding: 0.1em 1em;
+  padding: 0.1rem 1rem;
   vertical-align: top;
 }
 
 div.section ul {
   list-style: none;
   margin-left: 0;
-  padding-left: 1.5em;
-  text-indent: -1em;
+  padding-left: 1.5rem;
+  text-indent: -1rem;
 }
 
 div.section ol {
   counter-reset: li;
   list-style: none;
   margin-left: 0;
-  padding-left: 2em;
-  text-indent: -1.4em;
+  padding-left: 2rem;
+  text-indent: -1.4rem;
 }
 
 div.section div.border-under {
@@ -340,7 +340,7 @@ div.section div.parts {
   font-size: 90%;
   margin: 0;
   line-height: 1.2;
-  padding: 1.5em;
+  padding: 1.5rem;
 }
 
 div.section div.parts p {
@@ -357,7 +357,7 @@ div.tweetbutton {
 }
 
 div.section li {
-  margin: 0.1em 0.1em 0.1em 1em;
+  margin: 0.1rem 0.1rem 0.1rem 1rem;
 }
 
 div.section ul > li:before {
@@ -392,14 +392,14 @@ div.section li p {
 }
 
 div.section dl {
-  margin: 0.2em 0;
-  padding-left: 1.5em;
+  margin: 0.2rem 0;
+  padding-left: 1.5rem;
 }
 
 div.section dt {
-  margin: 0.1em 0.1em 0.1em 1em;
+  margin: 0.1rem 0.1rem 0.1rem 1rem;
   font-weight: $body-bold-weight;
-  text-indent: -1em;
+  text-indent: -1rem;
 }
 
 div.section dt tt, div.section dt code {
@@ -412,28 +412,28 @@ div.section dl > dt:before {
 }
 
 div.section dd {
-  margin: 0 0.1em 0 1.5em;
-  padding: 0.1em 0.5em 0.3em;
+  margin: 0 0.1rem 0 1.5rem;
+  padding: 0.1rem 0.5rem 0.3rem;
   border-left: 1px dotted #888888;
 }
 
 div.section dd p {
-  margin: 0.5em 0.1em 0.5em 0;
+  margin: 0.5rem 0.1rem 0.5rem 0;
   padding: 0;
 }
 
 div.section dd ul {
-  padding-left: 1em;
-  margin: 0.5em 0.1em 0.5em 0;
+  padding-left: 1rem;
+  margin: 0.5rem 0.1rem 0.5rem 0;
 }
 
 div.section dd ol {
-  padding-left: 1.5em;
-  margin: 0.5em 0.1em 0.5em 0;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0.1rem 0.5rem 0;
 }
 
 div.section dd li {
-  margin: 0.1em;
+  margin: 0.1rem;
 }
 
 div.section div.right, div.section div.left {
@@ -469,7 +469,7 @@ a.headerlink {
 }
 
 div.footer {
-  margin: 0.5em;
+  margin: 0.5rem;
   font-size: 80%;
   text-align: right;
 }
@@ -485,7 +485,7 @@ div.left {
 div.left-icon {
   float: left;
   font-size: 180%;
-  margin: -0.2em 0.5em 0 0;
+  margin: -0.2rem 0.5rem 0 0;
   padding: 0;
   line-height: 1;
 }
@@ -495,7 +495,7 @@ div.bodywrapper {
 }
 
 div.body {
-  padding: 0 0.5em;
+  padding: 0 0.5rem;
   text-align: center;
 }
 
@@ -504,12 +504,12 @@ div.sphinxsidebar {
 }
 
 table.indextable {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 table.indextable td {
   margin: 0;
-  padding: 0.2em 2em 0.2em 0.5em;
+  padding: 0.2rem 2rem 0.2rem 0.5rem;
 }
 
 em {
@@ -517,7 +517,7 @@ em {
 }
 
 em.property {
-  margin: 0 0.25em;
+  margin: 0 0.25rem;
 }
 
 strong {
@@ -527,17 +527,17 @@ strong {
 
 big {
   font-size: 120%;
-  margin: 0 0.25em;
+  margin: 0 0.25rem;
 }
 
 .viewcode-link {
-  margin: 0 0.5em;
+  margin: 0 0.5rem;
   font-variant: small-caps;
   vertical-align: text-top;
 }
 
 div.section table.codehilitetable {
-  margin: 0.5em 2em;
+  margin: 0.5rem 2rem;
   padding: 0;
   border-collapse: collapse;
   border-spacing: 0;
@@ -555,7 +555,7 @@ div.section table.codehilitetable div.linenodiv {
   margin: 0;
   padding: 0;
   border-right: 1px dotted #888888;
-  min-width: 2em;
+  min-width: 2rem;
   text-align: right;
 }
 
@@ -564,15 +564,15 @@ div.section table.codehilitetable pre {
   font-weight: $monospace-weight;
   border: 0;
   margin: 0;
-  padding: 0.5em; 
+  padding: 0.5rem; 
   white-space: pre-wrap;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 div.codehilite {
   margin: 0;
   padding: 0;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 div.section > div.codehilite {
@@ -616,11 +616,11 @@ div.footnote > ol {
   list-style: none;
   margin: 0;
   padding: 0;
-  text-indent: -1.8em;
+  text-indent: -1.8rem;
 }
 
 div.footnote > ol > li {
-  margin: 1em 3.6em;
+  margin: 1rem 3.6rem;
 }
 
 div.footnote p {
@@ -646,10 +646,10 @@ div.comments {
 
 .badge {
   border: 1px dotted #888888;
-  border-radius: 2em;
-  -moz-border-radius: 2em;
-  -webkit-border-radius: 2em;
-  padding: 0 0.5em 0;
+  border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  padding: 0 0.5rem 0;
   margin: 0;
   text-indent: 0;
   font-size: 90%;

@@ -1,5 +1,5 @@
 {% if article.tags %}
-  <div style="padding-top: 0.8em;">
+  <div style="padding-top: 0.8rem;">
   {% for tag in article.tags %}
   <a class="badge" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if loop.revindex > 2 %}&nbsp;{% endif %}
   {% endfor %}

@@ -31,7 +31,7 @@
             {% endif %}
             <div class="section" style="position: relative">
               {% if article_summary_only is defined %}
-              {{ render_img_small(ARTICLE_IMG_PATH, ARTICLE_IMG_SMALL_PATH, article.image, article.img_author, article.img_unsplash_key, loop.index) }}
+              {{ render_img_small(ARTICLE_IMG_PATH, ARTICLE_IMG_SMALL_PATH, article.image, article.img_author, article.img_unsplash_key, article.img_pexels_key, loop.index) }}
               {% endif %}
               <a id="{{ article.slug }}" style="position:absolute; top:-50px;"></a>
               <h1>

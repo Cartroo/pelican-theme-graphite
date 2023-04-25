@@ -38,7 +38,7 @@
       {% include 'article_series.html' %}
     </div>
     {% endif %}
-    {{ render_img_big(ARTICLE_IMG_PATH, article.image, article.img_author, article.img_unsplash_key) }}
+    {{ render_img_big(ARTICLE_IMG_PATH, article.image, article.img_author, article.img_unsplash_key, article.img_pexels_key) }}
     {{ article.content }}
     {% if article.series and article.series.next %}
     <div class="parts border-over">
