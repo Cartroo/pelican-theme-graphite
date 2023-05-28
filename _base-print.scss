@@ -147,7 +147,7 @@ div.section h2, div.section h3, div.section h4 {
   @include font-family-list($heading-font, $backup-font);
   text-align: left;
   font-weight: $heading-weight;
-  padding: 0.2rem;
+  padding: 0.4rem 0.2rem;
   line-height: 1rem;
 }
 
