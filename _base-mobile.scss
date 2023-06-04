@@ -172,7 +172,7 @@ body > h1, h1.title {
   font-weight: $heading-weight;
   color: $highlight-fg;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  padding: 0;
+  padding: 1.5rem 0 0;
 }
 
 @media screen and (min-width: 601px) {
@@ -422,14 +422,14 @@ div.section div.section-foot {
   margin: 0 0 -0.5rem;
   padding: 0.5rem 1rem 0;
   border-top: 1px solid $doc-bg;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 div.section div.section-head {
   margin: 0;
   padding: 0.5rem 1rem 0.5rem;
   border-bottom: 1px solid $doc-bg;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .small {
