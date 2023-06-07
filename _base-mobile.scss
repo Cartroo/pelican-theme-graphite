@@ -5,7 +5,6 @@
 // Define default grey colour scheme, unless already defined.
 $doc-bg: #333333 !default;
 $section-bg: #444444 !default;
-$subsection-bg: #555555 !default;
 $menu-bg: #555555 !default;
 $menu-fg: #eeeeee !default;
 $link-fg: #bbbbbb !default;
@@ -222,7 +221,7 @@ div.body > h1 {
 
 #logo {
   z-index: 999;
-  position: fixed;
+  position: absolute;
   left: 0px;
   top: 0px;
   width: 60px;
@@ -1008,7 +1007,7 @@ hr {
   width: 80%;
   height: 0;
   border: 0;
-  border-top: 1px solid $subsection-bg;
+  border-top: 1px solid $doc-bg;
 }
 
 div.section hr {
@@ -1042,16 +1041,6 @@ div.footnote > ol > li {
 
 div.footnote p {
   display: inline;
-}
-
-#footnote_box {
-  background-color: $subsection-bg;
-  border: 1px solid $doc-bg;
-  padding: 0 1rem;
-  margin: 1rem;
-  -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
 }
 
 p.paginator {

@@ -1,0 +1,25 @@
+/*
+:Author: Andy Pearce
+:Contact: andy@andy-pearce.com
+:Copyright: This stylesheet has been placed in the public domain.
+
+Generic stylesheet for the Graphite theme for Docutils, Sphinx and Pelican.
+This is the "contrast" variant, which is a medium/high contrast theme for better
+readability.
+*/
+
+$doc-bg: #232c2f;           // gunmetal
+$section-bg: #1a2123;       // eerie black
+$footnote-bg: #1a2123;      // eerie black
+$footnote-fg: #f7e8de;      // linen
+$footnote-em: #f5f5f5;      // white smoke
+$menu-bg: #3c4c53;          // charcoal
+$menu-fg: #f5f5f5;          // white smoke
+$menu-dim-fg: #e0e0e0;      // platinum
+$link-fg: #85b09a;          // cambridge blue
+$body-fg: #f7e8de;          // linen
+$body-em: #f5f5f5;          // white smoke
+$selection-bg: #9ec5e6;     // powder blue
+$menu-selection-bg: #232c2f;// gunmetal
+
+$highlight-fg: #4d95d1;     // celestial blue

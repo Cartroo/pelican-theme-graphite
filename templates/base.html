@@ -163,8 +163,8 @@
 
 <body id="index" class="home">
 {% include 'github.html' %}
+    {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" height="120" width="120" src="{{ LOGOURL }}" alt="Site Logo" role="presentation" /></a>{% endif %}
     <div class="related fixed-top">
-        {% if LOGOURL %}<a href="{{ SITEURL }}"><img id="logo" height="120" width="120" src="{{ LOGOURL }}" alt="Site Logo" role="presentation" /></a>{% endif %}
         <div class="menu-top">
         <div class="right sitemenu-container">
           <button onclick="togglesitemenu()" class="sitemenu-button">&#x2630;</button>

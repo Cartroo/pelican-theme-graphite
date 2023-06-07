@@ -2,6 +2,7 @@ $footnote-bg: #444444 !default;
 $footnote-fg: #dddddd !default;
 $footnote-em: #eeeeee !default;
 $menu-bg: #555555 !default;
+$menu-fg: #eeeeee !default;
 $body-bold-weight: bold !default;
 $menu-selection-bg: #666666 !default;
 
@@ -59,7 +60,7 @@ $menu-selection-bg: #666666 !default;
     font-weight: bold;
 	text-transform: uppercase;
     background-color: $menu-bg;
-	color: $footnote-em;
+	color: $menu-fg;
 	text-decoration: none;
     line-height: 0;
 	padding: 1ex;
