@@ -66,24 +66,7 @@
 </div>
 {% endif %}
 {% if HYVOR_SITE_ID %}
-<div class="comments">
-  <div id="hyvor-talk-view"></div>
-  <script type="text/javascript">
-      var hyvor_palette = null;
-      {% if HYVOR_DARK_PALETTE %}
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        hyvor_palette = {{ HYVOR_DARK_PALETTE }}
-      }
-      {% endif %}
-
-      var HYVOR_TALK_WEBSITE = {{ HYVOR_SITE_ID }};
-      var HYVOR_TALK_CONFIG = {
-          url: false,
-          id: false,
-          palette: hyvor_palette
-      };
-  </script>
-  <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
-</div>
+<script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+<hyvor-talk-comments website-id="{{ HYVOR_SITE_ID }}" page-id="" colors="os"></hyvor-talk-comments>
 {% endif %}
 {% endblock %}
