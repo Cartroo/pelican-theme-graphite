@@ -40,11 +40,16 @@
     {% endif %}
     {{ render_img_big(ARTICLE_IMG_PATH, article.image, article.img_author, article.img_unsplash_key, article.img_pexels_key) }}
     {{ article.content }}
-    {% if article.series and article.series.next %}
+    {% if article.series %}
     <div class="parts border-over">
-        <div class="left-icon">&#x2398; </div>
-        Next article in the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
-        series: {{ part_link(SITEURL, article.series.next) }}
+      <div class="left-icon">&#x2398; </div>
+      {% if article.series.next %}
+        The next article in the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
+        series is {{ part_link(SITEURL, article.series.next) }}
+      {% else %}
+        This is the most recent article in the <strong>&ldquo;{{ article.series.name }}&rdquo;</strong>
+        series, which started with {{ part_link(SITEURL, article.series.all[0]) }}
+      {% endif %}
     </div>
     {% endif %}
     <div class="section-foot small">
