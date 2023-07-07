@@ -423,6 +423,7 @@ div.section blockquote {
   padding: 0.1rem 1rem 0.5rem;
   position: relative;
   color: $link-fg;
+  width: fit-content;
 }
 
 div.section blockquote:before {
