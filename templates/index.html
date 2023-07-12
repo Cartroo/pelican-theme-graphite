@@ -9,6 +9,13 @@
     {%- elif number % 10 == 3 -%}{{ number }}rd
     {%- else -%}{{ number }}th{%- endif -%}
 {%- endmacro %}
+{% macro readTime(wordCount,wpm=200) -%}
+    {% if (wordCount/wpm)>=1 %}
+        {{ plural((wordCount//wpm), "minute") }}
+    {% else %}
+        {{ plural((wordCount//wpm)*60, "second") }}
+    {% endif %}
+{%- endmacro %}
 {% from 'article_img.html' import render_img_small %}
 {% block content %}
 {% if articles %}
@@ -64,7 +71,10 @@
                   </div>
               {% endif %}
               {% if article_summary_only is defined %}
-              <p><a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read article &rarr;</a></p>
+              <p>
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read article</a>
+                ({{ readTime(article.content|striptags|wordcount) }})
+              </p>
               {% else %}
                 {% include 'article_img.html' %}
                 {{ article.content }}
