@@ -37,6 +37,11 @@ aside, nav, article, figure {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $body-bold-weight;
+  color: #555555;
+}
+
+h1 > a {
+  color: #555555;
 }
 
 header {
@@ -68,6 +73,7 @@ div.body > div.toc {
   line-height: 1;
   font-size: 40%;
   font-variant: small-caps;
+  color: #666666;
 }
 
 div.body > h1 {
@@ -75,7 +81,6 @@ div.body > h1 {
   text-align: left;
   font-size: 1.2rem;
   font-weight: $body-bold-weight;
-  color: #444444;
   margin: 0;
   padding: 0;
   width: 90%;
@@ -212,13 +217,13 @@ tt, code {
   font-size: 80%; // Reduce monospace font size in inline text.
   margin-left: 0.2rem;
   margin-right: 0.2rem;
-  color: #808080;
+  color: #444444;
 }
 
 div.section blockquote {
   font-style: italic;
   font-size: 110%;
-  color: #808080;
+  color: #444444;
   margin: 1.5rem 3rem 1rem;
   padding: 0.1rem 1rem 0.5rem;
   border: 0;
@@ -236,7 +241,7 @@ div.section blockquote:before {
   left: -5px;
   top: 30px;
   line-height: 0;
-  color: #999999;
+  color: #444444;
 }
 
 div.section blockquote:after {
@@ -248,7 +253,7 @@ div.section blockquote:after {
   right: 10px;
   bottom: 0;
   line-height: 0;
-  color: #808080;
+  color: #444444;
 }
 
 div.section blockquote strong {
@@ -269,7 +274,7 @@ pre {
 div.section pre {
   margin: 0.5rem 3rem;
   padding: 0.5rem;
-  color: #808080;
+  color: #444444;
   white-space: pre-wrap;
   text-shadow: none;
   border-left: 1px dotted #888888;
