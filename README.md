@@ -19,9 +19,11 @@ THEME_CSS_MOBILE_DARK = 'contrast-dark-mobile.css'
 THEME_CSS_PRINT = 'general-print.css'
 ```
 
-You probably want to also set at least these settings in `pelicanconf.py`:
+You probably want to also set at least these settings in `pelicanconf.py` -- see the later **Settings** section for the full list of settings:
 
 ```
+SITENAME
+SITEURL
 ```
 
 ## Changing the Colours
